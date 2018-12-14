@@ -1,0 +1,47 @@
+pc:
+  Australia:
+    au.login.pathofexile.com
+  Texas:
+    us.login.pathofexile.com
+  "Washington D.C.":
+    wdc.login.pathofexile.com
+  California:
+    sjc.login.pathofexile.com
+  Amsterdam:
+    eu.login.pathofexile.com
+  Frankfurt:
+    fra.login.pathofexile.com
+  London:
+    lon.login.pathofexile.com
+  Milan:
+    mil.login.pathofexile.com
+  Brazil:
+    br.login.pathofexile.com
+  Paris:
+    par.login.pathofexile.com
+  Moscow:
+    mo.login.pathofexile.com
+  Singapore:
+    sg.login.pathofexile.com
+  Japan:
+    jp.login.pathofexile.com
+  Nothere:
+    192.168.135.12
+
+xbox:
+  Australia:
+    au.xbox.pathofexile.com
+  Texas:
+    us.xbox.pathofexile.com
+  "Washington D.C.":
+    wdc.xbox.pathofexile.com
+  California:
+    sjc.xbox.pathofexile.com
+  Frankfurt:
+    fra.xbox.pathofexile.com
+  London:
+    lon.xbox.pathofexile.com
+  Brazil:
+    br.xbox.pathofexile.com
+  Russia:
+    ru.xbox.pathofexile.com
