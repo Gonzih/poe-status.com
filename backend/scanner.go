@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"net"
 	"strings"
 	"sync"
@@ -24,7 +23,6 @@ func Scan(host string, portsToScan []int) ([]PortInfo, error) {
 	sem := semaphore.NewWeighted(Ulimit())
 	ports := make([]PortInfo, 0)
 	portsLock := sync.Mutex{}
-	defer wg.Wait()
 
 	for _, port := range portsToScan {
 		wg.Add(1)
@@ -33,14 +31,17 @@ func Scan(host string, portsToScan []int) ([]PortInfo, error) {
 		go func(port int) {
 			defer sem.Release(1)
 			defer wg.Done()
+
 			isOpen := isPortOpen(host, port)
 			pi := PortInfo{Port: port, Open: isOpen}
+
 			portsLock.Lock()
 			defer portsLock.Unlock()
 			ports = append(ports, pi)
-
 		}(port)
 	}
+
+	wg.Wait()
 
 	return ports, nil
 }
@@ -60,7 +61,7 @@ func isPortOpen(host string, port int) bool {
 			// log.Printf("Restaring scan for %s on port %d", host, port)
 			return isPortOpen(host, port)
 		} else {
-			log.Printf("Error scanning %s:%d: %s", host, port, err)
+			// log.Printf("Error scanning %s:%d: %s", host, port, err)
 			return false
 		}
 	}

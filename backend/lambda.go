@@ -16,7 +16,9 @@ func HandleRequest(ctx context.Context) ([]*Host, error) {
 	for name, host := range data.Pc {
 		h := &Host{Name: name, HostName: host}
 		log.Println(name)
+		h.Scan(data.Ports)
 		up, err := h.IsUp()
+		h.IsHostUp = up
 		log.Printf("%s is %v: %v", name, up, err)
 		hosts = append(hosts, h)
 	}

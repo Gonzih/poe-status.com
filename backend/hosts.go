@@ -4,17 +4,15 @@ import (
 	"fmt"
 	"log"
 
-	ping "github.com/sparrc/go-ping"
 	yaml "gopkg.in/yaml.v2"
 )
 
-const portLimit = 996
+const portFailureThreshold = 10
 
 type Host struct {
 	Name      string
 	HostName  string
-	PingStats *ping.Statistics
-	PingError error
+	IsHostUp  bool
 	ScanData  []PortInfo
 	ScanError error
 }
@@ -26,7 +24,7 @@ func (h *Host) Debug() {
 }
 
 func (h *Host) Scan(ports []int) {
-	if h.ScanData != nil {
+	if len(h.ScanData) > 0 {
 		return
 	}
 
@@ -42,10 +40,16 @@ func (h *Host) IsUp() (bool, error) {
 		return false, fmt.Errorf("Host %s is down", h.HostName)
 	}
 
+	closedPorts := 0
+
 	for _, port := range h.ScanData {
 		if !port.Open {
-			log.Printf("Port %d is down", port.Port)
-			return false, fmt.Errorf("Port %d on host %s is closed", port, h.HostName)
+			log.Printf("Port %d is closed", port.Port)
+			closedPorts++
+			if closedPorts > portFailureThreshold {
+				log.Printf("Host %s had %d closed ports", h.HostName, closedPorts)
+				return false, fmt.Errorf("Port %d on host %s is closed", port.Port, h.HostName)
+			}
 		}
 	}
 
