@@ -11,7 +11,7 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
-const scanTimeout = 10
+const scanTimeout = 30
 
 type PortInfo struct {
 	Port int
