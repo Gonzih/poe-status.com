@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	ping "github.com/sparrc/go-ping"
 	yaml "gopkg.in/yaml.v2"
@@ -43,6 +44,7 @@ func (h *Host) IsUp() (bool, error) {
 
 	for _, port := range h.ScanData {
 		if !port.Open {
+			log.Printf("Port %d is down", port.Port)
 			return false, fmt.Errorf("Port %d on host %s is closed", port, h.HostName)
 		}
 	}
