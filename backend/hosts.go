@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	ping "github.com/sparrc/go-ping"
 	yaml "gopkg.in/yaml.v2"
@@ -25,16 +24,15 @@ func (h *Host) Debug() {
 	fmt.Println(string(data))
 }
 
-func (h *Host) Scan() {
+func (h *Host) Scan(ports []int) {
 	if h.ScanData != nil {
 		return
 	}
 
-	h.ScanData, h.ScanError = Scan(h.HostName)
+	h.ScanData, h.ScanError = Scan(h.HostName, ports)
 }
 
 func (h *Host) IsUp() (bool, error) {
-	h.Scan()
 	if h.ScanError != nil {
 		return false, h.ScanError
 	}
@@ -43,22 +41,11 @@ func (h *Host) IsUp() (bool, error) {
 		return false, fmt.Errorf("Host %s is down", h.HostName)
 	}
 
-	openPorts := 0
-
 	for _, port := range h.ScanData {
-		if port.Open {
-			openPorts++
-			continue
+		if !port.Open {
+			return false, fmt.Errorf("Port %d on host %s is closed", port, h.HostName)
 		}
-
-		// log.Printf("%d => %v", port.Port, port.Open)
 	}
-
-	if openPorts < portLimit {
-		return false, fmt.Errorf("Host only had %d open ports", openPorts)
-	}
-
-	log.Printf("Host had %d open ports", openPorts)
 
 	return true, nil
 }

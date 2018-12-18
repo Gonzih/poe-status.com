@@ -5,8 +5,9 @@ import (
 )
 
 type data struct {
-	Pc   map[string]string
-	Xbox map[string]string
+	Pc    map[string]string
+	Xbox  map[string]string
+	Ports []int
 }
 
 func readServersYaml() *data {

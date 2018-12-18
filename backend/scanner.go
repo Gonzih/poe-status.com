@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"net"
 	"strings"
 	"sync"
@@ -11,22 +12,21 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
-const maxPortNumber = 65535
-const scanTimeout = 2
+const scanTimeout = 10
 
 type PortInfo struct {
 	Port int
 	Open bool
 }
 
-func Scan(host string) ([]PortInfo, error) {
+func Scan(host string, portsToScan []int) ([]PortInfo, error) {
 	wg := sync.WaitGroup{}
 	sem := semaphore.NewWeighted(Ulimit())
 	ports := make([]PortInfo, 0)
 	portsLock := sync.Mutex{}
 	defer wg.Wait()
 
-	for port := 1; port <= maxPortNumber; port++ {
+	for _, port := range portsToScan {
 		wg.Add(1)
 		sem.Acquire(context.TODO(), 1)
 
@@ -60,6 +60,7 @@ func isPortOpen(host string, port int) bool {
 			// log.Printf("Restaring scan for %s on port %d", host, port)
 			return isPortOpen(host, port)
 		} else {
+			log.Printf("Error scanning %s:%d: %s", host, port, err)
 			return false
 		}
 	}
