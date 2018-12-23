@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"time"
@@ -15,7 +16,7 @@ type Host struct {
 	HostName  string
 	IsHostUp  bool
 	ScanData  []PortInfo
-	ScanError error
+	ScanError string
 	UpdatedAt time.Time
 }
 
@@ -30,8 +31,8 @@ func (h *Host) ReScan(ports []int) {
 		h.Scan(ports)
 		up, err := h.IsUp()
 		h.IsHostUp = up
-		if h.ScanError == nil {
-			h.ScanError = err
+		if h.ScanError == "" {
+			h.ScanError = err.Error()
 		}
 		log.Printf("%s is %v: %v", h.Name, up, err)
 	}
@@ -42,13 +43,15 @@ func (h *Host) Scan(ports []int) {
 		return
 	}
 
-	h.ScanData, h.ScanError = Scan(h.HostName, ports)
+	data, err := Scan(h.HostName, ports)
+	h.ScanData = data
+	h.ScanError = err.Error()
 	h.UpdatedAt = time.Now()
 }
 
 func (h *Host) IsUp() (bool, error) {
-	if h.ScanError != nil {
-		return false, h.ScanError
+	if h.ScanError != "" {
+		return false, errors.New(h.ScanError)
 	}
 
 	if len(h.ScanData) == 0 {
