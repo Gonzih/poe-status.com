@@ -45,7 +45,9 @@ func (h *Host) Scan(ports []int) {
 
 	data, err := Scan(h.HostName, ports)
 	h.ScanData = data
-	h.ScanError = err.Error()
+	if err != nil {
+		h.ScanError = err.Error()
+	}
 	h.UpdatedAt = time.Now()
 }
 
