@@ -15,7 +15,7 @@ func StatusHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) 
 	data := readServersYaml()
 	// ctx := r.Context()
 
-	hosts := make([]*Host, 0)
+	hosts := make([]Host, 0)
 	for name, host := range data.Pc {
 		var h Host
 
