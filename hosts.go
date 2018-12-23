@@ -8,7 +8,7 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-const portFailureThreshold = 40
+const portFailureThreshold = 150
 
 type Host struct {
 	Name      string
