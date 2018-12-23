@@ -1,18 +1,25 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"net/http"
 	"os"
-	"time"
+
+	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
-	start := time.Now()
-	if os.Getenv("ENVIRONMENT") == "LAMBDA" {
-		lambdaMain()
-	} else {
-		localMain()
+	port := os.Getenv("PORT")
+
+	router := httprouter.New()
+	router.GET("/status", StatusHandler)
+
+	if port == "" {
+		port = "8080"
 	}
-	duration := time.Since(start)
-	log.Printf("Time spend %f seconds", duration.Seconds())
+
+	address := fmt.Sprintf(":%s", port)
+
+	log.Fatal(http.ListenAndServe(address, router))
 }

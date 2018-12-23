@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"log"
+	"time"
 
 	yaml "gopkg.in/yaml.v2"
 )
 
-const portFailureThreshold = 20
+const portFailureThreshold = 40
 
 type Host struct {
 	Name      string
@@ -15,6 +16,7 @@ type Host struct {
 	IsHostUp  bool
 	ScanData  []PortInfo
 	ScanError error
+	UpdatedAt time.Time
 }
 
 func (h *Host) Debug() {
@@ -23,12 +25,22 @@ func (h *Host) Debug() {
 	fmt.Println(string(data))
 }
 
+func (h *Host) ReScan(ports []int) {
+	if time.Since(h.UpdatedAt) > time.Minute*5 {
+		h.Scan(ports)
+		up, err := h.IsUp()
+		h.IsHostUp = up
+		log.Printf("%s is %v: %v", h.Name, up, err)
+	}
+}
+
 func (h *Host) Scan(ports []int) {
 	if len(h.ScanData) > 0 {
 		return
 	}
 
 	h.ScanData, h.ScanError = Scan(h.HostName, ports)
+	h.UpdatedAt = time.Now()
 }
 
 func (h *Host) IsUp() (bool, error) {

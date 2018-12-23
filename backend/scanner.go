@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"net"
 	"strings"
 	"sync"
@@ -60,10 +61,10 @@ func isPortOpen(host string, port int) bool {
 			time.Sleep(tm + time.Second)
 			// log.Printf("Restaring scan for %s on port %d", host, port)
 			return isPortOpen(host, port)
-		} else {
-			// log.Printf("Error scanning %s:%d: %s", host, port, err)
-			return false
 		}
+
+		log.Printf("Marking port %s:%d as closed due to: %s", host, port, err)
+		return false
 	}
 
 	if conn == nil {
