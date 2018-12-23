@@ -53,16 +53,21 @@ func (h *Host) IsUp() (bool, error) {
 	}
 
 	closedPorts := 0
+	openPorts := 0
 
 	for _, port := range h.ScanData {
 		if !port.Open {
 			log.Printf("Port %d is closed", port.Port)
 			closedPorts++
-			if closedPorts > portFailureThreshold {
-				log.Printf("Host %s had %d closed ports", h.HostName, closedPorts)
-				return false, fmt.Errorf("Port %d on host %s is closed", port.Port, h.HostName)
-			}
+		} else {
+			openPorts++
 		}
+	}
+
+	log.Printf("Host %s had %d closed and %d open ports", h.HostName, closedPorts, openPorts)
+
+	if closedPorts > portFailureThreshold {
+		return false, fmt.Errorf("Host %s had %d closed and %d open ports", h.HostName, closedPorts, openPorts)
 	}
 
 	return true, nil
