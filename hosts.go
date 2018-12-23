@@ -30,6 +30,9 @@ func (h *Host) ReScan(ports []int) {
 		h.Scan(ports)
 		up, err := h.IsUp()
 		h.IsHostUp = up
+		if h.ScanError == nil {
+			h.ScanError = err
+		}
 		log.Printf("%s is %v: %v", h.Name, up, err)
 	}
 }
