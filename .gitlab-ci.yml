@@ -18,9 +18,9 @@ stages:
 test:
   stage: test
   script:
-    - make test
+    - make clean test
 
 build:
   stage: build
   script:
-    - make build-binaries
+    - make clean build-binaries

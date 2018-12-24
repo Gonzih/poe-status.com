@@ -35,7 +35,6 @@ build-binaries: generate
 	cd cmd/server && go build -o server
 
 clean:
-	rm -f main main.zip
 	rm -f $(GENERATE_FILES) main
 
 $(GENERATE_FILES): generate
