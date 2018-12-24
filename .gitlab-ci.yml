@@ -2,8 +2,9 @@ image: golang:latest
 
 before_script:
   - apt-get update -qq && apt-get install -y -qq software-properties-common ca-certificates wget
+  - gpc --recv-keys DC6A13A3
+  - gpg --export "DC6A13A3" > /etc/apt/trusted.gpg.d/protobuf.gpg
   - apt-key list
-  - apt-key add DC6A13A3
   - add-apt-repository -y ppa:maarten-fonville/protobuf
   - apt-get update -qq && apt-get install -y -qq nmap protobuf
   - which protoc
