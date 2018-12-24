@@ -1,0 +1,21 @@
+syntax = "proto3";
+package rpc;
+option go_package = "rpc";
+
+service PoeStatus {
+  rpc SaveScanResults(ScanResults) returns (Empty);
+}
+
+message ScanResults {
+  string Location = 1;
+  string Host = 2;
+  repeated PortInfo Ports = 3;
+}
+
+message PortInfo {
+  int32 Port = 1;
+  bool Open = 2;
+}
+
+message Empty {
+}
