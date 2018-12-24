@@ -10,13 +10,12 @@ import (
 
 // Options repsenend command line options
 type Options struct {
-	HostPort string
+	URL string
 }
 
 // Call is the cli entry point
 func Call(opts *Options) error {
-	url := fmt.Sprintf("http://%s", opts.HostPort)
-	client := rpc.NewPoeStatusProtobufClient(url, &http.Client{})
+	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
 
 	resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{})
 	if err != nil {

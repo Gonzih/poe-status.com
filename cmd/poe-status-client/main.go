@@ -10,8 +10,8 @@ import (
 var cliOptions client.Options
 
 func init() {
-	rootCmd.PersistentFlags().StringVar(&cliOptions.HostPort, "host", "localhost:8080", "poe-status instance host and port in localhost:8080 format")
-	rootCmd.MarkFlagRequired("host")
+	rootCmd.PersistentFlags().StringVar(&cliOptions.URL, "url", "http://localhost:8080", "poe-status instance url")
+	rootCmd.MarkFlagRequired("url")
 }
 
 func main() {
