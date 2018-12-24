@@ -1,4 +1,4 @@
-SUBDIRS = ./config ./scanner ./sh ./util
+SUBDIRS = ./config ./scanner ./sh ./util ./rpc
 
 main:
 	env GOOS=linux GOARCH=amd64 go build -o main

@@ -8,6 +8,7 @@ require (
 	github.com/derekparker/delve v1.1.0 // indirect
 	github.com/fatih/gomodifytags v0.0.0-20180914191908-141225bf62b6 // indirect
 	github.com/fatih/motion v0.0.0-20180408211639-218875ebe238 // indirect
+	github.com/golang/protobuf v1.2.0
 	github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf // indirect
 	github.com/josharian/impl v0.0.0-20180228163738-3d0f908298c4 // indirect
 	github.com/jstemmer/gotags v1.4.1 // indirect
@@ -21,6 +22,7 @@ require (
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
 	github.com/peterh/liner v1.1.0 // indirect
+	github.com/pkg/errors v0.8.0 // indirect
 	github.com/rogpeppe/godef v1.1.1 // indirect
 	github.com/shurcooL/httpfs v0.0.0-20181222201310-74dc9339e414 // indirect
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd // indirect
@@ -30,6 +32,7 @@ require (
 	github.com/stamblerre/gocode v0.0.0-20181212030458-2f9d39d8f31d // indirect
 	github.com/stretchr/testify v1.2.2
 	github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee
+	github.com/twitchtv/twirp v5.5.1+incompatible
 	github.com/zmb3/gogetdoc v0.0.0-20181208215853-c5ca8f4d4936 // indirect
 	golang.org/x/arch v0.0.0-20181203225421-5a4828bb7045 // indirect
 	golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9 // indirect
