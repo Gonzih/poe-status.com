@@ -1,3 +1,5 @@
+// +heroku install ./cmd/server/
+
 module gitlab.com/Gonzih/poe-status.com
 
 require (
