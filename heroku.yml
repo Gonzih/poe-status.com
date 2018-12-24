@@ -7,7 +7,8 @@ build:
   languages:
     - go
   pre:
-    - go build -o main gitlab.com/Gonzih/poe-status.com/cmd/server/
+    # - go build -o main gitlab.com/Gonzih/poe-status.com/cmd/server/
+    - make deps generate
 
 run:
   web: ./main --host 0.0.0.0 --port $PORT
