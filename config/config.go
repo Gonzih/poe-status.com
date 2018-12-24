@@ -8,12 +8,14 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
+// Config represents yaml config with list of servers and ports
 type Config struct {
 	PC    map[string]string
 	XBOX  map[string]string
 	Ports []int
 }
 
+// ReadYAML will read config yaml and parse it
 func ReadYAML() (*Config, error) {
 	file, err := DataDir.Open("config.yaml")
 	if err != nil {

@@ -5,6 +5,7 @@ import (
 	"gitlab.com/Gonzih/poe-status.com/sh"
 )
 
+// NmapScan will scan given host using nmap shelling out
 func NmapScan(host string) ([]PortInfo, error) {
 	rawData, err := sh.Sh("nmap", "-oX", "-", host)
 	if err != nil {

@@ -15,6 +15,8 @@ import (
 
 const scanTimeout = 30
 
+// GoScan will perform scanning using golang net library, its slower but can be used on systems without nmap installed
+// requires list of ports to scan
 func GoScan(host string, portsToScan []int) ([]PortInfo, error) {
 	wg := sync.WaitGroup{}
 	sem := semaphore.NewWeighted(util.Ulimit())

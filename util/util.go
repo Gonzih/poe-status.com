@@ -11,6 +11,7 @@ import (
 
 const defaultUlimit = int64(1024)
 
+// Ulimit will try to get ulimit on a system or return a default var
 func Ulimit() int64 {
 	out, err := sh.Sh("bash", "-c", "ulimit", "-n")
 
@@ -35,12 +36,14 @@ func Ulimit() int64 {
 	return i
 }
 
+// Must will panic on error
 func Must(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
 
+// Slurp will read entire file in to memory
 func Slurp(fname string) ([]byte, error) {
 	return ioutil.ReadFile(fname)
 }
