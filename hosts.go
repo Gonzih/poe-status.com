@@ -12,12 +12,13 @@ import (
 const portFailureThreshold = 150
 
 type Host struct {
-	Name      string
-	HostName  string
-	IsHostUp  bool
-	ScanData  []PortInfo
-	ScanError string
-	UpdatedAt time.Time
+	Name        string
+	HostName    string
+	IsHostUp    bool
+	ScanData    []PortInfo
+	scanError   error
+	ScanSummary string
+	UpdatedAt   time.Time
 }
 
 func (h *Host) Debug() {
@@ -31,8 +32,8 @@ func (h *Host) ReScan(ports []int) {
 		h.Scan(ports)
 		up, err := h.IsUp()
 		h.IsHostUp = up
-		if h.ScanError == "" {
-			h.ScanError = err.Error()
+		if h.scanError == nil {
+			h.scanError = err
 		}
 		log.Printf("%s is %v: %v", h.Name, up, err)
 	}
@@ -43,17 +44,13 @@ func (h *Host) Scan(ports []int) {
 		return
 	}
 
-	data, err := Scan(h.HostName, ports)
-	h.ScanData = data
-	if err != nil {
-		h.ScanError = err.Error()
-	}
+	h.ScanData, h.scanError = Scan(h.HostName, ports)
 	h.UpdatedAt = time.Now()
 }
 
 func (h *Host) IsUp() (bool, error) {
-	if h.ScanError != "" {
-		return false, errors.New(h.ScanError)
+	if h.scanError != nil {
+		return false, h.scanError
 	}
 
 	if len(h.ScanData) == 0 {
@@ -72,10 +69,12 @@ func (h *Host) IsUp() (bool, error) {
 		}
 	}
 
-	log.Printf("Host %s had %d closed and %d open ports", h.HostName, closedPorts, openPorts)
+	msg := fmt.Sprintf("Host %s had %d closed and %d open ports", h.HostName, closedPorts, openPorts)
+
+	h.ScanSummary = msg
 
 	if closedPorts > portFailureThreshold {
-		return false, fmt.Errorf("Host %s had %d closed and %d open ports", h.HostName, closedPorts, openPorts)
+		return false, errors.New(msg)
 	}
 
 	return true, nil
