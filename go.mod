@@ -1,4 +1,4 @@
-// +heroku install ./cmd/server/
+// +heroku install ./cmd/poe-status-server/
 
 module gitlab.com/Gonzih/poe-status.com
 
