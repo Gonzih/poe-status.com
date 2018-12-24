@@ -1,3 +1,5 @@
+SUBDIRS = ./config ./scanner ./sh ./util
+
 main:
 	env GOOS=linux GOARCH=amd64 go build -o main
 
@@ -11,3 +13,9 @@ clean:
 
 run: main
 	./main
+
+test:
+	go test -v --cover $(SUBDIRS)
+
+generate:
+	go generate $(SUBDIRS)

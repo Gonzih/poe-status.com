@@ -1,0 +1,10 @@
+before_script:
+  - go get
+
+test:
+  script:
+    - make test
+
+generate:
+  script:
+    - make generate

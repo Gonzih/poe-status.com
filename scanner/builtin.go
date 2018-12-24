@@ -1,4 +1,4 @@
-package main
+package scanner
 
 import (
 	"context"
@@ -9,19 +9,15 @@ import (
 	"sync"
 	"time"
 
+	"gitlab.com/Gonzih/poe-status.com/util"
 	"golang.org/x/sync/semaphore"
 )
 
 const scanTimeout = 30
 
-type PortInfo struct {
-	Port int
-	Open bool
-}
-
-func Scan(host string, portsToScan []int) ([]PortInfo, error) {
+func GoScan(host string, portsToScan []int) ([]PortInfo, error) {
 	wg := sync.WaitGroup{}
-	sem := semaphore.NewWeighted(Ulimit())
+	sem := semaphore.NewWeighted(util.Ulimit())
 	ports := make([]PortInfo, 0)
 	portsLock := sync.Mutex{}
 

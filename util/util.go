@@ -1,18 +1,18 @@
-package main
+package util
 
 import (
 	"io/ioutil"
 	"log"
-	"os"
-	"os/exec"
 	"strconv"
 	"strings"
+
+	"gitlab.com/Gonzih/poe-status.com/sh"
 )
 
-const defaultUlimit = 1024
+const defaultUlimit = int64(1024)
 
 func Ulimit() int64 {
-	out, err := sh("bash", "-c", "ulimit", "-n")
+	out, err := sh.Sh("bash", "-c", "ulimit", "-n")
 
 	if err != nil {
 		panic(err)
@@ -21,7 +21,7 @@ func Ulimit() int64 {
 	s := strings.TrimSpace(string(out))
 	if s == "unlimited" {
 		log.Printf("Ulimit is unlimited, limiting to %d", defaultUlimit)
-		return int64(defaultUlimit)
+		return defaultUlimit
 	}
 
 	i, err := strconv.ParseInt(s, 10, 64)
@@ -35,19 +35,12 @@ func Ulimit() int64 {
 	return i
 }
 
-func must(err error) {
+func Must(err error) {
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 }
 
-func slurp(fname string) ([]byte, error) {
+func Slurp(fname string) ([]byte, error) {
 	return ioutil.ReadFile(fname)
-}
-
-func sh(args ...string) ([]byte, error) {
-	log.Printf("$ %s", strings.Join(args, " "))
-	cmd := exec.Command(args[0], args[1:]...)
-	cmd.Stderr = os.Stderr
-	return cmd.Output()
 }
