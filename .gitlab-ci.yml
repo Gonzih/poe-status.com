@@ -1,13 +1,19 @@
 image: golang:latest
 
 before_script:
-  - apt-get update -qq && apt-get install -y -qq golang nmap
+  - apt-get update -qq && apt-get install -y -qq nmap
   - go get
 
+stages:
+  - test
+  - build
+
 test:
+  stage: test
   script:
     - make test
 
 generate:
+  stage: build
   script:
     - make generate
