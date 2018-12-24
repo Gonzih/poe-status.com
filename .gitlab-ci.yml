@@ -11,9 +11,10 @@ stages:
 test:
   stage: test
   script:
+    - make generate
     - make test
 
-generate:
+build:
   stage: build
   script:
     - make generate

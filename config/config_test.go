@@ -1,13 +1,10 @@
 package config
 
 import (
-	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
-
-var DataDir http.FileSystem = http.Dir("data")
 
 func TestReadYaml(t *testing.T) {
 	cfg, err := ReadYAML()
