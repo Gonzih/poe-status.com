@@ -1,5 +1,7 @@
+image: golang:latest
+
 before_script:
-  - apt-get update -qq && apt-get install -y -qq golang
+  - apt-get update -qq && apt-get install -y -qq golang nmap
   - go get
 
 test:
