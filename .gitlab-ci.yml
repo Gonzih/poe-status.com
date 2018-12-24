@@ -18,7 +18,6 @@ stages:
 test:
   stage: test
   script:
-    - make generate
     - make test
 
 build:

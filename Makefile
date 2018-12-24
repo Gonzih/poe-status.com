@@ -9,10 +9,10 @@ clean:
 run: main
 	./main
 
-test:
+test: generate
 	go test -v --cover $(SUBDIRS)
 
-generate:
+generate: deps
 	go generate $(SUBDIRS)
 
 deps:
