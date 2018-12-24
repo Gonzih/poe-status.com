@@ -1,13 +1,27 @@
 package main
 
 import (
-	"log"
+	"fmt"
+	"os"
 
 	"gitlab.com/Gonzih/poe-status.com/server"
 )
 
+var cliOptions server.Options
+
+func init() {
+	rootCmd.PersistentFlags().StringVar(&cliOptions.Host, "host", "", "host to bind to")
+	rootCmd.PersistentFlags().IntVar(&cliOptions.Port, "port", 8080, "port to bind to")
+	// rootCmd.MarkFlagRequired("port")
+}
+
 func main() {
-	port := 8080
-	log.Printf("Starting server on port %d", port)
-	log.Fatal(server.StartServer(port))
+	execute()
+}
+
+func execute() {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }

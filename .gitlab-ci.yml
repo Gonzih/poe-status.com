@@ -1,7 +1,8 @@
 image: golang:latest
 
 before_script:
-  - apt-get update -qq && apt-get install -y -qq nmap
+  - add-apt-repository -y ppa:maarten-fonville/protobuf
+  - apt-get update -qq && apt-get install -y -qq nmap protobuf
   - go get
 
 stages:
@@ -17,4 +18,4 @@ test:
 build:
   stage: build
   script:
-    - make generate
+    - make build-binaries
