@@ -1,2 +1,2 @@
-main
-main.zip
+cmd/poe-status-client/poe-status-client
+cmd/poe-status-server/poe-status-server

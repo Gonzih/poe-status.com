@@ -11,6 +11,7 @@ require (
 	github.com/fatih/gomodifytags v0.0.0-20180914191908-141225bf62b6 // indirect
 	github.com/fatih/motion v0.0.0-20180408211639-218875ebe238 // indirect
 	github.com/go-pg/pg v6.15.1+incompatible
+	github.com/gogo/protobuf v1.1.1
 	github.com/golang-migrate/migrate/v4 v4.1.0
 	github.com/golang/protobuf v1.2.0
 	github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf // indirect

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
+	ptypes "github.com/golang/protobuf/ptypes"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
 )
 
@@ -17,10 +18,15 @@ type Options struct {
 func Call(opts *Options) error {
 	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
 
-	resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{})
+	resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
+		ScanIP:    "192.168.2.1",
+		Host:      "some.login.poe.com",
+		CreatedAt: ptypes.TimestampNow(),
+	})
 	if err != nil {
 		return err
 	}
+
 	fmt.Println(resp)
 
 	return nil

@@ -12,6 +12,15 @@ import (
 
 var db *sql.DB
 
+// DB exposes db instance to the outer world
+func DB() *sql.DB {
+	if db == nil {
+		log.Fatalf("DB was not initialized")
+	}
+
+	return db
+}
+
 // Init will initalize global connection
 func Init(databaseURL string) error {
 	if db == nil {
