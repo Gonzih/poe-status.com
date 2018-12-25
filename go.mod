@@ -10,14 +10,17 @@ require (
 	github.com/derekparker/delve v1.1.0 // indirect
 	github.com/fatih/gomodifytags v0.0.0-20180914191908-141225bf62b6 // indirect
 	github.com/fatih/motion v0.0.0-20180408211639-218875ebe238 // indirect
+	github.com/go-pg/pg v6.15.1+incompatible
 	github.com/golang/protobuf v1.2.0
 	github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf // indirect
+	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/josharian/impl v0.0.0-20180228163738-3d0f908298c4 // indirect
 	github.com/jstemmer/gotags v1.4.1 // indirect
 	github.com/julienschmidt/httprouter v1.2.0
 	github.com/kisielk/errcheck v1.1.0 // indirect
 	github.com/klauspost/asmfmt v1.2.0 // indirect
 	github.com/koron/iferr v0.0.0-20180615142939-bb332a3b1d91 // indirect
+	github.com/lib/pq v1.0.0
 	github.com/mattn/go-isatty v0.0.4 // indirect
 	github.com/mattn/go-runewidth v0.0.4 // indirect
 	github.com/mdempsky/gocode v0.0.0-20181212191131-9c77a290fde2 // indirect
@@ -46,4 +49,5 @@ require (
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 	honnef.co/go/tools v0.0.0-20180920025451-e3ad64cb4ed3 // indirect
+	mellium.im/sasl v0.2.1 // indirect
 )

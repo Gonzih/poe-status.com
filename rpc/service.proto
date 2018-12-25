@@ -2,14 +2,17 @@ syntax = "proto3";
 package rpc;
 option go_package = "rpc";
 
+import "google/protobuf/timestamp.proto";
+
 service PoeStatus {
   rpc SaveScanResults(ScanResults) returns (Empty);
 }
 
 message ScanResults {
-  string Location = 1;
+  string ScanIP = 1;
   string Host = 2;
-  repeated PortInfo Ports = 3;
+  google.protobuf.Timestamp CreatedAt = 3;
+  repeated PortInfo Ports = 4;
 }
 
 message PortInfo {
