@@ -1,7 +1,7 @@
 .PHONY=generate test run clean deps start-server run-client build-binaries clean
 
 BINARY_DIRS = cmd/poe-status-client cmd/poe-status-server
-SUBDIRS = ./config ./scanner ./sh ./util ./rpc
+SUBDIRS = ./config ./scanner ./sh ./util ./rpc ./myip
 GENERATE_FILES = rpc/service.pb.go rpc/service.twirp.go config/datadir_vfsdata.go
 
 test: generate
