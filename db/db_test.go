@@ -1,21 +1,16 @@
 package db
 
 import (
-	"database/sql"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"gitlab.com/Gonzih/poe-status.com/migrations"
 )
 
-func dbUp(t *testing.T) *sql.Tx {
+func dbUp(t *testing.T) {
 	err := migrations.Up("../migrations", TestDBURL())
 	assert.Nil(t, err)
 	Init(TestDBURL())
-	tx, err := db.Begin()
-	assert.Nil(t, err)
-
-	return tx
 }
 
 func dbDown() {
