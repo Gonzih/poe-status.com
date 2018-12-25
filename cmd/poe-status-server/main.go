@@ -13,6 +13,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&cliOptions.Host, "host", "", "host to bind to")
 	rootCmd.PersistentFlags().IntVar(&cliOptions.Port, "port", 8080, "port to bind to")
 	rootCmd.PersistentFlags().StringVar(&cliOptions.DatabaseURL, "database", "postgres://postgres@localhost/poestatus", "database url to use (postgres only)")
+	rootCmd.PersistentFlags().StringVar(&cliOptions.MigrationsFolderPath, "migrations-folder", "./migrations", "path to migrations folder")
 	// rootCmd.MarkFlagRequired("database")
 }
 

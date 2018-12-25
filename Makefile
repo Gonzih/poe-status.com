@@ -16,7 +16,7 @@ deps:
 	go get github.com/golang/protobuf/protoc-gen-go
 
 start-server: generate
-	cd cmd/poe-status-server && go build -o poe-status-server && ./poe-status-server
+	cd cmd/poe-status-server && go build -o poe-status-server && ./poe-status-server --migrations-folder=../../migrations --database=postgres://postgres@localhost/poetest?sslmode=disable
 
 run-client: generate
 	cd cmd/poe-status-client && go build -o poe-status-client && ./poe-status-client

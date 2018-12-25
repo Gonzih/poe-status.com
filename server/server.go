@@ -10,14 +10,16 @@ import (
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
 	"gitlab.com/Gonzih/poe-status.com/db"
+	"gitlab.com/Gonzih/poe-status.com/migrations"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
 )
 
 // Options repsenend command line options
 type Options struct {
-	Host        string
-	Port        int
-	DatabaseURL string
+	Host                 string
+	Port                 int
+	DatabaseURL          string
+	MigrationsFolderPath string
 }
 
 type PoeStatusServer struct{}
@@ -52,7 +54,12 @@ func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResu
 
 // StartServer will start http server
 func StartServer(opts *Options) error {
-	err := db.Init(opts.DatabaseURL)
+	err := migrations.Up(opts.MigrationsFolderPath, opts.DatabaseURL)
+	if err != nil {
+		return err
+	}
+
+	err = db.Init(opts.DatabaseURL)
 	if err != nil {
 		return err
 	}
