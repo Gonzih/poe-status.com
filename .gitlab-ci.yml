@@ -7,7 +7,7 @@ variables:
   POSTGRES_DB: poestatustest
   POSTGRES_USER: poe
   POSTGRES_PASSWORD: poepass
-  TEST_DATABASE_URL: postgres://poe:poepass@postgres/poestatustest
+  TEST_DATABASE_URL: postgres://poe:poepass@postgres/poestatustest?sslmode=disable
 
 before_script:
   - apt-get update -qq && apt-get install -y -qq nmap unzip
