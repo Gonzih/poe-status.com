@@ -18,7 +18,7 @@ func MyIP() (net.IP, error) {
 	if err != nil {
 		return nil, nil
 	}
-	ip := net.ParseIP(string(data))
 
+	ip := net.ParseIP(string(data))
 	return ip, nil
 }
