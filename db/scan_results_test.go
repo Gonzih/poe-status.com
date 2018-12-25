@@ -25,7 +25,6 @@ func TestScanResultSaveNoTx(t *testing.T) {
 
 func TestScanResultSaveInTx(t *testing.T) {
 	dbUp(t)
-	defer dbDown()
 
 	WithTransaction(func(tx *sql.Tx) error {
 		result1 := &ScanResult{
@@ -44,7 +43,6 @@ func TestScanResultSaveInTx(t *testing.T) {
 
 func TestScanResultSaveLoad(t *testing.T) {
 	dbUp(t)
-	defer dbDown()
 
 	WithTransaction(func(tx *sql.Tx) error {
 		result1 := &ScanResult{
