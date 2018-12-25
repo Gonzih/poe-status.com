@@ -6,7 +6,10 @@ import (
 	"net/http"
 
 	ptypes "github.com/golang/protobuf/ptypes"
+	"gitlab.com/Gonzih/poe-status.com/config"
+	"gitlab.com/Gonzih/poe-status.com/myip"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
+	"gitlab.com/Gonzih/poe-status.com/scanner"
 )
 
 // Options repsenend command line options
@@ -16,18 +19,46 @@ type Options struct {
 
 // Call is the cli entry point
 func Call(opts *Options) error {
-	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
-
-	resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
-		ScanIP:    "192.168.2.1",
-		Host:      "some.login.poe.com",
-		CreatedAt: ptypes.TimestampNow(),
-	})
+	cfg, err := config.ReadYAML()
 	if err != nil {
 		return err
 	}
 
-	fmt.Println(resp)
+	myip, err := myip.MyIP()
+	if err != nil {
+		return err
+	}
+
+	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
+	nmapAvailable := scanner.NmapAvailable()
+
+	for _, host := range cfg.PC {
+		var ports []*rpc.PortInfo
+		var err error
+		var scanError string
+
+		if nmapAvailable {
+			ports, err = scanner.NmapScan(host)
+		} else {
+			ports, err = scanner.GoScan(host, cfg.Ports)
+		}
+
+		if err != nil {
+			scanError = err.Error()
+		}
+
+		resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
+			ScanIP:    myip.String(),
+			Host:      host,
+			CreatedAt: ptypes.TimestampNow(),
+			Ports:     ports,
+			ScanError: scanError,
+		})
+		if err != nil {
+			return err
+		}
+		fmt.Println(resp)
+	}
 
 	return nil
 }

@@ -24,3 +24,8 @@ func TestScanNmap(t *testing.T) {
 		}
 	}
 }
+
+func TestNmapAvailable(t *testing.T) {
+	available := NmapAvailable()
+	assert.True(t, available)
+}
