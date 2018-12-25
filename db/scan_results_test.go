@@ -8,7 +8,22 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestScanResultSave(t *testing.T) {
+func TestScanResultSaveNoTx(t *testing.T) {
+	dbUp(t)
+	defer dbDown()
+
+	result1 := &ScanResult{
+		ScanIP:    "192.168.2.1",
+		Host:      "login.pathoexile.com",
+		CreatedAt: time.Now(),
+		RawData:   []byte("{}"),
+	}
+
+	err := SaveScanResult(db, result1)
+	assert.Nil(t, err)
+}
+
+func TestScanResultSaveInTx(t *testing.T) {
 	dbUp(t)
 	defer dbDown()
 
