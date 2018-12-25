@@ -10,16 +10,19 @@ import (
 func dbUp(t *testing.T) {
 	err := migrations.Up("../migrations", TestDBURL())
 	assert.Nil(t, err)
+	Init(TestDBURL())
 }
 
-func dbDown(t *testing.T) {
-	err := migrations.Up("../migrations", TestDBURL())
-	assert.Nil(t, err)
+func dbDown() {
+	err := migrations.Down("../migrations", TestDBURL())
+	if err != nil {
+		panic(err)
+	}
 }
 
 func TestDBConnection(t *testing.T) {
 	dbUp(t)
-	defer dbDown(t)
+	defer dbDown()
 
 	db, closeFn, err := Connect(TestDBURL())
 	assert.Nil(t, err)
@@ -33,5 +36,5 @@ func TestDBConnection(t *testing.T) {
 
 func TestDBCreateSchema(t *testing.T) {
 	dbUp(t)
-	dbDown(t)
+	dbDown()
 }

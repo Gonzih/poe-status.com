@@ -3,7 +3,6 @@ package db
 import (
 	"log"
 	"os"
-	"time"
 
 	"database/sql"
 
@@ -11,12 +10,19 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// ScanResult represent record in a table
-type ScanResult struct {
-	ScanIP    string
-	Host      string
-	CreatedAt time.Time
-	RawData   []byte
+var db *sql.DB
+
+// Init will initalize global connection
+func Init(databaseURL string) error {
+	if db == nil {
+		tmpdb, _, err := Connect(databaseURL)
+		if err != nil {
+			return err
+		}
+		db = tmpdb
+	}
+
+	return nil
 }
 
 // Connect connects to the database
