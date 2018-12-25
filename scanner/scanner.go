@@ -2,6 +2,7 @@ package scanner
 
 import (
 	"log"
+	"strings"
 
 	"gitlab.com/Gonzih/poe-status.com/sh"
 )
@@ -14,6 +15,6 @@ func NmapAvailable() bool {
 		return false
 	}
 
-	log.Println(string(out))
+	log.Println(strings.Trim(string(out), "\r\n "))
 	return true
 }
