@@ -37,6 +37,8 @@ func CreateSchema(databaseURL string) error {
 	}
 	defer closeFn()
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS scan_results;")
+	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS scan_results(
+		ID INT PRIMARY KEY     NOT NULL
+	)`)
 	return err
 }

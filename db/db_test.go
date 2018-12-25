@@ -15,7 +15,7 @@ func dbURL() string {
 
 	}
 
-	return "postgres://postgres@localhost/poetest"
+	return "postgres://postgres@localhost/poetest?sslmode=disable"
 }
 
 func TestDBConnection(t *testing.T) {
@@ -26,4 +26,9 @@ func TestDBConnection(t *testing.T) {
 
 	result, err := db.Query("SELECT true")
 	log.Println(result)
+}
+
+func TestDBCreateSchema(t *testing.T) {
+	err := CreateSchema(dbURL())
+	assert.Nil(t, err)
 }

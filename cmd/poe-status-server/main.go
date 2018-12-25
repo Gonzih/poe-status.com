@@ -12,7 +12,8 @@ var cliOptions server.Options
 func init() {
 	rootCmd.PersistentFlags().StringVar(&cliOptions.Host, "host", "", "host to bind to")
 	rootCmd.PersistentFlags().IntVar(&cliOptions.Port, "port", 8080, "port to bind to")
-	// rootCmd.MarkFlagRequired("port")
+	rootCmd.PersistentFlags().StringVar(&cliOptions.DatabaseURL, "database", "postgres://postgres@localhost/poestatus", "database url to use (postgres only)")
+	// rootCmd.MarkFlagRequired("database")
 }
 
 func main() {

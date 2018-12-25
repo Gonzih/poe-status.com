@@ -11,8 +11,9 @@ import (
 
 // Options repsenend command line options
 type Options struct {
-	Host string
-	Port int
+	Host        string
+	Port        int
+	DatabaseURL string
 }
 
 type PoeStatusServer struct{}
