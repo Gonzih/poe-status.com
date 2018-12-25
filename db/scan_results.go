@@ -1,6 +1,15 @@
 package db
 
-import "time"
+import (
+	"database/sql"
+	"time"
+)
+
+type dbHandler interface {
+	Exec(query string, args ...interface{}) (sql.Result, error)
+	Prepare(query string) (*sql.Stmt, error)
+	Query(query string, args ...interface{}) (*sql.Rows, error)
+}
 
 // ScanResult represent record in a table
 type ScanResult struct {
@@ -12,8 +21,8 @@ type ScanResult struct {
 }
 
 // SaveScanResult saves one given scan result
-func SaveScanResult(sr *ScanResult) error {
-	ins, err := db.Prepare(
+func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
+	ins, err := dbh.Prepare(
 		"INSERT INTO scan_results (scan_ip, host, created_at, query_data) VALUES ($1,$2,$3,$4)",
 	)
 	if err != nil {
@@ -31,9 +40,9 @@ func SaveScanResult(sr *ScanResult) error {
 }
 
 // SelectScanResults selects scan results based on query
-func SelectScanResults(query string) ([]*ScanResult, error) {
+func SelectScanResults(dbh dbHandler, query string) ([]*ScanResult, error) {
 	var results []*ScanResult
-	res, err := db.Query(query)
+	res, err := dbh.Query(query)
 
 	if err != nil {
 		return results, err
@@ -59,6 +68,6 @@ func SelectScanResults(query string) ([]*ScanResult, error) {
 }
 
 // AllScanResults returns all scan_results from db
-func AllScanResults() ([]*ScanResult, error) {
-	return SelectScanResults("SELECT * FROM scan_results")
+func AllScanResults(dbh dbHandler) ([]*ScanResult, error) {
+	return SelectScanResults(dbh, "SELECT * FROM scan_results")
 }
