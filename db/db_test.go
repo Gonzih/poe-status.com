@@ -1,7 +1,6 @@
 package db
 
 import (
-	"log"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -27,8 +26,9 @@ func TestDBConnection(t *testing.T) {
 	assert.NotNil(t, db)
 	defer closeFn()
 
-	result, err := db.Query("SELECT true")
-	log.Println(result)
+	result, err := db.Query("SELECT * FROM scan_results")
+	assert.Nil(t, err)
+	assert.NotNil(t, result)
 }
 
 func TestDBCreateSchema(t *testing.T) {
