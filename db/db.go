@@ -7,9 +7,11 @@ import (
 
 	"database/sql"
 
+	// imported as psql driver for database/sql
 	_ "github.com/lib/pq"
 )
 
+// ScanResult represent record in a table
 type ScanResult struct {
 	ScanIP    string
 	Host      string
@@ -17,6 +19,7 @@ type ScanResult struct {
 	RawData   []byte
 }
 
+// Connect connects to the database
 func Connect(databaseURL string) (*sql.DB, func(), error) {
 	db, err := sql.Open("postgres", databaseURL)
 	if err != nil {
