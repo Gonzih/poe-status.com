@@ -2,6 +2,7 @@ package db
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"database/sql"
@@ -30,15 +31,13 @@ func Connect(databaseURL string) (*sql.DB, func(), error) {
 	}, nil
 }
 
-func CreateSchema(databaseURL string) error {
-	db, closeFn, err := Connect(databaseURL)
-	if err != nil {
-		return err
-	}
-	defer closeFn()
+// TestDBURL returns database URL string based on the environment variables
+func TestDBURL() string {
+	e := os.Getenv("TEST_DATABASE_URL")
+	if e != "" {
+		return e
 
-	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS scan_results(
-		ID INT PRIMARY KEY     NOT NULL
-	)`)
-	return err
+	}
+
+	return "postgres://postgres@localhost/poetest?sslmode=disable"
 }

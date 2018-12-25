@@ -11,6 +11,7 @@ require (
 	github.com/fatih/gomodifytags v0.0.0-20180914191908-141225bf62b6 // indirect
 	github.com/fatih/motion v0.0.0-20180408211639-218875ebe238 // indirect
 	github.com/go-pg/pg v6.15.1+incompatible
+	github.com/golang-migrate/migrate/v4 v4.1.0
 	github.com/golang/protobuf v1.2.0
 	github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf // indirect
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
@@ -27,7 +28,6 @@ require (
 	github.com/nicksnyder/go-i18n v1.10.0 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
 	github.com/peterh/liner v1.1.0 // indirect
-	github.com/pkg/errors v0.8.0 // indirect
 	github.com/rogpeppe/godef v1.1.1 // indirect
 	github.com/shurcooL/httpfs v0.0.0-20181222201310-74dc9339e414 // indirect
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd // indirect
@@ -46,8 +46,6 @@ require (
 	golang.org/x/sys v0.0.0-20181221143128-b4a75ba826a6 // indirect
 	golang.org/x/tools v0.0.0-20181221235234-d00ac6d27372 // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
-	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/yaml.v2 v2.2.2
-	honnef.co/go/tools v0.0.0-20180920025451-e3ad64cb4ed3 // indirect
 	mellium.im/sasl v0.2.1 // indirect
 )
