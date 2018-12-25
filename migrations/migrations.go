@@ -1,6 +1,7 @@
 package migrations
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"path/filepath"
@@ -21,19 +22,20 @@ func SQLMigrationsFolderPath(migrationsFolderAbsPath string) string {
 }
 
 func FormatSQLError(err error) error {
-	switch err := err.(type) {
-	case database.Error:
-		return fmt.Errorf(
-			"Line: %d\nQuery: %s\nError:%s",
-			err.Line,
-			string(err.Query),
-			err.Err,
-		)
-	default:
-		return err
+	if err == nil {
+		return nil
 	}
 
-	return nil
+	switch err := err.(type) {
+	case database.Error:
+		return errors.New(err.Error())
+	default:
+		if err.Error() == "no change" {
+			log.Printf("Ignoring SQL error \"%s\" during migrations run", err)
+			return nil
+		}
+		return err
+	}
 }
 
 func Up(migrationsFolderAbsPath, databaseURL string) error {

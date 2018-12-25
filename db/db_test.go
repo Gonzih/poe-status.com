@@ -5,9 +5,23 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"gitlab.com/Gonzih/poe-status.com/migrations"
 )
 
+func dbUp(t *testing.T) {
+	err := migrations.Up("../migrations", TestDBURL())
+	assert.Nil(t, err)
+}
+
+func dbDown(t *testing.T) {
+	err := migrations.Up("../migrations", TestDBURL())
+	assert.Nil(t, err)
+}
+
 func TestDBConnection(t *testing.T) {
+	dbUp(t)
+	defer dbDown(t)
+
 	db, closeFn, err := Connect(TestDBURL())
 	assert.Nil(t, err)
 	assert.NotNil(t, db)
@@ -18,6 +32,6 @@ func TestDBConnection(t *testing.T) {
 }
 
 func TestDBCreateSchema(t *testing.T) {
-	err := CreateSchema(TestDBURL())
-	assert.Nil(t, err)
+	dbUp(t)
+	dbDown(t)
 }
