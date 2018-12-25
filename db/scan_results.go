@@ -16,6 +16,7 @@ type ScanResult struct {
 	ResultID  int
 	ScanIP    string
 	Host      string
+	Up        bool
 	CreatedAt time.Time
 	RawData   []byte
 }
@@ -23,7 +24,7 @@ type ScanResult struct {
 // SaveScanResult saves one given scan result
 func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
 	ins, err := dbh.Prepare(
-		"INSERT INTO scan_results (scan_ip, host, created_at, query_data) VALUES ($1,$2,$3,$4)",
+		"INSERT INTO scan_results (scan_ip, host, up, created_at, query_data) VALUES ($1,$2,$3,$4,$5)",
 	)
 	if err != nil {
 		return err
@@ -32,6 +33,7 @@ func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
 	_, err = ins.Exec(
 		sr.ScanIP,
 		sr.Host,
+		sr.Up,
 		sr.CreatedAt,
 		sr.RawData,
 	)
@@ -54,6 +56,7 @@ func SelectScanResults(dbh dbHandler, query string) ([]*ScanResult, error) {
 			&sr.ResultID,
 			&sr.ScanIP,
 			&sr.Host,
+			&sr.Up,
 			&sr.CreatedAt,
 			&sr.RawData,
 		)

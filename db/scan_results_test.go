@@ -30,6 +30,7 @@ func TestScanResultSaveInTx(t *testing.T) {
 		result1 := &ScanResult{
 			ScanIP:    "192.168.2.1",
 			Host:      "login.pathoexile.com",
+			Up:        true,
 			CreatedAt: time.Now(),
 			RawData:   []byte("{}"),
 		}

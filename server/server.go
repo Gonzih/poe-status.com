@@ -10,6 +10,7 @@ import (
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
 	"gitlab.com/Gonzih/poe-status.com/db"
+	"gitlab.com/Gonzih/poe-status.com/host"
 	"gitlab.com/Gonzih/poe-status.com/migrations"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
 )
@@ -37,9 +38,15 @@ func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResu
 		return &rpc.Empty{}, err
 	}
 
+	up, err := host.IsUp(req)
+	if err != nil {
+		log.Printf("Host IsUp error was: %s", err)
+	}
+
 	result := &db.ScanResult{
 		ScanIP:    req.ScanIP,
 		Host:      req.Host,
+		Up:        up,
 		CreatedAt: ts,
 		RawData:   buf.Bytes(),
 	}
