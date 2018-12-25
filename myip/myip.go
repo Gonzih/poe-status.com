@@ -8,6 +8,7 @@ import (
 
 var queryURL = "https://ipecho.net/plain"
 
+// MyIP returns public ip address of the caller
 func MyIP() (net.IP, error) {
 	resp, err := http.Get(queryURL)
 	if err != nil {
