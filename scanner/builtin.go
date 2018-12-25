@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"gitlab.com/Gonzih/poe-status.com/rpc"
 	"gitlab.com/Gonzih/poe-status.com/util"
 	"golang.org/x/sync/semaphore"
 )
@@ -17,10 +18,10 @@ const scanTimeout = 30
 
 // GoScan will perform scanning using golang net library, its slower but can be used on systems without nmap installed
 // requires list of ports to scan
-func GoScan(host string, portsToScan []int) ([]PortInfo, error) {
+func GoScan(host string, portsToScan []int) ([]rpc.PortInfo, error) {
 	wg := sync.WaitGroup{}
 	sem := semaphore.NewWeighted(util.Ulimit())
-	ports := make([]PortInfo, 0)
+	ports := make([]rpc.PortInfo, 0)
 	portsLock := sync.Mutex{}
 
 	for _, port := range portsToScan {
@@ -32,7 +33,7 @@ func GoScan(host string, portsToScan []int) ([]PortInfo, error) {
 			defer wg.Done()
 
 			isOpen := isPortOpen(host, port)
-			pi := PortInfo{Port: port, Open: isOpen}
+			pi := rpc.PortInfo{Port: int32(port), Open: isOpen}
 
 			portsLock.Lock()
 			defer portsLock.Unlock()
