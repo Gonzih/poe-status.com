@@ -6,14 +6,8 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
-	"time"
-
-	"gitlab.com/Gonzih/poe-status.com/db"
+	// "gitlab.com/Gonzih/poe-status.com/db"
 )
-
-type indexTemplateData struct {
-	Results []db.ScanAggr
-}
 
 // Index renders index page of the web ui
 func Index(res http.ResponseWriter) error {
@@ -21,18 +15,13 @@ func Index(res http.ResponseWriter) error {
 	if err != nil {
 		return err
 	}
-	results, err := db.AllScanAggregationsFor(db.DB(), time.Minute*15)
-	if err != nil {
-		return err
-	}
 
-	data := &indexTemplateData{
-		Results: results,
-	}
+	// results, err := db.AllScanAggregationsFor(db.DB(), time.Minute*15)
+	// if err != nil {
+	// 	return err
+	// }
 
-	tmpl.Execute(res, data)
-	// res.Write([]byte("hello world!"))
-	return nil
+	return tmpl.Execute(res, nil)
 }
 
 func parseTemplate(fname string) (*template.Template, error) {
@@ -43,7 +32,7 @@ func parseTemplate(fname string) (*template.Template, error) {
 	defer file.Close()
 
 	fdata, err := ioutil.ReadAll(file)
-	tmpl := template.New(fname)
+	tmpl := template.New(fname).Delims("[[", "]]")
 	tmpl, err = tmpl.Parse(string(fdata))
 	if err != nil {
 		return nil, err
