@@ -6,12 +6,13 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"time"
 
 	"gitlab.com/Gonzih/poe-status.com/db"
 )
 
 type indexTemplateData struct {
-	Results []*db.ScanResult
+	Results []db.ScanAggr
 }
 
 // Index renders index page of the web ui
@@ -20,7 +21,7 @@ func Index(res http.ResponseWriter) error {
 	if err != nil {
 		return err
 	}
-	results, err := db.AllScanResults(db.DB())
+	results, err := db.AllScanAggregationsFor(db.DB(), time.Minute*15)
 	if err != nil {
 		return err
 	}

@@ -11,14 +11,13 @@
     <section class="section">
       <div class="container">
         <div class="column">
-          <table class="table">
+          <table class="table is-bordered">
             <tbody>
               {{range .Results}}
                 <tr>
-                  <td>{{.ScanIP}}</td>
                   <td>{{.Host}}</td>
                   <td>{{.Up}}</td>
-                  <td>{{.CreatedAt}}</td>
+                  <td>{{.NumberOfSamples}}</td>
                 </tr>
               {{end}}
             </tbody>
