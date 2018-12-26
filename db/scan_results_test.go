@@ -8,8 +8,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func withTestTransaction() {
-
+func withTestTransaction(f func(tx *sqlx.Tx)) {
+	WithTransaction(func(tx *sqlx.Tx) error {
+		f(tx)
+		return RollbackError
+	})
 }
 
 func TestScanResultSaveNoTx(t *testing.T) {
@@ -30,7 +33,7 @@ func TestScanResultSaveNoTx(t *testing.T) {
 func TestScanResultSaveInTx(t *testing.T) {
 	dbUp(t)
 
-	WithTransaction(func(tx *sqlx.Tx) error {
+	withTestTransaction(func(tx *sqlx.Tx) {
 		result1 := &ScanResult{
 			ScanIP:    "192.168.2.1",
 			Host:      "login.pathoexile.com",
@@ -41,15 +44,13 @@ func TestScanResultSaveInTx(t *testing.T) {
 
 		err := SaveScanResult(tx, result1)
 		assert.Nil(t, err)
-
-		return RollbackError
 	})
 }
 
 func TestScanResultSaveLoad(t *testing.T) {
 	dbUp(t)
 
-	WithTransaction(func(tx *sqlx.Tx) error {
+	withTestTransaction(func(tx *sqlx.Tx) {
 		result1 := &ScanResult{
 			ScanIP:    "192.168.2.1",
 			Host:      "login.pathoexile.com",
@@ -69,7 +70,5 @@ func TestScanResultSaveLoad(t *testing.T) {
 		assert.Equal(t, result1.ScanIP, result2.ScanIP)
 		assert.Equal(t, result1.Host, result2.Host)
 		assert.True(t, result1.CreatedAt.Sub(result2.CreatedAt) < time.Second)
-
-		return RollbackError
 	})
 }
