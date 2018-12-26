@@ -1,15 +1,15 @@
 package db
 
 import (
-	"database/sql"
 	"errors"
 	"testing"
 
+	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestWithTransactionDummyCommit(t *testing.T) {
-	err := WithTransaction(func(tx *sql.Tx) error {
+	err := WithTransaction(func(tx *sqlx.Tx) error {
 		return nil
 	})
 
@@ -18,7 +18,7 @@ func TestWithTransactionDummyCommit(t *testing.T) {
 }
 
 func TestWithTransactionDummyRollback(t *testing.T) {
-	err := WithTransaction(func(tx *sql.Tx) error {
+	err := WithTransaction(func(tx *sqlx.Tx) error {
 		return RollbackError
 	})
 
@@ -26,7 +26,7 @@ func TestWithTransactionDummyRollback(t *testing.T) {
 }
 
 func TestWithTransactionDummyError(t *testing.T) {
-	err := WithTransaction(func(tx *sql.Tx) error {
+	err := WithTransaction(func(tx *sqlx.Tx) error {
 		return errors.New("some scary exception")
 	})
 

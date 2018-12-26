@@ -1,12 +1,16 @@
 package db
 
 import (
-	"database/sql"
 	"testing"
 	"time"
 
+	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/assert"
 )
+
+func withTestTransaction() {
+
+}
 
 func TestScanResultSaveNoTx(t *testing.T) {
 	dbUp(t)
@@ -16,7 +20,7 @@ func TestScanResultSaveNoTx(t *testing.T) {
 		ScanIP:    "192.168.2.1",
 		Host:      "login.pathoexile.com",
 		CreatedAt: time.Now(),
-		RawData:   []byte("{}"),
+		QueryData: []byte("{}"),
 	}
 
 	err := SaveScanResult(db, result1)
@@ -26,13 +30,13 @@ func TestScanResultSaveNoTx(t *testing.T) {
 func TestScanResultSaveInTx(t *testing.T) {
 	dbUp(t)
 
-	WithTransaction(func(tx *sql.Tx) error {
+	WithTransaction(func(tx *sqlx.Tx) error {
 		result1 := &ScanResult{
 			ScanIP:    "192.168.2.1",
 			Host:      "login.pathoexile.com",
 			Up:        true,
 			CreatedAt: time.Now(),
-			RawData:   []byte("{}"),
+			QueryData: []byte("{}"),
 		}
 
 		err := SaveScanResult(tx, result1)
@@ -45,12 +49,12 @@ func TestScanResultSaveInTx(t *testing.T) {
 func TestScanResultSaveLoad(t *testing.T) {
 	dbUp(t)
 
-	WithTransaction(func(tx *sql.Tx) error {
+	WithTransaction(func(tx *sqlx.Tx) error {
 		result1 := &ScanResult{
 			ScanIP:    "192.168.2.1",
 			Host:      "login.pathoexile.com",
 			CreatedAt: time.Now(),
-			RawData:   []byte("{}"),
+			QueryData: []byte("{}"),
 		}
 
 		err := SaveScanResult(tx, result1)

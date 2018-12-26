@@ -49,7 +49,7 @@ func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResu
 		Host:      req.Host,
 		Up:        up,
 		CreatedAt: ts,
-		RawData:   buf.Bytes(),
+		QueryData: buf.Bytes(),
 	}
 
 	err = db.SaveScanResult(db.DB(), result)

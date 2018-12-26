@@ -16,6 +16,7 @@ require (
 	github.com/golang/protobuf v1.2.0
 	github.com/google/shlex v0.0.0-20181106134648-c34317bd91bf // indirect
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
+	github.com/jmoiron/sqlx v1.2.0
 	github.com/josharian/impl v0.0.0-20180228163738-3d0f908298c4 // indirect
 	github.com/jstemmer/gotags v1.4.1 // indirect
 	github.com/julienschmidt/httprouter v1.2.0

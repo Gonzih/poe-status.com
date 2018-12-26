@@ -4,16 +4,16 @@ import (
 	"log"
 	"os"
 
-	"database/sql"
+	"github.com/jmoiron/sqlx"
 
 	// imported as psql driver for database/sql
 	_ "github.com/lib/pq"
 )
 
-var db *sql.DB
+var db *sqlx.DB
 
 // DB exposes db instance to the outer world
-func DB() *sql.DB {
+func DB() *sqlx.DB {
 	if db == nil {
 		log.Fatalf("DB was not initialized")
 	}
@@ -35,8 +35,8 @@ func Init(databaseURL string) error {
 }
 
 // Connect connects to the database
-func Connect(databaseURL string) (*sql.DB, func(), error) {
-	db, err := sql.Open("postgres", databaseURL)
+func Connect(databaseURL string) (*sqlx.DB, func(), error) {
+	db, err := sqlx.Open("postgres", databaseURL)
 	if err != nil {
 		return nil, func() {}, err
 	}

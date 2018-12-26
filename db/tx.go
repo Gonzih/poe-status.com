@@ -1,15 +1,16 @@
 package db
 
 import (
-	"database/sql"
 	"errors"
 	"log"
+
+	"github.com/jmoiron/sqlx"
 )
 
 var RollbackError = errors.New("rollback this tx")
 
-func newTx() *sql.Tx {
-	tx, err := db.Begin()
+func newTx() *sqlx.Tx {
+	tx, err := db.Beginx()
 	if err != nil {
 		log.Fatalf("Error starting new transaction: %s", err)
 	}
@@ -18,7 +19,7 @@ func newTx() *sql.Tx {
 }
 
 // WithTransaction runs given function in a transaction
-func WithTransaction(f func(*sql.Tx) error) error {
+func WithTransaction(f func(*sqlx.Tx) error) error {
 	tx := newTx()
 	ferr := f(tx)
 
