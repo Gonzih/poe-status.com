@@ -1,6 +1,7 @@
 package db
 
 import (
+	"database/sql"
 	"log"
 	"os"
 
@@ -9,6 +10,12 @@ import (
 	// imported as psql driver for database/sql
 	_ "github.com/lib/pq"
 )
+
+type dbHandler interface {
+	NamedExec(query string, arg interface{}) (sql.Result, error)
+	NamedQuery(query string, arg interface{}) (*sqlx.Rows, error)
+	Queryx(query string, arg ...interface{}) (*sqlx.Rows, error)
+}
 
 var db *sqlx.DB
 

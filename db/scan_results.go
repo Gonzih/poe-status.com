@@ -1,17 +1,8 @@
 package db
 
 import (
-	"database/sql"
 	"time"
-
-	"github.com/jmoiron/sqlx"
 )
-
-type dbHandler interface {
-	NamedExec(query string, arg interface{}) (sql.Result, error)
-	NamedQuery(query string, arg interface{}) (*sqlx.Rows, error)
-	Queryx(query string, arg ...interface{}) (*sqlx.Rows, error)
-}
 
 // ScanResult represent record in a table
 type ScanResult struct {
