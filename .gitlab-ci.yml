@@ -28,10 +28,15 @@ before_script:
   # go deps
   - go get
 
+stages:
+  - test
+
 test:
+  stage: test
   script:
     - make clean test
 
 build:
+  stage: test
   script:
     - make clean build-binaries release
