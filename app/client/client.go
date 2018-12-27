@@ -16,6 +16,8 @@ type Options struct {
 	URL string
 }
 
+var pingCount = 50
+
 // Call is the cli entry point
 func Call(opts *Options) error {
 	cfg, err := config.ReadYAML()
@@ -48,7 +50,7 @@ func Call(opts *Options) error {
 				scanError = err.Error()
 			}
 		} else {
-			pingInfo, err = scanner.Ping(host.Host, 100)
+			pingInfo, err = scanner.Ping(host.Host, pingCount)
 			if err != nil {
 				scanError = err.Error()
 			}
