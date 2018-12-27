@@ -41,35 +41,22 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 	allHosts := cfg().AllHosts()
 
-	response := make([]aggregationWrapper, 0)
-	tmp := make(map[string]aggregationWrapper, 0)
+	response := make([]aggregationWrapper, len(allHosts))
 
-	for _, host := range allHosts {
-		wrapper, ok := tmp[host.Host]
-		if !ok {
-			wrapper = aggregationWrapper{}
-		}
-		wrapper.ServerName = host.Name
-		wrapper.Host = host.Host
-		wrapper.Platform = host.Platform
+	for i, host := range allHosts {
+		response[i].ServerName = host.Name
+		response[i].Host = host.Host
+		response[i].Platform = host.Platform
 
 		for _, aggr := range aggregations {
-			if wrapper.Host == aggr.Host {
+			if response[i].Host == aggr.Host {
 				if aggr.Up {
-					wrapper.UpEvidence = aggr
+					response[i].UpEvidence = aggr
 				} else {
-					wrapper.DownEvidence = aggr
+					response[i].DownEvidence = aggr
 				}
 			}
 		}
-
-		tmp[host.Host] = wrapper
-	}
-
-	log.Println(tmp)
-
-	for _, host := range allHosts {
-		response = append(response, tmp[host.Host])
 	}
 
 	w.Header().Set("Content-Type", "application/json")
