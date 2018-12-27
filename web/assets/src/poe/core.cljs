@@ -25,7 +25,7 @@
         title (str up-noe " positive reports, " down-noe " negative reports")]
     [:td
      (if up?
-       (if (pos? down-noe)
+       (if (< up-noe (* down-noe 10))
          [:span.tag.is-warning {:title title} "Server is unstable"]
          [:span.tag.is-success {:title title} "Server is up"])
        [:span.tag.is-danger {:title title} "Server is down"])]))
@@ -75,8 +75,7 @@
                (.json response)
                (throw (js/Error. "Something went wrong")))))
     (.then (fn [json]
-             (reset! state (keywordize-keys (js->clj json)))
-             (js/console.log json)))))
+             (reset! state (keywordize-keys (js->clj json)))))))
 
 (defonce interval
   (do
