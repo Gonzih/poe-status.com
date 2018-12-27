@@ -59,7 +59,7 @@ func parsePingOutput(input []byte) (pingOutput, error) {
 func Ping(host string, n int) (*rpc.PingInfo, error) {
 	out, err := sh.Sh("ping", "-i", "0.2", "-c", fmt.Sprintf("%d", n), host)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("%s: %s", err, string(out))
 	}
 
 	res, err := parsePingOutput(out)
