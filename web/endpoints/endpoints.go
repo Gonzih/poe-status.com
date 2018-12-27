@@ -12,10 +12,11 @@ import (
 )
 
 type aggregationWrapper struct {
-	ServerName   string       `json:"server_name"`
-	Platform     string       `json:"platform"`
-	UpEvidence   *db.ScanAggr `json:"up_evidence,omitempty"`
-	DownEvidence *db.ScanAggr `json:"down_evidence,omitempty"`
+	ServerName   string      `json:"server_name"`
+	Platform     string      `json:"platform"`
+	Host         string      `json:"host"`
+	UpEvidence   db.ScanAggr `json:"up_evidence,omitempty"`
+	DownEvidence db.ScanAggr `json:"down_evidence,omitempty"`
 }
 
 var _cfg *config.Config
@@ -40,20 +41,35 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 	}
 	allHosts := cfg().AllHosts()
 
-	response := make([]aggregationWrapper, len(allHosts))
+	response := make([]aggregationWrapper, 0)
+	tmp := make(map[string]aggregationWrapper, 0)
 
-	for i, host := range allHosts {
+	for _, host := range allHosts {
+		wrapper, ok := tmp[host.Host]
+		if !ok {
+			wrapper = aggregationWrapper{}
+		}
+		wrapper.ServerName = host.Name
+		wrapper.Host = host.Host
+		wrapper.Platform = host.Platform
+
 		for _, aggr := range aggregations {
-			if host.Host == aggr.Host {
-				response[i].ServerName = host.Name
-				response[i].Platform = host.Platform
+			if wrapper.Host == aggr.Host {
 				if aggr.Up {
-					response[i].UpEvidence = &aggr
+					wrapper.UpEvidence = aggr
 				} else {
-					response[i].DownEvidence = &aggr
+					wrapper.DownEvidence = aggr
 				}
 			}
 		}
+
+		tmp[host.Host] = wrapper
+	}
+
+	log.Println(tmp)
+
+	for _, host := range allHosts {
+		response = append(response, tmp[host.Host])
 	}
 
 	w.Header().Set("Content-Type", "application/json")

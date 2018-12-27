@@ -30,9 +30,12 @@
   [:div.section
    [:div.container
     [:div.column
-     [:table.table.is-bordered
+     [:table.table.is-stripped
       [:tbody
-       (for [server @state] [server-component server])]]]]])
+       (for [server @state]
+         ^{:key (str (:server_name server)
+                     (:platform server))}
+         [server-component server])]]]]])
 
 (defn init! []
   (r/render [root-component]
