@@ -33,9 +33,9 @@ func cfg() *config.Config {
 	return _cfg
 }
 
-// ScanAggrEndpoint is json endpoint that returns aggregated scan data
-func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
-	aggregations, err := db.AllScanAggregationsFor(db.DB(), time.Hour*3)
+func getAggrData() []aggregationWrapper {
+	aggStore := db.NewDefaultScanAggrStore()
+	aggregations, err := aggStore.AllScanAggregationsFor(time.Minute * 15)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,6 +59,12 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	return response
+}
+
+// ScanAggrEndpoint is json endpoint that returns aggregated scan data
+func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
+	response := getAggrData()
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }

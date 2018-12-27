@@ -36,7 +36,8 @@ func TestScanAggregationsInTimerange(t *testing.T) {
 		err := SaveScanResult(tx, result1)
 		assert.Nil(t, err)
 
-		results, err := AllScanAggregationsFor(tx, time.Minute*15)
+		aggStore := NewScanAggrStore(tx)
+		results, err := aggStore.AllScanAggregationsFor(time.Minute * 15)
 		assert.Nil(t, err)
 		assert.Len(t, results, 1)
 		assert.Equal(t, results[0].Host, result1.Host)
@@ -61,7 +62,8 @@ func TestScanAggregationsOutOfTimerange(t *testing.T) {
 		err := SaveScanResult(tx, result1)
 		assert.Nil(t, err)
 
-		results, err := AllScanAggregationsFor(tx, time.Minute*15)
+		aggStore := NewScanAggrStore(tx)
+		results, err := aggStore.AllScanAggregationsFor(time.Minute * 15)
 		assert.Nil(t, err)
 		assert.Len(t, results, 0)
 	})
