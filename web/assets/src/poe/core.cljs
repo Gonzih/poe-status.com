@@ -15,7 +15,9 @@
         title (str up-noe " positive reports, " down-noe " negative reports")]
     [:td
      (if up?
-       [:span.tag.is-success {:title title} "Server is up"]
+       (if (pos? down-noe)
+         [:span.tag.is-warning {:title title} "Server is unstable"]
+         [:span.tag.is-success {:title title} "Server is up"])
        [:span.tag.is-danger {:title title} "Server is down"])]))
 
 (defn server-component [{:keys [server_name platform] :as server}]

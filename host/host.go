@@ -10,11 +10,7 @@ import (
 
 const portFailureThreshold = 150
 
-func IsUp(scan *rpc.ScanResults) (bool, error) {
-	if scan.ScanError != "" {
-		return false, errors.New(scan.ScanError)
-	}
-
+func isPCUp(scan *rpc.ScanResults) (bool, error) {
 	if len(scan.Ports) == 0 {
 		return false, fmt.Errorf("Host %s is down since no ports were open", scan.Host)
 	}
@@ -39,4 +35,39 @@ func IsUp(scan *rpc.ScanResults) (bool, error) {
 
 	log.Println(msg)
 	return true, nil
+}
+
+func isXboxUp(scan *rpc.ScanResults) (bool, error) {
+	if scan.PingInfo == nil {
+		return false, errors.New("No ping info found")
+	}
+
+	if scan.PingInfo.Received < scan.PingInfo.Transmitted || scan.PingInfo.Loss > int32(0) {
+		return false, fmt.Errorf(
+			"Lost some packages: %d transmitted, %d received, %d loss",
+			scan.PingInfo.Received,
+			scan.PingInfo.Transmitted,
+			scan.PingInfo.Loss,
+		)
+	}
+
+	log.Printf("Ping results look fine for %s", scan.Host)
+	return true, nil
+}
+
+// IsUp determines if host is up
+func IsUp(scan *rpc.ScanResults) (bool, error) {
+	if scan.ScanError != "" {
+		return false, errors.New(scan.ScanError)
+	}
+
+	if scan.Platform == "PC" {
+		return isPCUp(scan)
+	}
+
+	if scan.Platform == "XBOX" {
+		return isXboxUp(scan)
+	}
+
+	return false, errors.New("Nothing happened")
 }

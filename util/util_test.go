@@ -29,3 +29,15 @@ func TestUlimit(t *testing.T) {
 	limit := Ulimit()
 	assert.Equal(t, defaultUlimit, limit)
 }
+
+func TestParseInt32(t *testing.T) {
+	n, err := ParseInt32("123")
+	assert.Nil(t, err)
+	assert.Equal(t, n, int32(123))
+}
+
+func TestParseInt64(t *testing.T) {
+	n, err := ParseInt64("123")
+	assert.Nil(t, err)
+	assert.Equal(t, n, int64(123))
+}

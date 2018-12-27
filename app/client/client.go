@@ -36,15 +36,23 @@ func Call(opts *Options) error {
 		var ports []*rpc.PortInfo
 		var err error
 		var scanError string
+		var pingInfo *rpc.PingInfo
 
-		if nmapAvailable {
-			ports, err = scanner.NmapScan(host.Host)
+		if host.Platform == "PC" {
+			if nmapAvailable {
+				ports, err = scanner.NmapScan(host.Host)
+			} else {
+				ports, err = scanner.GoScan(host.Host, cfg.Ports)
+			}
+
+			if err != nil {
+				scanError = err.Error()
+			}
 		} else {
-			ports, err = scanner.GoScan(host.Host, cfg.Ports)
-		}
-
-		if err != nil {
-			scanError = err.Error()
+			pingInfo, err = scanner.Ping(host.Host, 100)
+			if err != nil {
+				scanError = err.Error()
+			}
 		}
 
 		resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
@@ -53,6 +61,8 @@ func Call(opts *Options) error {
 			CreatedAt: ptypes.TimestampNow(),
 			Ports:     ports,
 			ScanError: scanError,
+			Platform:  host.Platform,
+			PingInfo:  pingInfo,
 		})
 		if err != nil {
 			return err

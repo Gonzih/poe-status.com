@@ -11,6 +11,18 @@ import (
 
 const defaultUlimit = int64(1024)
 
+// ParseInt32 will try to parse integer in to int32 type
+func ParseInt32(in string) (int32, error) {
+	i, err := strconv.ParseInt(in, 10, 64)
+
+	return int32(i), err
+}
+
+// ParseInt64 will try to parse integer in to int64 type
+func ParseInt64(in string) (int64, error) {
+	return strconv.ParseInt(in, 10, 64)
+}
+
 // Ulimit will try to get ulimit on a system or return a default var
 func Ulimit() int64 {
 	out, err := sh.Sh("bash", "-c", "ulimit", "-n")
@@ -25,7 +37,7 @@ func Ulimit() int64 {
 		return defaultUlimit
 	}
 
-	i, err := strconv.ParseInt(s, 10, 64)
+	i, err := ParseInt64(s)
 
 	if err != nil {
 		panic(err)

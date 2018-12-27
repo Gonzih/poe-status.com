@@ -14,11 +14,20 @@ message ScanResults {
   google.protobuf.Timestamp CreatedAt = 3;
   repeated PortInfo Ports = 4;
   string ScanError = 5;
+  string Platform = 6;
+  PingInfo PingInfo = 7;
 }
 
 message PortInfo {
   int32 Port = 1;
   bool Open = 2;
+}
+
+message PingInfo {
+  int32 Transmitted = 1;
+  int32 Received = 2;
+  int32 Loss = 3;
+  string Output = 4;
 }
 
 message Empty {

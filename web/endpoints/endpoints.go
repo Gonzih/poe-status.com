@@ -34,7 +34,7 @@ func cfg() *config.Config {
 
 // ScanAggrEndpoint is json endpoint that returns aggregated scan data
 func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
-	aggregations, err := db.AllScanAggregationsFor(db.DB(), time.Hour*15)
+	aggregations, err := db.AllScanAggregationsFor(db.DB(), time.Hour*3)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,7 +45,6 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 	for i, host := range allHosts {
 		for _, aggr := range aggregations {
 			if host.Host == aggr.Host {
-				log.Println(host.Host, aggr.Host)
 				response[i].ServerName = host.Name
 				response[i].Platform = host.Platform
 				if aggr.Up {
@@ -53,7 +52,6 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 				} else {
 					response[i].DownEvidence = &aggr
 				}
-				break
 			}
 		}
 	}
