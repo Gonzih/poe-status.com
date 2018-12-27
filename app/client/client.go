@@ -54,7 +54,7 @@ func Call(opts *Options) error {
 			}
 		}
 
-		_, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
+		_, err = client.SaveScanResults(context.Background(), &rpc.ScanResults{
 			ScanIP:    myip.String(),
 			Host:      host.Host,
 			CreatedAt: ptypes.TimestampNow(),
