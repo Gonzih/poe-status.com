@@ -19,3 +19,9 @@ func TestAllHosts(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Len(t, cfg.AllHosts(), 21)
 }
+
+func TestAllHostsOrder(t *testing.T) {
+	cfg, err := ReadYAML()
+	assert.Nil(t, err)
+	assert.Equal(t, cfg.AllHosts()[0].Name, "Amsterdam")
+}

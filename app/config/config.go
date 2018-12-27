@@ -4,6 +4,7 @@ package config
 
 import (
 	"io/ioutil"
+	"sort"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -33,6 +34,8 @@ func (cfg Config) AllHosts() []Host {
 	for name, host := range cfg.XBOX {
 		result = append(result, Host{Name: name, Host: host, Platform: "XBOX"})
 	}
+
+	sort.Slice(result, func(i, j int) bool { return result[i].Name < result[j].Name })
 
 	return result
 }
