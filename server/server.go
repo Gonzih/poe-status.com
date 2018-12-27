@@ -76,15 +76,8 @@ func StartServer(opts *Options) error {
 	log.Printf("Starting server on %s", bindAddr)
 	twirpHandler := rpc.NewPoeStatusServer(&PoeStatusServer{}, nil)
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", indexHandler)
+	mux.Handle("/public", ui.AssetsHandler)
 	mux.Handle(rpc.PoeStatusPathPrefix, twirpHandler)
 
 	return http.ListenAndServe(bindAddr, mux)
-}
-
-func indexHandler(res http.ResponseWriter, req *http.Request) {
-	err := ui.Index(res)
-	if err != nil {
-		log.Fatal(err)
-	}
 }

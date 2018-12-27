@@ -9,10 +9,10 @@ import (
 )
 
 func main() {
-	err := vfsgen.Generate(ui.TemplateDir, vfsgen.Options{
+	err := vfsgen.Generate(ui.AssetsDir, vfsgen.Options{
 		PackageName:  "ui",
 		BuildTags:    "!dev",
-		VariableName: "TemplateDir",
+		VariableName: "AssetsDir",
 	})
 	util.Must(err)
 }

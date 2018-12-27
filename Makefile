@@ -2,7 +2,7 @@
 
 BINARY_DIRS = cmd/poe-status-client cmd/poe-status-server
 SUBDIRS = ./config ./scanner ./sh ./util ./rpc ./myip ./db ./migrations ./host ./web/ui
-GENERATE_FILES = rpc/service.pb.go rpc/service.twirp.go config/datadir_vfsdata.go config/templatedir_vfsdata.go
+GENERATE_FILES = rpc/service.pb.go rpc/service.twirp.go config/datadir_vfsdata.go web/ui/assetsdir_vfsdata.go
 
 test: generate
 	go test -v --cover $(SUBDIRS)
