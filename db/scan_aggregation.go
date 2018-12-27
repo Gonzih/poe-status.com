@@ -20,7 +20,7 @@ func AllScanAggregationsFor(dbh dbHandler, interval time.Duration) ([]ScanAggr, 
 	results := []ScanAggr{}
 	err := dbh.Select(
 		&results,
-		"SELECT host,count(up) AS number_of_samples,up FROM scan_results WHERE created_at > NOW() - INTERVAL '1 second' * $1 GROUP BY host,up",
+		`SELECT host,count(up) AS number_of_samples,up FROM scan_results WHERE created_at > NOW() - INTERVAL '1 second' * $1 GROUP BY host,up`,
 		int(interval.Seconds()),
 	)
 

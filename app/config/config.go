@@ -8,11 +8,33 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
+// Host represents host information
+type Host struct {
+	Name     string
+	Host     string
+	Platform string
+}
+
 // Config represents yaml config with list of servers and ports
 type Config struct {
 	PC    map[string]string
 	XBOX  map[string]string
 	Ports []int
+}
+
+// AllHosts returns all hostnames to scan
+func (cfg Config) AllHosts() []Host {
+	result := make([]Host, 0)
+
+	for name, host := range cfg.PC {
+		result = append(result, Host{Name: name, Host: host, Platform: "PC"})
+	}
+
+	for name, host := range cfg.XBOX {
+		result = append(result, Host{Name: name, Host: host, Platform: "XBOX"})
+	}
+
+	return result
 }
 
 // ReadYAML will read config yaml and parse it

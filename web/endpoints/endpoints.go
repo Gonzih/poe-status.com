@@ -12,8 +12,10 @@ import (
 )
 
 type aggregationWrapper struct {
-	ServerName string        `json:"server_name"`
-	Data       []db.ScanAggr `json:"data"`
+	ServerName   string       `json:"server_name"`
+	Platform     string       `json:"platform"`
+	UpEvidence   *db.ScanAggr `json:"up_evidence,omitempty"`
+	DownEvidence *db.ScanAggr `json:"down_evidence,omitempty"`
 }
 
 var _cfg *config.Config
@@ -30,23 +32,32 @@ func cfg() *config.Config {
 	return _cfg
 }
 
+// ScanAggrEndpoint is json endpoint that returns aggregated scan data
 func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 	aggregations, err := db.AllScanAggregationsFor(db.DB(), time.Hour*15)
 	if err != nil {
 		log.Fatal(err)
 	}
+	allHosts := cfg().AllHosts()
 
-	response := make([]aggregationWrapper, len(aggregations))
+	response := make([]aggregationWrapper, len(allHosts))
 
-	for i, aggr := range aggregations {
-		for name, host := range cfg().PC {
-			if host == aggr.Host {
-				response[i].ServerName = name
-				response[i].Data = append(response[i].Data, aggr)
+	for i, host := range allHosts {
+		for _, aggr := range aggregations {
+			if host.Host == aggr.Host {
+				log.Println(host.Host, aggr.Host)
+				response[i].ServerName = host.Name
+				response[i].Platform = host.Platform
+				if aggr.Up {
+					response[i].UpEvidence = &aggr
+				} else {
+					response[i].DownEvidence = &aggr
+				}
 				break
 			}
 		}
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }

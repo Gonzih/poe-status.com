@@ -32,15 +32,15 @@ func Call(opts *Options) error {
 	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
 	nmapAvailable := scanner.NmapAvailable()
 
-	for _, host := range cfg.PC {
+	for _, host := range cfg.AllHosts() {
 		var ports []*rpc.PortInfo
 		var err error
 		var scanError string
 
 		if nmapAvailable {
-			ports, err = scanner.NmapScan(host)
+			ports, err = scanner.NmapScan(host.Host)
 		} else {
-			ports, err = scanner.GoScan(host, cfg.Ports)
+			ports, err = scanner.GoScan(host.Host, cfg.Ports)
 		}
 
 		if err != nil {
@@ -49,7 +49,7 @@ func Call(opts *Options) error {
 
 		resp, err := client.SaveScanResults(context.Background(), &rpc.ScanResults{
 			ScanIP:    myip.String(),
-			Host:      host,
+			Host:      host.Host,
 			CreatedAt: ptypes.TimestampNow(),
 			Ports:     ports,
 			ScanError: scanError,
