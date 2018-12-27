@@ -37,3 +37,6 @@ $(GENERATE_FILES): generate
 
 figwheel:
 	make -C web/assets figwheel
+
+release:
+	make -C web/assets release
