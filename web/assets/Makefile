@@ -1,4 +1,4 @@
-figwheel:
+figwheel: clean
 	clojure -m figwheel.main -b dev -r
 
 release: clean

@@ -6,9 +6,9 @@ import (
 
 // ScanAggr represents struct for scan aggregations over some interval
 type ScanAggr struct {
-	Host            string `db:"host"`
-	NumberOfSamples int    `db:"number_of_samples"`
-	Up              bool   `db:"up"`
+	Host            string `db:"host" json:"host"`
+	NumberOfSamples int    `db:"number_of_samples" json:"number_of_samples"`
+	Up              bool   `db:"up" json:"up"`
 }
 
 func intervalToSeconds(interval time.Duration) int {
