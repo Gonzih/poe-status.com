@@ -4,7 +4,17 @@
 
 (enable-console-print!)
 
-(def state (r/atom nil))
+(defn navbar []
+  [:nav.navbar {:role "navigation" :aria-label "main navigation"}
+   [:div.container
+    [:div.navbar-brand
+     [:a.navbar-burger.burger {:role "button" :arial-label "menu" :aria-expanded "false" :data-target "navbarBurger"}]
+     [:div#navbarBurger.navbar-menu
+      [:div.navbar-start
+       [:a.navbar-item {:on-click #(prn "about")} "About"]]]]]])
+
+(defonce state (r/atom nil))
+(defonce active-tab (r/atom "PC"))
 
 (defn server-state [{:keys [up_evidence down_evidence]}]
   (let [up-noe (or (:number_of_samples up_evidence) 0)
@@ -22,27 +32,40 @@
 
 (defn server-component [{:keys [server_name platform] :as server}]
   [:tr
-   [:td platform]
    [:td server_name]
    [server-state server]])
 
+(defn server-table []
+  [:table.table.is-stripped
+   [:tbody
+    (let [data (filter #(= (:platform %) @active-tab)
+                       @state)]
+      (doall
+        (for [server data]
+          ^{:key (str (:server_name server)
+                      (:platform server))}
+          [server-component server])))]])
+
 (defn root-component []
-  [:div.section
-   [:div.container
-    [:div.column
-     [:table.table.is-stripped
-      [:tbody
-       (for [server @state]
-         ^{:key (str (:server_name server)
-                     (:platform server))}
-         [server-component server])]]]]])
+  [:div
+   [navbar]
+   [:div.section
+    [:div.container
+     [:div.column
+      [:div.tabs
+       [:ul
+        (doall
+          (for [fil ["PC" "XBOX"]]
+            ^{:key fil}
+            [:li {:class (when (= @active-tab fil) "is-active")}
+             [:a {:on-click #(reset! active-tab fil)} fil]]))]]
+      [server-table]]]]])
 
 (defn init! []
   (r/render [root-component]
-            (.getElementById js/document "root")))
+            (.-body js/document)))
 
 (init!)
-
 
 (defn load-data! []
   (->
@@ -55,5 +78,7 @@
              (reset! state (keywordize-keys (js->clj json)))
              (js/console.log json)))))
 
-; (js/setInterval load-data! 60000)
-(load-data!)
+(defonce interval
+  (do
+    (js/setInterval load-data! 60000)
+    (load-data!)))
