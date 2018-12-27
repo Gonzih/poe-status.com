@@ -25,7 +25,7 @@
         title (str up-noe " positive reports, " down-noe " negative reports")]
     [:td
      (if up?
-       (if (< up-noe (* down-noe 10))
+       (if (< up-noe (* down-noe 3))
          [:span.tag.is-warning {:title title} "Server is unstable"]
          [:span.tag.is-success {:title title} "Server is up"])
        [:span.tag.is-danger {:title title} "Server is down"])]))
