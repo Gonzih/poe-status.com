@@ -2,7 +2,6 @@ package client
 
 import (
 	"context"
-	"log"
 	"net/http"
 
 	ptypes "github.com/golang/protobuf/ptypes"
@@ -67,7 +66,6 @@ func Call(opts *Options) error {
 		if err != nil {
 			return err
 		}
-		log.Println(resp)
 	}
 
 	return nil
