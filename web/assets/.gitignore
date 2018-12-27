@@ -1,3 +1,4 @@
 assetsdir_vfsdata.go
 target/
 .cpcache/
+assets/cljs/
