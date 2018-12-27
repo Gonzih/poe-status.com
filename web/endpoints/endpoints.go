@@ -12,8 +12,8 @@ import (
 )
 
 type aggregationWrapper struct {
-	ServerName string      `json:"server_name"`
-	Data       db.ScanAggr `json:"data"`
+	ServerName string        `json:"server_name"`
+	Data       []db.ScanAggr `json:"data"`
 }
 
 var _cfg *config.Config
@@ -36,17 +36,17 @@ func ScanAggrEndpoint(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	data := make([]aggregationWrapper, len(aggregations))
+	response := make([]aggregationWrapper, len(aggregations))
 
 	for i, aggr := range aggregations {
-		for host, name := range cfg().PC {
+		for name, host := range cfg().PC {
 			if host == aggr.Host {
-				data[i].ServerName = name
-				data[i].Data = aggr
+				response[i].ServerName = name
+				response[i].Data = append(response[i].Data, aggr)
 				break
 			}
 		}
 	}
 
-	json.NewEncoder(w).Encode(data)
+	json.NewEncoder(w).Encode(response)
 }
