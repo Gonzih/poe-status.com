@@ -13,7 +13,7 @@ import (
 	"gitlab.com/Gonzih/poe-status.com/host"
 	"gitlab.com/Gonzih/poe-status.com/migrations"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/web/ui"
+	"gitlab.com/Gonzih/poe-status.com/web/assets"
 )
 
 // Options repsenend command line options
@@ -24,8 +24,10 @@ type Options struct {
 	MigrationsFolderPath string
 }
 
+// PoeStatusServer implements Twirp server
 type PoeStatusServer struct{}
 
+// SaveScanResults implements Twirp handler
 func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResults) (*rpc.Empty, error) {
 	buf := bytes.NewBuffer(nil)
 	marshaller := jsonpb.Marshaler{EmitDefaults: true}
@@ -76,7 +78,7 @@ func StartServer(opts *Options) error {
 	log.Printf("Starting server on %s", bindAddr)
 	twirpHandler := rpc.NewPoeStatusServer(&PoeStatusServer{}, nil)
 	mux := http.NewServeMux()
-	mux.Handle("/public", ui.AssetsHandler)
+	mux.Handle("/", http.FileServer(safeFileSystem{fs: assets.AssetsDir}))
 	mux.Handle(rpc.PoeStatusPathPrefix, twirpHandler)
 
 	return http.ListenAndServe(bindAddr, mux)

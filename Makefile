@@ -34,3 +34,6 @@ clean:
 	rm -f $(GENERATE_FILES) main
 
 $(GENERATE_FILES): generate
+
+figwheel:
+	make -C web/assets figwheel

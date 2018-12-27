@@ -1,0 +1,4 @@
+{:main poe.core
+ :output-dir "assets/cljs"
+ :output-to "assets/cljs/dev-main.js"
+ :asset-path "cljs"}
