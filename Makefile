@@ -40,3 +40,4 @@ figwheel:
 
 release:
 	make -C web/assets release
+	make generate

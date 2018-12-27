@@ -9,6 +9,7 @@ type ScanResult struct {
 	ResultID  int       `db:"scan_result_id"`
 	ScanIP    string    `db:"scan_ip"`
 	Host      string    `db:"host"`
+	Plaftorm  string    `db:"platform"`
 	Up        bool      `db:"up"`
 	CreatedAt time.Time `db:"created_at"`
 	QueryData []byte    `db:"query_data"`
@@ -17,7 +18,7 @@ type ScanResult struct {
 // SaveScanResult saves one given scan result
 func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
 	_, err := dbh.NamedExec(
-		"INSERT INTO scan_results (scan_ip, host, up, created_at, query_data) VALUES (:scan_ip,:host,:up,:created_at,:query_data)",
+		"INSERT INTO scan_results (scan_ip,host,up,created_at,query_data,platform) VALUES (:scan_ip,:host,:up,:created_at,:query_data,:platform)",
 		sr,
 	)
 

@@ -30,6 +30,7 @@ func TestScanAggregationsInTimerange(t *testing.T) {
 			Up:        true,
 			CreatedAt: time.Now().Add(time.Minute * -10),
 			QueryData: []byte("{}"),
+			Plaftorm:  "PC",
 		}
 
 		err := SaveScanResult(tx, result1)
@@ -54,6 +55,7 @@ func TestScanAggregationsOutOfTimerange(t *testing.T) {
 			Up:        true,
 			CreatedAt: time.Now().Add(time.Hour * -10),
 			QueryData: []byte("{}"),
+			Plaftorm:  "PC",
 		}
 
 		err := SaveScanResult(tx, result1)

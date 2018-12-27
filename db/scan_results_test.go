@@ -24,6 +24,7 @@ func TestScanResultSaveNoTx(t *testing.T) {
 		Host:      "login.pathoexile.com",
 		CreatedAt: time.Now(),
 		QueryData: []byte("{}"),
+		Plaftorm:  "PC",
 	}
 
 	err := SaveScanResult(db, result1)
@@ -40,6 +41,7 @@ func TestScanResultSaveInTx(t *testing.T) {
 			Up:        true,
 			CreatedAt: time.Now(),
 			QueryData: []byte("{}"),
+			Plaftorm:  "PC",
 		}
 
 		err := SaveScanResult(tx, result1)
@@ -56,6 +58,7 @@ func TestScanResultSaveLoad(t *testing.T) {
 			Host:      "login.pathoexile.com",
 			CreatedAt: time.Now(),
 			QueryData: []byte("{}"),
+			Plaftorm:  "PC",
 		}
 
 		err := SaveScanResult(tx, result1)
