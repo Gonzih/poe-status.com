@@ -27,7 +27,8 @@ func TestScanResultSaveNoTx(t *testing.T) {
 		Plaftorm:  "PC",
 	}
 
-	err := SaveScanResult(db, result1)
+	resultStore := NewDefaultScanResultStore()
+	err := resultStore.SaveScanResult(result1)
 	assert.Nil(t, err)
 }
 
@@ -44,7 +45,8 @@ func TestScanResultSaveInTx(t *testing.T) {
 			Plaftorm:  "PC",
 		}
 
-		err := SaveScanResult(tx, result1)
+		resultStore := NewScanResultStore(tx)
+		err := resultStore.SaveScanResult(result1)
 		assert.Nil(t, err)
 	})
 }
@@ -61,10 +63,11 @@ func TestScanResultSaveLoad(t *testing.T) {
 			Plaftorm:  "PC",
 		}
 
-		err := SaveScanResult(tx, result1)
+		resultStore := NewScanResultStore(tx)
+		err := resultStore.SaveScanResult(result1)
 		assert.Nil(t, err)
 
-		results, err := AllScanResults(tx)
+		results, err := resultStore.AllScanResults()
 		assert.Nil(t, err)
 		assert.Len(t, results, 1)
 

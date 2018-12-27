@@ -55,7 +55,7 @@ func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResu
 		QueryData: buf.Bytes(),
 	}
 
-	err = db.SaveScanResult(db.DB(), result)
+	err = db.NewDefaultScanResultStore().SaveScanResult(result)
 	if err != nil {
 		return &rpc.Empty{}, err
 	}

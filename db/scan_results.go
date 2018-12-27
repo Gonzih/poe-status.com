@@ -15,9 +15,24 @@ type ScanResult struct {
 	QueryData []byte    `db:"query_data"`
 }
 
+// ScanResultStore is a struct ot access scan results from db
+type ScanResultStore struct {
+	db dbHandler
+}
+
+// NewScanResultStore creates new store using given db handler
+func NewScanResultStore(dbh dbHandler) *ScanResultStore {
+	return &ScanResultStore{db: dbh}
+}
+
+// NewDefaultScanResultStore creates new store using default db connection
+func NewDefaultScanResultStore() *ScanResultStore {
+	return &ScanResultStore{db: DB()}
+}
+
 // SaveScanResult saves one given scan result
-func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
-	_, err := dbh.NamedExec(
+func (store *ScanResultStore) SaveScanResult(sr *ScanResult) error {
+	_, err := store.db.NamedExec(
 		"INSERT INTO scan_results (scan_ip,host,up,created_at,query_data,platform) VALUES (:scan_ip,:host,:up,:created_at,:query_data,:platform)",
 		sr,
 	)
@@ -26,9 +41,9 @@ func SaveScanResult(dbh dbHandler, sr *ScanResult) error {
 }
 
 // SelectScanResults selects scan results based on query
-func SelectScanResults(dbh dbHandler, query string) ([]*ScanResult, error) {
+func (store *ScanResultStore) SelectScanResults(query string) ([]*ScanResult, error) {
 	var results []*ScanResult
-	res, err := dbh.Queryx(query)
+	res, err := store.db.Queryx(query)
 
 	if err != nil {
 		return results, err
@@ -48,6 +63,6 @@ func SelectScanResults(dbh dbHandler, query string) ([]*ScanResult, error) {
 }
 
 // AllScanResults returns all scan_results from db
-func AllScanResults(dbh dbHandler) ([]*ScanResult, error) {
-	return SelectScanResults(dbh, "SELECT * FROM scan_results")
+func (store *ScanResultStore) AllScanResults() ([]*ScanResult, error) {
+	return store.SelectScanResults("SELECT * FROM scan_results")
 }

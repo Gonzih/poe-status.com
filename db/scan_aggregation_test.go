@@ -33,7 +33,8 @@ func TestScanAggregationsInTimerange(t *testing.T) {
 			Plaftorm:  "PC",
 		}
 
-		err := SaveScanResult(tx, result1)
+		resultStore := NewScanResultStore(tx)
+		err := resultStore.SaveScanResult(result1)
 		assert.Nil(t, err)
 
 		aggStore := NewScanAggrStore(tx)
@@ -59,7 +60,8 @@ func TestScanAggregationsOutOfTimerange(t *testing.T) {
 			Plaftorm:  "PC",
 		}
 
-		err := SaveScanResult(tx, result1)
+		resultStore := NewScanResultStore(tx)
+		err := resultStore.SaveScanResult(result1)
 		assert.Nil(t, err)
 
 		aggStore := NewScanAggrStore(tx)

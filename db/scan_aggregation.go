@@ -4,20 +4,16 @@ import (
 	"time"
 )
 
-func intervalToSeconds(interval time.Duration) int {
-	return int(interval.Seconds())
-}
-
-// ScanAggrStore is a struct ot access agggeration related db stuff
-type ScanAggrStore struct {
-	db dbHandler
-}
-
 // ScanAggr represents struct for scan aggregations over some interval
 type ScanAggr struct {
 	Host            string `db:"host" json:"host"`
 	NumberOfSamples int    `db:"number_of_samples" json:"number_of_samples"`
 	Up              bool   `db:"up" json:"up"`
+}
+
+// ScanAggrStore is a struct ot access agggeration related db stuff
+type ScanAggrStore struct {
+	db dbHandler
 }
 
 // NewScanAggrStore creates new store using given db handler
@@ -40,4 +36,8 @@ func (store *ScanAggrStore) AllScanAggregationsFor(interval time.Duration) ([]Sc
 	)
 
 	return results, err
+}
+
+func intervalToSeconds(interval time.Duration) int {
+	return int(interval.Seconds())
 }
