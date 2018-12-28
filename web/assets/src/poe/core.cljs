@@ -6,20 +6,20 @@
 (enable-console-print!)
 
 (def flags
-  {"amsterdam" "🇳🇱"
-   "australia" "🇦🇺"
-   "brazil" "🇧🇷"
-   "california" "🇺🇸"
-   "frankfurt" "🇩🇪"
-   "japan" "🇯🇵"
-   "london" "🇬🇧"
-   "milan" "🇮🇹"
-   "moscow" "🇷🇺"
-   "russia" "🇷🇺"
-   "paris" "🇫🇷"
-   "singapore" "🇸🇬"
-   "texas" "🇺🇸"
-   "washington d.c." "🇺🇸"})
+  {"amsterdam" "nl"
+   "australia" "au"
+   "brazil" "br"
+   "california" "us"
+   "frankfurt" "de"
+   "japan" "jp"
+   "london" "gb"
+   "milan" "it"
+   "moscow" "ru"
+   "russia" "ru"
+   "paris" "fr"
+   "singapore" "sg"
+   "texas" "us"
+   "washington d.c." "us"})
 
 (defn navbar-component []
   [:nav.navbar {:role "navigation" :aria-label "main navigation"}
@@ -40,7 +40,7 @@
   (let [up-noe (or (:number_of_samples up_evidence) 0)
         down-noe (or (:number_of_samples down_evidence) 0)
         up? (>= up-noe down-noe)
-        ratio (if (unstable-servers host) 2 4)]
+        ratio (if (unstable-servers host) 1.5 4)]
     (if up?
       (if (< up-noe (* down-noe ratio))
         :unstable
@@ -61,7 +61,7 @@
 (defn server-component [{:keys [server_name platform] :as server}]
   [:tr
    [:td
-    [:span.flag (flags (strings/lower-case server_name))]
+    [:i.flag.em-svg {:class (str "em-flag-" (flags (strings/lower-case server_name)))}]
     server_name]
    [server-state-component server]])
 
