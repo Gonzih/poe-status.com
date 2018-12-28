@@ -2,6 +2,7 @@ package client
 
 import (
 	"context"
+	"log"
 	"net/http"
 
 	ptypes "github.com/golang/protobuf/ptypes"
@@ -16,7 +17,7 @@ type Options struct {
 	URL string
 }
 
-var pingCount = 50
+var pingCount = 25
 
 // Call is the cli entry point
 func Call(opts *Options) error {
@@ -43,7 +44,8 @@ func Call(opts *Options) error {
 			if nmapAvailable {
 				ports, err = scanner.NmapScan(host.Host)
 			} else {
-				ports, err = scanner.GoScan(host.Host, cfg.Ports)
+				log.Fatal("Please install nmap and make sure its available on your PATH")
+				// ports, err = scanner.GoScan(host.Host, cfg.Ports)
 			}
 
 			if err != nil {
