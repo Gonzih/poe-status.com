@@ -51,7 +51,7 @@
   (let [up-noe (or (:number_of_samples up_evidence) 0)
         down-noe (or (:number_of_samples down_evidence) 0)
         status (server-status server)
-        title (str up-noe " up scans, " down-noe " down scans")]
+        title (str up-noe " successful scans, " down-noe " failed scans")]
     [:td
      (case status
        :up       [:span.tag.is-success {:title title} "Server is up"]
