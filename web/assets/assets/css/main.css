@@ -1,5 +1,7 @@
 .flag {
   margin-right: 10px;
+  width: 1.1em !important;
+  height: 1.1em !important;
 }
 
 .notification i.fas, .notification svg {
