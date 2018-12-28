@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -65,4 +66,18 @@ func (store *ScanResultStore) SelectScanResults(query string) ([]*ScanResult, er
 // AllScanResults returns all scan_results from db
 func (store *ScanResultStore) AllScanResults() ([]*ScanResult, error) {
 	return store.SelectScanResults("SELECT * FROM scan_results")
+}
+
+// DeleteResultsOlderThan will delete all results older than given age
+func (store *ScanResultStore) DeleteResultsOlderThan(age time.Duration) error {
+	if age < time.Hour*3 {
+		return fmt.Errorf("Age should be older than 3 hours, got %v", age)
+	}
+
+	_, err := store.db.Exec(
+		"DELETE FROM scan_results WHERE created_at < NOW() - INTERVAL '1 second' * $1",
+		int(age.Seconds()),
+	)
+
+	return err
 }

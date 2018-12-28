@@ -13,6 +13,7 @@ import (
 
 type dbHandler interface {
 	NamedExec(query string, arg interface{}) (sql.Result, error)
+	Exec(query string, arg ...interface{}) (sql.Result, error)
 	NamedQuery(query string, arg interface{}) (*sqlx.Rows, error)
 	Queryx(query string, arg ...interface{}) (*sqlx.Rows, error)
 	Select(dest interface{}, query string, args ...interface{}) error

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
@@ -74,6 +75,16 @@ func StartServer(opts *Options) error {
 	if err != nil {
 		return err
 	}
+
+	go func() {
+		for {
+			err := db.NewDefaultScanResultStore().DeleteResultsOlderThan(time.Hour * 8)
+			if err != nil {
+				log.Fatal(err)
+			}
+			time.Sleep(time.Minute * 30)
+		}
+	}()
 
 	bindAddr := fmt.Sprintf("%s:%d", opts.Host, opts.Port)
 	log.Printf("Starting server on %s", bindAddr)
