@@ -72,15 +72,21 @@
                       (:platform server))}
           [server-component server])))]])
 
+(def platform-mappings
+  {"XBOX" "Xbox"
+   "PC" "PC"})
+
 (defn servers-component []
   [:div.container
    [:div.tabs
     [:ul
      (doall
-       (for [fil ["PC" "XBOX"]]
-         ^{:key fil}
-         [:li {:class (when (= @active-tab fil) "is-active")}
-          [:a {:on-click #(reset! active-tab fil)} fil " login servers"]]))]]
+       (for [platform ["PC" "XBOX"]]
+         ^{:key platform}
+         [:li {:class (when (= @active-tab platform) "is-active")}
+          [:a {:on-click #(reset! active-tab platform)}
+           (platform-mappings platform)
+           " login servers"]]))]]
    [server-table-component]])
 
 (defn content-component []
