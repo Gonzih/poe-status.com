@@ -18,3 +18,15 @@ func NmapAvailable() bool {
 	log.Println(strings.Trim(string(out), "\r\n "))
 	return true
 }
+
+// PingAvailable will test if ping is present on the system
+func PingAvailable() bool {
+	out, err := sh.Sh("bash", "-c", "which ping")
+	if err != nil {
+		log.Println(err)
+		return false
+	}
+
+	log.Println(strings.Trim(string(out), "\r\n "))
+	return true
+}

@@ -35,7 +35,7 @@ func cfg() *config.Config {
 
 func getAggrData() []aggregationWrapper {
 	aggStore := db.NewDefaultScanAggrStore()
-	aggregations, err := aggStore.AllScanAggregationsFor(time.Minute * 15)
+	aggregations, err := aggStore.AllScanAggregationsFor(time.Hour)
 	if err != nil {
 		log.Fatal(err)
 	}

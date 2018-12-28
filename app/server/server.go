@@ -79,7 +79,7 @@ func StartServer(opts *Options) error {
 	go func() {
 		for {
 			log.Println("Doing db cleanup")
-			err := db.NewDefaultScanResultStore().DeleteResultsOlderThan(time.Hour * 8)
+			err := db.NewDefaultScanResultStore().DeleteResultsOlderThan(time.Hour * 5)
 			if err != nil {
 				log.Fatal(err)
 			}

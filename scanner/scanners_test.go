@@ -29,3 +29,8 @@ func TestNmapAvailable(t *testing.T) {
 	available := NmapAvailable()
 	assert.True(t, available)
 }
+
+func TestPingAvailable(t *testing.T) {
+	available := PingAvailable()
+	assert.True(t, available)
+}

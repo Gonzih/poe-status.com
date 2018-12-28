@@ -17,7 +17,7 @@ type Options struct {
 	URL string
 }
 
-var pingCount = 25
+var pingCount = 50
 
 // Call is the cli entry point
 func Call(opts *Options) error {
@@ -33,6 +33,15 @@ func Call(opts *Options) error {
 
 	client := rpc.NewPoeStatusProtobufClient(opts.URL, &http.Client{})
 	nmapAvailable := scanner.NmapAvailable()
+	pingAvailable := scanner.PingAvailable()
+
+	if !nmapAvailable {
+		log.Fatal("Please install nmap and make sure it's available on your PATH")
+	}
+
+	if !pingAvailable {
+		log.Fatal("Please install ping and make sure it's available on your PATH")
+	}
 
 	for _, host := range cfg.AllHosts() {
 		var ports []*rpc.PortInfo
@@ -44,7 +53,6 @@ func Call(opts *Options) error {
 			if nmapAvailable {
 				ports, err = scanner.NmapScan(host.Host)
 			} else {
-				log.Fatal("Please install nmap and make sure its available on your PATH")
 				// ports, err = scanner.GoScan(host.Host, cfg.Ports)
 			}
 
