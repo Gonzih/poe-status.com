@@ -18,9 +18,10 @@ type Host struct {
 
 // Config represents yaml config with list of servers and ports
 type Config struct {
-	PC    map[string]string
-	XBOX  map[string]string
-	Ports []int
+	Tokens map[string]string
+	PC     map[string]string
+	XBOX   map[string]string
+	Ports  []int
 }
 
 // AllHosts returns all hostnames to scan

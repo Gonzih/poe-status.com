@@ -16,11 +16,16 @@ message ScanResults {
   string ScanError = 5;
   string Platform = 6;
   PingInfo PingInfo = 7;
+  AuthToken AuthToken = 8;
 }
 
 message PortInfo {
   int32 Port = 1;
   bool Open = 2;
+}
+
+message AuthToken {
+  string Token = 1;
 }
 
 message PingInfo {

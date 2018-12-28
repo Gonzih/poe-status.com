@@ -74,6 +74,9 @@ func Call(opts *Options) error {
 			ScanError: scanError,
 			Platform:  host.Platform,
 			PingInfo:  pingInfo,
+			AuthToken: &rpc.AuthToken{
+				Token: cfg.Tokens["main"],
+			},
 		})
 		if err != nil {
 			return err

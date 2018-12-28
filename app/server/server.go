@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"context"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,6 +11,7 @@ import (
 
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
+	"gitlab.com/Gonzih/poe-status.com/app/config"
 	"gitlab.com/Gonzih/poe-status.com/db"
 	"gitlab.com/Gonzih/poe-status.com/host"
 	"gitlab.com/Gonzih/poe-status.com/migrations"
@@ -26,11 +28,41 @@ type Options struct {
 	MigrationsFolderPath string
 }
 
+// checkToken will validate token for ScanResults and reset the field
+func checkToken(req *rpc.ScanResults) bool {
+	if req.AuthToken == nil {
+		return false
+	}
+
+	cfg, err := config.ReadYAML()
+	if err != nil {
+		log.Fatalf("Error loading config: %s", err)
+	}
+
+	inputToken := req.AuthToken.Token
+	req.AuthToken = nil
+
+	for name, token := range cfg.Tokens {
+		if token == inputToken {
+			log.Printf(`Got auth using "%s" token`, name)
+			return true
+		}
+	}
+
+	return false
+}
+
 // PoeStatusServer implements Twirp server
 type PoeStatusServer struct{}
 
 // SaveScanResults implements Twirp handler
 func (s *PoeStatusServer) SaveScanResults(ctx context.Context, req *rpc.ScanResults) (*rpc.Empty, error) {
+	tokenValid := checkToken(req)
+
+	if !tokenValid {
+		return &rpc.Empty{}, errors.New("Got invalid token")
+	}
+
 	buf := bytes.NewBuffer(nil)
 	marshaller := jsonpb.Marshaler{EmitDefaults: true}
 	err := marshaller.Marshal(buf, req)
