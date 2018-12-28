@@ -79,5 +79,5 @@
 
 (defonce interval
   (do
-    (js/setInterval load-data! 60000)
+    (js/setInterval load-data! 20000)
     (load-data!)))
