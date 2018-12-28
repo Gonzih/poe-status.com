@@ -80,7 +80,7 @@
        (for [fil ["PC" "XBOX"]]
          ^{:key fil}
          [:li {:class (when (= @active-tab fil) "is-active")}
-          [:a {:on-click #(reset! active-tab fil)} "Login for " fil]]))]]
+          [:a {:on-click #(reset! active-tab fil)} fil " login servers"]]))]]
    [server-table-component]])
 
 (defn content-component []
@@ -90,7 +90,7 @@
    [:p
     "We continuously monitor the status of "
     [:a {:href "https://www.pathofexile.com/" :target "_blank"} "Path of Exile"]
-    " login servers. If there are any interruptions in service it should be indicated on this page."]])
+    " servers. If there are any interruptions in service, it should be visible on this page."]])
 
 (defn notification-component []
   (let [len (count @state)
@@ -130,13 +130,12 @@
 
 (defn root-component []
   [:div
-   [:div.colums
-    [:div.column
-     [:div.section
-      ; [navbar-component]
-      [notification-component]
-      [content-component]
-      [servers-component]]]]
+   [:div.container
+    [:div.section
+     ; [navbar-component]
+     [notification-component]
+     [content-component]
+     [servers-component]]]
    [footer-component]])
 
 (defn init! []
