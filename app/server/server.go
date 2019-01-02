@@ -31,6 +31,7 @@ type Options struct {
 // checkToken will validate token for ScanResults and reset the field
 func checkToken(req *rpc.ScanResults) bool {
 	if req.AuthToken == nil {
+		log.Printf("Got empty token!")
 		return false
 	}
 
