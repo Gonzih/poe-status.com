@@ -2,8 +2,10 @@ package client
 
 import (
 	"context"
+	"errors"
 	"log"
 	"net/http"
+	"strings"
 	"sync"
 
 	ptypes "github.com/golang/protobuf/ptypes"
@@ -60,11 +62,7 @@ func Call(opts *Options) error {
 
 			if host.Platform == "PC" {
 				if nmapAvailable {
-					wg.Add(1)
-					go func() {
-						defer wg.Done()
-						ports, err = scanner.NmapScan(host.Host)
-					}()
+					ports, err = scanner.NmapScan(host.Host)
 				}
 
 				if err != nil {
@@ -100,8 +98,14 @@ func Call(opts *Options) error {
 
 	close(errChan)
 
+	var errStrings []string
 	for err := range errChan {
-		log.Println("Err", err)
+		if err != nil {
+			errStrings = append(errStrings, err.Error())
+		}
+	}
+	if len(errStrings) > 0 {
+		return errors.New(strings.Join(errStrings, " "))
 	}
 
 	return nil
