@@ -57,7 +57,7 @@ func parsePingOutput(input []byte) (pingOutput, error) {
 
 // Ping will run ping against the host
 func Ping(host string, n int) (*rpc.PingInfo, error) {
-	out, err := sh.Sh("ping", "-i", "0.2", "-c", fmt.Sprintf("%d", n), host)
+	out, err := sh.Sh("ping", "-i", "0.5", "-c", fmt.Sprintf("%d", n), host)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %s", err, string(out))
 	}

@@ -37,14 +37,15 @@ func isPCUp(scan *rpc.ScanResults) (bool, error) {
 	return true, nil
 }
 
-func isXboxUp(scan *rpc.ScanResults) (bool, error) {
+func isUpBasedOnPing(scan *rpc.ScanResults) (bool, error) {
 	if scan.PingInfo == nil {
-		return false, errors.New("No ping info found")
+		return false, fmt.Errorf("No ping info found for %s", scan.Host)
 	}
 
 	if scan.PingInfo.Received < scan.PingInfo.Transmitted || scan.PingInfo.Loss > int32(0) {
 		return false, fmt.Errorf(
-			"Lost some packages: %d transmitted, %d received, %d loss",
+			"Host %s lost some packages: %d transmitted, %d received, %d loss",
+			scan.Host,
 			scan.PingInfo.Received,
 			scan.PingInfo.Transmitted,
 			scan.PingInfo.Loss,
@@ -62,11 +63,20 @@ func IsUp(scan *rpc.ScanResults) (bool, error) {
 	}
 
 	if scan.Platform == "PC" {
-		return isPCUp(scan)
+		pcUp, pcErr := isPCUp(scan)
+		pingUp, pingErr := isUpBasedOnPing(scan)
+		var err error
+		if pcErr != nil {
+			err = pcErr
+		} else if pingErr != nil {
+			err = pcErr
+		}
+
+		return pcUp && pingUp, err
 	}
 
 	if scan.Platform == "XBOX" {
-		return isXboxUp(scan)
+		return isUpBasedOnPing(scan)
 	}
 
 	return false, errors.New("Nothing happened")
