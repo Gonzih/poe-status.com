@@ -114,6 +114,23 @@ func TestPingSuccess(t *testing.T) {
 	assert.Nil(t, err)
 }
 
+func TestPingSuccessWithSomeLoss(t *testing.T) {
+	pingInfo := &rpc.PingInfo{
+		Transmitted: 100,
+		Received:    100,
+		Loss:        5,
+	}
+
+	req := &rpc.ScanResults{
+		PingInfo: pingInfo,
+		Platform: "XBOX",
+	}
+
+	up, err := IsUp(req)
+	assert.True(t, up)
+	assert.Nil(t, err)
+}
+
 func TestPingFaildueToLoss(t *testing.T) {
 	pingInfo := &rpc.PingInfo{
 		Transmitted: 100,

@@ -42,7 +42,7 @@ func isUpBasedOnPing(scan *rpc.ScanResults) (bool, error) {
 		return false, fmt.Errorf("No ping info found for %s", scan.Host)
 	}
 
-	if scan.PingInfo.Received < scan.PingInfo.Transmitted || scan.PingInfo.Loss > int32(0) {
+	if scan.PingInfo.Received < scan.PingInfo.Transmitted || scan.PingInfo.Loss > int32(10) {
 		return false, fmt.Errorf(
 			"Host %s lost some packages: %d transmitted, %d received, %d loss",
 			scan.Host,
