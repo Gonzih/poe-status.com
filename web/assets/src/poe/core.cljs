@@ -143,7 +143,8 @@
    [:div.container
     [:div.section
      ; [navbar-component]
-     [notification-component]
+     (when (seq @state)
+       [notification-component])
      [content-component]
      [servers-component]]]
    [footer-component]])
