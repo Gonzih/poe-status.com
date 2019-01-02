@@ -69,7 +69,7 @@ func IsUp(scan *rpc.ScanResults) (bool, error) {
 		if pcErr != nil {
 			err = pcErr
 		} else if pingErr != nil {
-			err = pcErr
+			err = pingErr
 		}
 
 		return pcUp && pingUp, err

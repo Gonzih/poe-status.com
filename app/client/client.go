@@ -13,6 +13,7 @@ import (
 	"gitlab.com/Gonzih/poe-status.com/myip"
 	"gitlab.com/Gonzih/poe-status.com/rpc"
 	"gitlab.com/Gonzih/poe-status.com/scanner"
+	"golang.org/x/sync/semaphore"
 )
 
 // Options repsenend command line options
@@ -47,6 +48,7 @@ func Call(opts *Options) error {
 	}
 
 	var wg sync.WaitGroup
+	nmapLock := semaphore.NewWeighted(3)
 	errChan := make(chan error, 500)
 
 	for _, host := range cfg.AllHosts() {
@@ -62,7 +64,9 @@ func Call(opts *Options) error {
 
 			if host.Platform == "PC" {
 				if nmapAvailable {
+					nmapLock.Acquire(context.TODO(), 1)
 					ports, err = scanner.NmapScan(host.Host)
+					nmapLock.Release(1)
 				}
 
 				if err != nil {

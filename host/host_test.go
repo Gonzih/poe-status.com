@@ -37,6 +37,11 @@ func TestScanClosedPorts(t *testing.T) {
 	req := &rpc.ScanResults{
 		Ports:    ports,
 		Platform: "PC",
+		PingInfo: &rpc.PingInfo{
+			Transmitted: 100,
+			Received:    100,
+			Loss:        0,
+		},
 	}
 
 	up, err := IsUp(req)
@@ -56,11 +61,40 @@ func TestScanOpenPorts(t *testing.T) {
 	req := &rpc.ScanResults{
 		Ports:    ports,
 		Platform: "PC",
+		PingInfo: &rpc.PingInfo{
+			Transmitted: 100,
+			Received:    100,
+			Loss:        0,
+		},
 	}
 
 	up, err := IsUp(req)
 	assert.True(t, up)
 	assert.Nil(t, err)
+}
+
+func TestScanOpenPortsAndFailedPing(t *testing.T) {
+	ports := make([]*rpc.PortInfo, 10)
+	for i := range ports {
+		ports[i] = &rpc.PortInfo{
+			Port: 1,
+			Open: true,
+		}
+	}
+
+	req := &rpc.ScanResults{
+		Ports:    ports,
+		Platform: "PC",
+		PingInfo: &rpc.PingInfo{
+			Transmitted: 100,
+			Received:    90,
+			Loss:        10,
+		},
+	}
+
+	up, err := IsUp(req)
+	assert.False(t, up)
+	assert.NotNil(t, err)
 }
 
 func TestPingSuccess(t *testing.T) {
