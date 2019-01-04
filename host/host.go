@@ -44,7 +44,7 @@ func isUpBasedOnPing(scan *rpc.ScanResults) (bool, error) {
 
 	if scan.PingInfo.Received < scan.PingInfo.Transmitted || scan.PingInfo.Loss > int32(10) {
 		return false, fmt.Errorf(
-			"Host %s lost some packages: %d transmitted, %d received, %d loss",
+			"Host %s lost some packages: %d received, %d transmitted, %d loss",
 			scan.Host,
 			scan.PingInfo.Received,
 			scan.PingInfo.Transmitted,

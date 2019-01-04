@@ -3,10 +3,12 @@ package client
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
 	"sync"
+	"time"
 
 	ptypes "github.com/golang/protobuf/ptypes"
 	"gitlab.com/Gonzih/poe-status.com/app/config"
@@ -25,6 +27,7 @@ var pingCount = 50
 
 // Call is the cli entry point
 func Call(opts *Options) error {
+	start := time.Now()
 	cfg, err := config.ReadYAML()
 	if err != nil {
 		return err
@@ -49,6 +52,7 @@ func Call(opts *Options) error {
 
 	var wg sync.WaitGroup
 	nmapLock := semaphore.NewWeighted(3)
+	pingLock := semaphore.NewWeighted(10)
 	errChan := make(chan error, 500)
 
 	for _, host := range cfg.AllHosts() {
@@ -70,14 +74,29 @@ func Call(opts *Options) error {
 				}
 
 				if err != nil {
+					log.Printf("Nmap error for %s was %s", host.Host, err)
 					scanError = err.Error()
 				}
+
+				open := 0
+				for _, port := range ports {
+					if port.Open {
+						open++
+					}
+				}
+				log.Printf("Host %s got %d ports from scan, %d open ports", host.Host, len(ports), open)
 			}
 
+			pingLock.Acquire(context.TODO(), 1)
 			pingInfo, err = scanner.Ping(host.Host, pingCount)
+			pingLock.Release(1)
+
 			if err != nil {
-				scanError = err.Error()
+				log.Printf("Ping error for %s was %s", host.Host, err)
+				scanError = fmt.Sprintf("%s %s", scanError, err.Error())
 			}
+
+			log.Printf("Host %s got ping loss %d%%", host.Host, pingInfo.Loss)
 
 			_, err = client.SaveScanResults(context.Background(), &rpc.ScanResults{
 				ScanIP:    myip.String(),
@@ -112,6 +131,6 @@ func Call(opts *Options) error {
 		return errors.New(strings.Join(errStrings, " "))
 	}
 
-	log.Println("Done!")
+	log.Printf("Finished in %d seconds", int(time.Since(start).Seconds()))
 	return nil
 }
