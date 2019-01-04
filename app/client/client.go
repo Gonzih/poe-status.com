@@ -112,5 +112,6 @@ func Call(opts *Options) error {
 		return errors.New(strings.Join(errStrings, " "))
 	}
 
+	log.Println("Done!")
 	return nil
 }
