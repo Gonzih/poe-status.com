@@ -94,9 +94,9 @@ func Call(opts *Options) error {
 			if err != nil {
 				log.Printf("Ping error for %s was %s", host.Host, err)
 				scanError = fmt.Sprintf("%s %s", scanError, err.Error())
+			} else {
+				log.Printf("Host %s got ping loss %d%%", host.Host, pingInfo.Loss)
 			}
-
-			log.Printf("Host %s got ping loss %d%%", host.Host, pingInfo.Loss)
 
 			_, err = client.SaveScanResults(context.Background(), &rpc.ScanResults{
 				ScanIP:    myip.String(),
