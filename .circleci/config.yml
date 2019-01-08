@@ -11,6 +11,8 @@ jobs:
     working_directory: /tmp/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
+      - run: sudo ping -c 6 google.com
+      - run: ping -c 6 google.com
       - run: ./.circleci/deps.sh
       - run: go get
       - run:
