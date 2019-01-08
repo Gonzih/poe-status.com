@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/spf13/cobra"
-	"gitlab.com/Gonzih/poe-status.com/app/client"
+	"github.com/Gonzih/poe-status.com/app/client"
 )
 
 var rootCmd = &cobra.Command{

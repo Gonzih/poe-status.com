@@ -2,8 +2,8 @@ package scanner
 
 import (
 	nmap "github.com/tomsteele/go-nmap"
-	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/sh"
+	"github.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/sh"
 )
 
 // NmapScan will scan given host using nmap shelling out

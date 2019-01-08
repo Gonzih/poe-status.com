@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/Gonzih/poe-status.com/sh"
+	"github.com/Gonzih/poe-status.com/sh"
 )
 
 const defaultUlimit = int64(1024)

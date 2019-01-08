@@ -4,8 +4,8 @@ package main
 
 import (
 	"github.com/shurcooL/vfsgen"
-	"gitlab.com/Gonzih/poe-status.com/app/config"
-	"gitlab.com/Gonzih/poe-status.com/util"
+	"github.com/Gonzih/poe-status.com/app/config"
+	"github.com/Gonzih/poe-status.com/util"
 )
 
 func main() {

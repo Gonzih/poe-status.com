@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/Gonzih/poe-status.com/app/client"
+	"github.com/Gonzih/poe-status.com/app/client"
 )
 
 var cliOptions client.Options

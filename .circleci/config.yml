@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:latest
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_DB: poestatustest
+          POSTGRES_USER: poe
+          POSTGRES_PASSWORD: poepass
+
+    working_directory: /{{ORG_NAME}}/{{REPO_NAME}}
+    steps:
+      - checkout
+      - run: ./.circleci/deps.sh
+      - run: go get
+      - run: make clean test
+      - run: make clean build-binaries release

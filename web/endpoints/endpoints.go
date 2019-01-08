@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"gitlab.com/Gonzih/poe-status.com/app/config"
-	"gitlab.com/Gonzih/poe-status.com/db"
-	"gitlab.com/Gonzih/poe-status.com/util"
+	"github.com/Gonzih/poe-status.com/app/config"
+	"github.com/Gonzih/poe-status.com/db"
+	"github.com/Gonzih/poe-status.com/util"
 )
 
 type aggregationWrapper struct {

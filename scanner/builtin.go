@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/util"
+	"github.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/util"
 	"golang.org/x/sync/semaphore"
 )
 

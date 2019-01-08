@@ -6,7 +6,7 @@ import (
 
 	"github.com/golang-migrate/migrate/v4/database"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/Gonzih/poe-status.com/db"
+	"github.com/Gonzih/poe-status.com/db"
 )
 
 func TestSQLMigrationsFolderPath(t *testing.T) {

@@ -1,6 +1,6 @@
 // +heroku install ./cmd/poe-status-server/
 
-module gitlab.com/Gonzih/poe-status.com
+module github.com/Gonzih/poe-status.com
 
 require (
 	github.com/alecthomas/gometalinter v2.0.12+incompatible // indirect

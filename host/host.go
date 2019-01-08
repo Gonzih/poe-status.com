@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"gitlab.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/rpc"
 )
 
 const portFailureThreshold = 150

@@ -11,13 +11,13 @@ import (
 
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
-	"gitlab.com/Gonzih/poe-status.com/app/config"
-	"gitlab.com/Gonzih/poe-status.com/db"
-	"gitlab.com/Gonzih/poe-status.com/host"
-	"gitlab.com/Gonzih/poe-status.com/migrations"
-	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/web/assets"
-	"gitlab.com/Gonzih/poe-status.com/web/endpoints"
+	"github.com/Gonzih/poe-status.com/app/config"
+	"github.com/Gonzih/poe-status.com/db"
+	"github.com/Gonzih/poe-status.com/host"
+	"github.com/Gonzih/poe-status.com/migrations"
+	"github.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/web/assets"
+	"github.com/Gonzih/poe-status.com/web/endpoints"
 )
 
 // Options repsenend command line options

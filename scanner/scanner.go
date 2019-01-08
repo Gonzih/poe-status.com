@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	"gitlab.com/Gonzih/poe-status.com/sh"
+	"github.com/Gonzih/poe-status.com/sh"
 )
 
 // NmapAvailable will test if nmap is present on the system

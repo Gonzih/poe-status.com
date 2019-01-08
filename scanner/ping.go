@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"regexp"
 
-	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/sh"
-	"gitlab.com/Gonzih/poe-status.com/util"
+	"github.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/sh"
+	"github.com/Gonzih/poe-status.com/util"
 )
 
 type pingOutput struct {

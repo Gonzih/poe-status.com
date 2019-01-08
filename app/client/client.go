@@ -11,10 +11,10 @@ import (
 	"time"
 
 	ptypes "github.com/golang/protobuf/ptypes"
-	"gitlab.com/Gonzih/poe-status.com/app/config"
-	"gitlab.com/Gonzih/poe-status.com/myip"
-	"gitlab.com/Gonzih/poe-status.com/rpc"
-	"gitlab.com/Gonzih/poe-status.com/scanner"
+	"github.com/Gonzih/poe-status.com/app/config"
+	"github.com/Gonzih/poe-status.com/myip"
+	"github.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/scanner"
 	"golang.org/x/sync/semaphore"
 )
 

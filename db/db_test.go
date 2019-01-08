@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/Gonzih/poe-status.com/migrations"
+	"github.com/Gonzih/poe-status.com/migrations"
 )
 
 func dbUp(t *testing.T) {

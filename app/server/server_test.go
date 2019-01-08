@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/Gonzih/poe-status.com/rpc"
+	"github.com/Gonzih/poe-status.com/rpc"
 )
 
 func dummyServer() *PoeStatusServer {
