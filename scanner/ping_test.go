@@ -1,6 +1,8 @@
 package scanner
 
 import (
+	"log"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -42,12 +44,19 @@ rtt min/avg/max/mdev = 3.308/3.815/4.310/0.345 ms`
 }
 
 func TestPingSimple(t *testing.T) {
-	out, err := Ping("google.com", 6)
-	assert.Nil(t, err)
-	if err == nil {
-		assert.NotEqual(t, out.Output, "")
-		assert.Equal(t, out.Transmitted, int32(6))
-		assert.Equal(t, out.Received, int32(6))
-		assert.Equal(t, out.Loss, int32(0))
+	key := "SKIP_PING"
+	skip := os.Getenv(key)
+
+	if skip == "" {
+		out, err := Ping("google.com", 6)
+		assert.Nil(t, err)
+		if err == nil {
+			assert.NotEqual(t, out.Output, "")
+			assert.Equal(t, out.Transmitted, int32(6))
+			assert.Equal(t, out.Received, int32(6))
+			assert.Equal(t, out.Loss, int32(0))
+		}
+	} else {
+		log.Printf("Skipping ping test due to env vars %s == %s", key, skip)
 	}
 }
