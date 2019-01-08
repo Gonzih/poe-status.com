@@ -7,7 +7,6 @@ jobs:
         environment:
           POSTGRES_DB: poestatustest
           POSTGRES_USER: poe
-          POSTGRES_PASSWORD: poepass
 
     working_directory: /tmp/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
@@ -17,6 +16,6 @@ jobs:
       - run:
           command: make clean test
           environment:
-              DATABASE_URL: postgres://poe:poepass@postgres/poestatustest?sslmode=disable
+              DATABASE_URL: postgres://poe:@postgres/localhost:5432?sslmode=disable
       - run:
           command: make clean build-binaries release
