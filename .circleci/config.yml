@@ -16,6 +16,6 @@ jobs:
       - run:
           command: make clean test
           environment:
-              TEST_DATABASE_URL: postgres://poe:@postgres/localhost:5432?sslmode=disable
+            TEST_DATABASE_URL: postgres://poe@localhost:5432/poestatustest?sslmode=disable
       - run:
           command: make clean build-binaries release
