@@ -14,5 +14,9 @@ jobs:
       - checkout
       - run: ./.circleci/deps.sh
       - run: go get
-      - run: make clean test
-      - run: make clean build-binaries release
+      - run:
+          command: make clean test
+          environment:
+              DATABASE_URL: postgres://poe:poepass@postgres/poestatustest?sslmode=disable
+      - run:
+          command: make clean build-binaries release
