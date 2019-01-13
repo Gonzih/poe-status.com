@@ -33,8 +33,7 @@
 (defonce state (r/atom nil))
 (defonce active-tab (r/atom "PC"))
 
-(def unstable-servers
-  #{"br.xbox.pathofexile.com"})
+(def unstable-servers #{})
 
 (defn server-status [{:keys [up_evidence down_evidence host]}]
   (let [up-noe (or (:number_of_samples up_evidence) 0)
