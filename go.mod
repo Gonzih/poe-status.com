@@ -15,7 +15,7 @@ require (
 	github.com/spf13/pflag v1.0.3 // indirect
 	github.com/stretchr/testify v1.3.0
 	github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee
-	github.com/twitchtv/twirp v5.5.1+incompatible
+	github.com/twitchtv/twirp v5.7.0+incompatible
 	golang.org/x/net v0.0.0-20190110200230-915654e7eabc // indirect
 	golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4
 	golang.org/x/sys v0.0.0-20190116161447-11f53e031339 // indirect
