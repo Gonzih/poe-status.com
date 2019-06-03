@@ -199,6 +199,8 @@ github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee h1:WLetZ3aTx2NKg
 github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee/go.mod h1:J5FsBj9uaXAn5G+CX8c9g+FkLwG2UAHqaxCGunmD1Hc=
 github.com/twitchtv/twirp v5.5.1+incompatible h1:ECRuN+ET2/I2udb3XWKIg6OJQO5ht8SD0ONNYHYr2Es=
 github.com/twitchtv/twirp v5.5.1+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
+github.com/twitchtv/twirp v5.7.0+incompatible h1:9NU0Pv7g90mqNkfUSSi7rP2EsKDtO9GYKzEiOfAplgA=
+github.com/twitchtv/twirp v5.7.0+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
 github.com/xanzy/go-gitlab v0.15.0/go.mod h1:8zdQa/ri1dfn8eS3Ir1SyfvOKlw7WBJ8DVThkpGiXrs=
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=
 github.com/xdg/stringprep v1.0.0/go.mod h1:Jhud4/sHMO4oL310DaZAKk9ZaJ08SJfe+sJh0HrGL1Y=
