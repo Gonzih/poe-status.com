@@ -3,10 +3,12 @@
 
 package rpc
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type ScanResults struct {
 	ScanIP               string               `protobuf:"bytes,1,opt,name=ScanIP,proto3" json:"ScanIP,omitempty"`
@@ -37,16 +39,17 @@ func (m *ScanResults) Reset()         { *m = ScanResults{} }
 func (m *ScanResults) String() string { return proto.CompactTextString(m) }
 func (*ScanResults) ProtoMessage()    {}
 func (*ScanResults) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_db6267535d3481d3, []int{0}
+	return fileDescriptor_a0b84a42fa06f626, []int{0}
 }
+
 func (m *ScanResults) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ScanResults.Unmarshal(m, b)
 }
 func (m *ScanResults) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ScanResults.Marshal(b, m, deterministic)
 }
-func (dst *ScanResults) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ScanResults.Merge(dst, src)
+func (m *ScanResults) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ScanResults.Merge(m, src)
 }
 func (m *ScanResults) XXX_Size() int {
 	return xxx_messageInfo_ScanResults.Size(m)
@@ -125,16 +128,17 @@ func (m *PortInfo) Reset()         { *m = PortInfo{} }
 func (m *PortInfo) String() string { return proto.CompactTextString(m) }
 func (*PortInfo) ProtoMessage()    {}
 func (*PortInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_db6267535d3481d3, []int{1}
+	return fileDescriptor_a0b84a42fa06f626, []int{1}
 }
+
 func (m *PortInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PortInfo.Unmarshal(m, b)
 }
 func (m *PortInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PortInfo.Marshal(b, m, deterministic)
 }
-func (dst *PortInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PortInfo.Merge(dst, src)
+func (m *PortInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PortInfo.Merge(m, src)
 }
 func (m *PortInfo) XXX_Size() int {
 	return xxx_messageInfo_PortInfo.Size(m)
@@ -170,16 +174,17 @@ func (m *AuthToken) Reset()         { *m = AuthToken{} }
 func (m *AuthToken) String() string { return proto.CompactTextString(m) }
 func (*AuthToken) ProtoMessage()    {}
 func (*AuthToken) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_db6267535d3481d3, []int{2}
+	return fileDescriptor_a0b84a42fa06f626, []int{2}
 }
+
 func (m *AuthToken) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AuthToken.Unmarshal(m, b)
 }
 func (m *AuthToken) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_AuthToken.Marshal(b, m, deterministic)
 }
-func (dst *AuthToken) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AuthToken.Merge(dst, src)
+func (m *AuthToken) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthToken.Merge(m, src)
 }
 func (m *AuthToken) XXX_Size() int {
 	return xxx_messageInfo_AuthToken.Size(m)
@@ -211,16 +216,17 @@ func (m *PingInfo) Reset()         { *m = PingInfo{} }
 func (m *PingInfo) String() string { return proto.CompactTextString(m) }
 func (*PingInfo) ProtoMessage()    {}
 func (*PingInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_db6267535d3481d3, []int{3}
+	return fileDescriptor_a0b84a42fa06f626, []int{3}
 }
+
 func (m *PingInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PingInfo.Unmarshal(m, b)
 }
 func (m *PingInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PingInfo.Marshal(b, m, deterministic)
 }
-func (dst *PingInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PingInfo.Merge(dst, src)
+func (m *PingInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PingInfo.Merge(m, src)
 }
 func (m *PingInfo) XXX_Size() int {
 	return xxx_messageInfo_PingInfo.Size(m)
@@ -269,16 +275,17 @@ func (m *Empty) Reset()         { *m = Empty{} }
 func (m *Empty) String() string { return proto.CompactTextString(m) }
 func (*Empty) ProtoMessage()    {}
 func (*Empty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_db6267535d3481d3, []int{4}
+	return fileDescriptor_a0b84a42fa06f626, []int{4}
 }
+
 func (m *Empty) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Empty.Unmarshal(m, b)
 }
 func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Empty.Marshal(b, m, deterministic)
 }
-func (dst *Empty) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Empty.Merge(dst, src)
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
 }
 func (m *Empty) XXX_Size() int {
 	return xxx_messageInfo_Empty.Size(m)
@@ -297,9 +304,9 @@ func init() {
 	proto.RegisterType((*Empty)(nil), "rpc.Empty")
 }
 
-func init() { proto.RegisterFile("service.proto", fileDescriptor_service_db6267535d3481d3) }
+func init() { proto.RegisterFile("service.proto", fileDescriptor_a0b84a42fa06f626) }
 
-var fileDescriptor_service_db6267535d3481d3 = []byte{
+var fileDescriptor_a0b84a42fa06f626 = []byte{
 	// 390 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x92, 0x41, 0x8b, 0xdb, 0x30,
 	0x10, 0x85, 0xc9, 0x26, 0xca, 0xda, 0x63, 0xb6, 0x2d, 0xa2, 0x14, 0x61, 0x0a, 0x75, 0xdd, 0x4b,
