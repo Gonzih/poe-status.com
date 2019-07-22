@@ -1,4 +1,4 @@
-.PHONY=generate test run clean deps start-server run-client build-binaries clean dev-server
+.PHONY=generate test run clean deps start-server run-client build-binaries clean dev-server docker-build docker-push
 
 BINARY_DIRS = cmd/poe-status-client cmd/poe-status-server
 SUBDIRS = ./app/config ./scanner ./sh ./util ./rpc ./myip ./db ./migrations ./host ./web/assets
@@ -41,3 +41,9 @@ figwheel:
 release:
 	make -C web/assets release
 	make generate
+
+docker-build:
+	docker build .
+
+docker-push:
+	echo docker-push
