@@ -41,7 +41,7 @@ jobs:
       - run: make docker-build docker-push
 
 workflows:
-  versino: 2
+  version: 2
   build_and_release:
     jobs:
       - build
