@@ -48,4 +48,4 @@ docker-build:
 	docker build . -t $(IMAGE_NAME)
 
 docker-push:
-	echo docker-push $(IMAGE_NAME)
+	docker push $(IMAGE_NAME)
