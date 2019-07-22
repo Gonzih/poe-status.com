@@ -18,6 +18,4 @@ jobs:
           environment:
             SKIP_PING: yes
             TEST_DATABASE_URL: postgres://poe@localhost:5432/poestatustest?sslmode=disable
-      - run:
-          command: make clean build-binaries release
       - run: docker build .
