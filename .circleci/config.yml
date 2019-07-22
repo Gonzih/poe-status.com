@@ -33,6 +33,7 @@ jobs:
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - checkout
       - setup_remote_docker
+      - run: apt-get -qq update && apt-get -y -qq install make
       - run: make docker-build docker-push
 
 workflows:
