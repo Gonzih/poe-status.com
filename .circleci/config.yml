@@ -1,7 +1,5 @@
 version: 2
-workflows:
-  - build
-  - release
+
 jobs:
   build:
     docker:
@@ -41,3 +39,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: make docker-build docker-push
+
+workflows:
+  versino: 2
+  build_and_release:
+    jobs:
+      - build
+      - release
