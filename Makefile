@@ -42,8 +42,10 @@ release:
 	make -C web/assets release
 	make generate
 
+IMAGE_NAME = gcr.io/personal-k8s-247519/poe-status.com
+
 docker-build:
-	docker build .
+	docker build . -t $(IMAGE_NAME)
 
 docker-push:
-	echo docker-push
+	echo docker-push $(IMAGE_NAME)
