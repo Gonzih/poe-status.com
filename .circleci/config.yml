@@ -27,12 +27,13 @@ jobs:
 
     working_directory: /tmp/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
+      - setup_remote_docker
       - run: |
           echo $GCLOUD_SERVICE_KEY | base64 --decode | gcloud auth activate-service-account --key-file=-
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+          gcloud auth configure-docker
       - checkout
-      - setup_remote_docker
       - run: apt-get -qq update && apt-get -y -qq install make
       - run: make docker-build docker-push
 
