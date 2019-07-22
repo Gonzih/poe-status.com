@@ -1,6 +1,9 @@
 version: 2
+workflows:
+  - build
+  - release
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/golang:latest
       - image: circleci/postgres:latest
