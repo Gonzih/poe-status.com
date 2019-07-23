@@ -49,3 +49,6 @@ docker-build:
 
 docker-push:
 	docker push $(IMAGE_NAME)
+
+docker-sh:
+	docker run -ti $(IMAGE_NAME) sh
