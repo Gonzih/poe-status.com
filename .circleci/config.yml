@@ -20,7 +20,7 @@ jobs:
           environment:
             SKIP_PING: yes
             TEST_DATABASE_URL: postgres://poe@localhost:5432/poestatustest?sslmode=disable
-      - run: make docker-build docker-push
+
   release:
     docker:
       - image: google/cloud-sdk
