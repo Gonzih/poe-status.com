@@ -30,6 +30,10 @@ build-binaries: generate
 	cd cmd/poe-status-client && go build -tags=dev -o poe-status-client
 	cd cmd/poe-status-server && go build -tags=dev -o poe-status-server
 
+release-binaries: release
+	cd cmd/poe-status-client && go build -o poe-status-client
+	cd cmd/poe-status-server && go build -o poe-status-server
+
 clean:
 	rm -f $(GENERATE_FILES) main
 
@@ -51,4 +55,4 @@ docker-push:
 	docker push $(IMAGE_NAME)
 
 docker-sh:
-	docker run -ti $(IMAGE_NAME) sh
+	docker run -ti $(IMAGE_NAME) bash

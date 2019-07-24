@@ -20,16 +20,15 @@ ENV GO111MODULE=on
 COPY . .
 
 RUN ./.circleci/deps.sh
-RUN make clean build-binaries release
+RUN make clean release-binaries
 
 
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk add --no-cache ca-certificates postgresql-client nmap
+# RUN apk add --no-cache ca-certificates postgresql-client nmap
+RUN apt-get update -qq && apt-get install -y -qq  ca-certificates nmap iputils-ping
 
-WORKDIR /app
-
-COPY --from=builder /go/src/github.com/Gonzih/poe-status.com/cmd/poe-status-client/poe-status-client /bin/
-COPY --from=builder /go/src/github.com/Gonzih/poe-status.com/cmd/poe-status-server/poe-status-server /bin/
+COPY --from=builder /go/src/github.com/Gonzih/poe-status.com/cmd/poe-status-client/poe-status-client /usr/bin/
+COPY --from=builder /go/src/github.com/Gonzih/poe-status.com/cmd/poe-status-server/poe-status-server /usr/bin/
 
 EXPOSE 8080
