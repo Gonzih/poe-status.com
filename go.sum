@@ -237,6 +237,8 @@ github.com/twitchtv/twirp v5.5.1+incompatible h1:ECRuN+ET2/I2udb3XWKIg6OJQO5ht8S
 github.com/twitchtv/twirp v5.5.1+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
 github.com/twitchtv/twirp v5.7.0+incompatible h1:9NU0Pv7g90mqNkfUSSi7rP2EsKDtO9GYKzEiOfAplgA=
 github.com/twitchtv/twirp v5.7.0+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
+github.com/twitchtv/twirp v5.8.0+incompatible h1:DTfGS9u/jHbo34cBB+qhzVHRaAq+tRois71j8pvjQ5M=
+github.com/twitchtv/twirp v5.8.0+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
 github.com/ugorji/go/codec v0.0.0-20181204163529-d75b2dcb6bc8/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
 github.com/xanzy/go-gitlab v0.15.0/go.mod h1:8zdQa/ri1dfn8eS3Ir1SyfvOKlw7WBJ8DVThkpGiXrs=
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=
