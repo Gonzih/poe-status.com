@@ -9,7 +9,7 @@ jobs:
           POSTGRES_DB: poestatustest
           POSTGRES_USER: poe
 
-    working_directory: /tmp/{{ORG_NAME}}/{{REPO_NAME}}
+    working_directory: ~/app
     steps:
       - checkout
       - setup_remote_docker
@@ -25,7 +25,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
 
-    working_directory: /tmp/{{ORG_NAME}}/{{REPO_NAME}}
+    working_directory: ~/app
     steps:
       - setup_remote_docker
       - run: |
