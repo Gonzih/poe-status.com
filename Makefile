@@ -11,7 +11,6 @@ generate: deps
 	go generate $(SUBDIRS)
 
 deps:
-	go get
 	go get github.com/twitchtv/twirp/protoc-gen-twirp
 	go get github.com/golang/protobuf/protoc-gen-go
 
