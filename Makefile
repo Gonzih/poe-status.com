@@ -51,7 +51,7 @@ docker-build:
 	docker build . -t $(IMAGE_NAME)
 
 docker-push:
-	docker push $(IMAGE_NAME)
+	# docker push $(IMAGE_NAME)
 
 docker-sh:
 	docker run -ti $(IMAGE_NAME) bash
