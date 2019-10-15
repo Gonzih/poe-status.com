@@ -13,7 +13,6 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: ./.circleci/deps.sh
-      - run: go get
       - run:
           command: make clean test
           environment:
