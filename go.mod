@@ -16,5 +16,5 @@ require (
 	github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee
 	github.com/twitchtv/twirp v5.8.0+incompatible
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
-	gopkg.in/yaml.v2 v2.2.4
+	gopkg.in/yaml.v2 v2.2.5
 )
