@@ -1,0 +1,2267 @@
+{:log
+ [{:path [],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.10.1"},
+   :use-coord {:mvn/version "1.10.1"},
+   :coord-id {:mvn/version "1.10.1"},
+   :include true,
+   :reason :new-top-dep}
+  {:path [],
+   :lib com.bhauman/figwheel-main,
+   :coord {:mvn/version "0.2.0"},
+   :use-coord {:mvn/version "0.2.0"},
+   :coord-id {:mvn/version "0.2.0"},
+   :include true,
+   :reason :new-top-dep}
+  {:path [],
+   :lib com.bhauman/rebel-readline-cljs,
+   :coord {:mvn/version "0.1.4"},
+   :use-coord {:mvn/version "0.1.4"},
+   :coord-id {:mvn/version "0.1.4"},
+   :include true,
+   :reason :new-top-dep}
+  {:path [],
+   :lib reagent/reagent,
+   :coord {:mvn/version "0.8.1"},
+   :use-coord {:mvn/version "0.8.1"},
+   :coord-id {:mvn/version "0.8.1"},
+   :include true,
+   :reason :new-top-dep}
+  {:path [org.clojure/clojure],
+   :lib org.clojure/spec.alpha,
+   :coord {:mvn/version "0.2.176"},
+   :use-coord {:mvn/version "0.2.176"},
+   :coord-id {:mvn/version "0.2.176"},
+   :include true,
+   :reason :new-dep}
+  {:path [org.clojure/clojure],
+   :lib org.clojure/core.specs.alpha,
+   :coord {:mvn/version "0.2.44"},
+   :use-coord {:mvn/version "0.2.44"},
+   :coord-id {:mvn/version "0.2.44"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main],
+   :lib org.clojure/clojurescript,
+   :coord
+   {:mvn/version "1.10.339",
+    :exclusions #{commons-codec/commons-codec}},
+   :use-coord
+   {:mvn/version "1.10.339",
+    :exclusions #{commons-codec/commons-codec}},
+   :coord-id {:mvn/version "1.10.339"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib com.bhauman/figwheel-repl,
+   :coord {:mvn/version "0.2.0"},
+   :use-coord {:mvn/version "0.2.0"},
+   :coord-id {:mvn/version "0.2.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib com.bhauman/figwheel-core,
+   :coord {:mvn/version "0.2.0"},
+   :use-coord {:mvn/version "0.2.0"},
+   :coord-id {:mvn/version "0.2.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib com.bhauman/spell-spec,
+   :coord {:mvn/version "0.1.1"},
+   :use-coord {:mvn/version "0.1.1"},
+   :coord-id {:mvn/version "0.1.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib com.bhauman/cljs-test-display,
+   :coord {:mvn/version "0.1.1"},
+   :use-coord {:mvn/version "0.1.1"},
+   :coord-id {:mvn/version "0.1.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib ring/ring,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib org.eclipse.jetty.websocket/websocket-servlet,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib org.eclipse.jetty.websocket/websocket-server,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib binaryage/devtools,
+   :coord {:mvn/version "0.9.10"},
+   :use-coord {:mvn/version "0.9.10"},
+   :coord-id {:mvn/version "0.9.10"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib hawk/hawk,
+   :coord {:mvn/version "0.2.11"},
+   :use-coord {:mvn/version "0.2.11"},
+   :coord-id {:mvn/version "0.2.11"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main],
+   :lib expound/expound,
+   :coord {:mvn/version "0.7.1"},
+   :use-coord {:mvn/version "0.7.1"},
+   :coord-id {:mvn/version "0.7.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs],
+   :lib com.bhauman/rebel-readline,
+   :coord {:mvn/version "0.1.4"},
+   :use-coord {:mvn/version "0.1.4"},
+   :coord-id {:mvn/version "0.1.4"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs],
+   :lib org.clojure/clojurescript,
+   :coord {:mvn/version "1.9.946"},
+   :use-coord {:mvn/version "1.9.946"},
+   :coord-id {:mvn/version "1.9.946"},
+   :include false,
+   :reason :older-version}
+  {:path [com.bhauman/rebel-readline-cljs],
+   :lib cljs-tooling/cljs-tooling,
+   :coord {:mvn/version "0.2.0"},
+   :use-coord {:mvn/version "0.2.0"},
+   :coord-id {:mvn/version "0.2.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [reagent/reagent],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [reagent/reagent],
+   :lib cljsjs/react,
+   :coord {:mvn/version "16.3.2-0"},
+   :use-coord {:mvn/version "16.3.2-0"},
+   :coord-id {:mvn/version "16.3.2-0"},
+   :include true,
+   :reason :new-dep}
+  {:path [reagent/reagent],
+   :lib cljsjs/react-dom,
+   :coord {:mvn/version "16.3.2-0"},
+   :use-coord {:mvn/version "16.3.2-0"},
+   :coord-id {:mvn/version "16.3.2-0"},
+   :include true,
+   :reason :new-dep}
+  {:path [reagent/reagent],
+   :lib cljsjs/react-dom-server,
+   :coord {:mvn/version "16.3.2-0"},
+   :use-coord {:mvn/version "16.3.2-0"},
+   :coord-id {:mvn/version "16.3.2-0"},
+   :include true,
+   :reason :new-dep}
+  {:path [reagent/reagent],
+   :lib cljsjs/create-react-class,
+   :coord {:mvn/version "15.6.3-0"},
+   :use-coord {:mvn/version "15.6.3-0"},
+   :coord-id {:mvn/version "15.6.3-0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.8.0"},
+   :use-coord {:mvn/version "1.8.0"},
+   :coord-id {:mvn/version "1.8.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib com.google.javascript/closure-compiler-unshaded,
+   :coord {:mvn/version "v20180610"},
+   :use-coord {:mvn/version "v20180610"},
+   :coord-id {:mvn/version "v20180610"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib org.clojure/google-closure-library,
+   :coord {:mvn/version "0.0-20170809-b9c14c6b"},
+   :use-coord {:mvn/version "0.0-20170809-b9c14c6b"},
+   :coord-id {:mvn/version "0.0-20170809-b9c14c6b"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib org.clojure/data.json,
+   :coord {:mvn/version "0.2.6"},
+   :use-coord {:mvn/version "0.2.6"},
+   :coord-id {:mvn/version "0.2.6"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib org.mozilla/rhino,
+   :coord {:mvn/version "1.7R5"},
+   :use-coord {:mvn/version "1.7R5"},
+   :coord-id {:mvn/version "1.7R5"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib org.clojure/tools.reader,
+   :coord {:mvn/version "1.3.0-alpha3"},
+   :use-coord {:mvn/version "1.3.0-alpha3"},
+   :coord-id {:mvn/version "1.3.0-alpha3"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main org.clojure/clojurescript],
+   :lib com.cognitect/transit-clj,
+   :coord {:mvn/version "0.8.309", :exclusions #{org.clojure/clojure}},
+   :use-coord
+   {:mvn/version "0.8.309", :exclusions #{org.clojure/clojure}},
+   :coord-id {:mvn/version "0.8.309"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib org.clojure/clojurescript,
+   :coord {:mvn/version "1.10.339"},
+   :use-coord {:mvn/version "1.10.339"},
+   :coord-id {:mvn/version "1.10.339"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib ring/ring-defaults,
+   :coord {:mvn/version "0.3.2"},
+   :use-coord {:mvn/version "0.3.2"},
+   :coord-id {:mvn/version "0.3.2"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib ring/ring-devel,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib co.deps/ring-etag-middleware,
+   :coord {:mvn/version "0.2.0"},
+   :use-coord {:mvn/version "0.2.0"},
+   :coord-id {:mvn/version "0.2.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-repl],
+   :lib ring-cors/ring-cors,
+   :coord {:mvn/version "0.1.12"},
+   :use-coord {:mvn/version "0.1.12"},
+   :coord-id {:mvn/version "0.1.12"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-core],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main com.bhauman/figwheel-core],
+   :lib org.clojure/clojurescript,
+   :coord {:mvn/version "1.10.339"},
+   :use-coord {:mvn/version "1.10.339"},
+   :coord-id {:mvn/version "1.10.339"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main com.bhauman/spell-spec],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main com.bhauman/cljs-test-display],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main ring/ring],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main ring/ring],
+   :lib ring/ring-devel,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main ring/ring],
+   :lib ring/ring-jetty-adapter,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main ring/ring],
+   :lib ring/ring-servlet,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-servlet],
+   :lib org.eclipse.jetty.websocket/websocket-api,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-servlet],
+   :lib javax.servlet/javax.servlet-api,
+   :coord {:mvn/version "3.1.0"},
+   :use-coord {:mvn/version "3.1.0"},
+   :coord-id {:mvn/version "3.1.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server],
+   :lib org.eclipse.jetty.websocket/websocket-common,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server],
+   :lib org.eclipse.jetty.websocket/websocket-client,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server],
+   :lib org.eclipse.jetty.websocket/websocket-servlet,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server],
+   :lib org.eclipse.jetty/jetty-servlet,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server],
+   :lib org.eclipse.jetty/jetty-http,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main binaryage/devtools],
+   :lib binaryage/env-config,
+   :coord {:mvn/version "0.2.2"},
+   :use-coord {:mvn/version "0.2.2"},
+   :coord-id {:mvn/version "0.2.2"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main hawk/hawk],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.8.0"},
+   :use-coord {:mvn/version "1.8.0"},
+   :coord-id {:mvn/version "1.8.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main hawk/hawk],
+   :lib net.incongru.watchservice/barbary-watchservice,
+   :coord {:mvn/version "1.0"},
+   :use-coord {:mvn/version "1.0"},
+   :coord-id {:mvn/version "1.0"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.8.0"},
+   :use-coord {:mvn/version "1.8.0"},
+   :coord-id {:mvn/version "1.8.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib org.jline/jline-reader,
+   :coord {:mvn/version "3.5.1"},
+   :use-coord {:mvn/version "3.5.1"},
+   :coord-id {:mvn/version "3.5.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib org.jline/jline-terminal,
+   :coord {:mvn/version "3.5.1"},
+   :use-coord {:mvn/version "3.5.1"},
+   :coord-id {:mvn/version "3.5.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib org.jline/jline-terminal-jansi,
+   :coord {:mvn/version "3.5.1"},
+   :use-coord {:mvn/version "3.5.1"},
+   :coord-id {:mvn/version "3.5.1"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib cljfmt/cljfmt,
+   :coord {:mvn/version "0.5.7"},
+   :use-coord {:mvn/version "0.5.7"},
+   :coord-id {:mvn/version "0.5.7"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline],
+   :lib compliment/compliment,
+   :coord {:mvn/version "0.3.6"},
+   :use-coord {:mvn/version "0.3.6"},
+   :coord-id {:mvn/version "0.3.6"},
+   :include true,
+   :reason :new-dep}
+  {:path [reagent/reagent cljsjs/react-dom],
+   :lib cljsjs/react,
+   :coord {:mvn/version "16.3.2-0"},
+   :use-coord {:mvn/version "16.3.2-0"},
+   :coord-id {:mvn/version "16.3.2-0"},
+   :include false,
+   :reason :same-version}
+  {:path [reagent/reagent cljsjs/react-dom-server],
+   :lib cljsjs/react-dom,
+   :coord {:mvn/version "16.3.2-0"},
+   :use-coord {:mvn/version "16.3.2-0"},
+   :coord-id {:mvn/version "16.3.2-0"},
+   :include false,
+   :reason :same-version}
+  {:path [reagent/reagent cljsjs/create-react-class],
+   :lib cljsjs/react,
+   :coord {:mvn/version "15.6.1-2"},
+   :use-coord {:mvn/version "15.6.1-2"},
+   :coord-id {:mvn/version "15.6.1-2"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.javascript/closure-compiler-externs,
+   :coord {:mvn/version "v20180610"},
+   :use-coord {:mvn/version "v20180610"},
+   :coord-id {:mvn/version "v20180610"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib args4j/args4j,
+   :coord {:mvn/version "2.33"},
+   :use-coord {:mvn/version "2.33"},
+   :coord-id {:mvn/version "2.33"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.errorprone/error_prone_annotations,
+   :coord {:mvn/version "2.0.18"},
+   :use-coord {:mvn/version "2.0.18"},
+   :coord-id {:mvn/version "2.0.18"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.guava/guava,
+   :coord {:mvn/version "22.0"},
+   :use-coord {:mvn/version "22.0"},
+   :coord-id {:mvn/version "22.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.protobuf/protobuf-java,
+   :coord {:mvn/version "3.0.2"},
+   :use-coord {:mvn/version "3.0.2"},
+   :coord-id {:mvn/version "3.0.2"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.code.gson/gson,
+   :coord {:mvn/version "2.7"},
+   :use-coord {:mvn/version "2.7"},
+   :coord-id {:mvn/version "2.7"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.code.findbugs/jsr305,
+   :coord {:mvn/version "3.0.1"},
+   :use-coord {:mvn/version "3.0.1"},
+   :coord-id {:mvn/version "3.0.1"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded],
+   :lib com.google.jsinterop/jsinterop-annotations,
+   :coord {:mvn/version "1.0.0"},
+   :use-coord {:mvn/version "1.0.0"},
+   :coord-id {:mvn/version "1.0.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    org.clojure/google-closure-library],
+   :lib org.clojure/google-closure-library-third-party,
+   :coord {:mvn/version "0.0-20170809-b9c14c6b"},
+   :use-coord {:mvn/version "0.0-20170809-b9c14c6b"},
+   :coord-id {:mvn/version "0.0-20170809-b9c14c6b"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    org.clojure/data.json],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.4.0"},
+   :use-coord {:mvn/version "1.4.0"},
+   :coord-id {:mvn/version "1.4.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    org.clojure/tools.reader],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj],
+   :lib com.cognitect/transit-java,
+   :coord {:mvn/version "0.8.332"},
+   :use-coord {:mvn/version "0.8.332"},
+   :coord-id {:mvn/version "0.8.332"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib ring/ring-codec,
+   :coord {:mvn/version "1.1.1"},
+   :use-coord {:mvn/version "1.1.1"},
+   :coord-id {:mvn/version "1.1.1"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib commons-io/commons-io,
+   :coord {:mvn/version "2.6"},
+   :use-coord {:mvn/version "2.6"},
+   :coord-id {:mvn/version "2.6"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib commons-fileupload/commons-fileupload,
+   :coord {:mvn/version "1.3.3"},
+   :use-coord {:mvn/version "1.3.3"},
+   :coord-id {:mvn/version "1.3.3"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib clj-time/clj-time,
+   :coord {:mvn/version "0.14.3"},
+   :use-coord {:mvn/version "0.14.3"},
+   :coord-id {:mvn/version "0.14.3"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib crypto-random/crypto-random,
+   :coord {:mvn/version "1.2.0"},
+   :use-coord {:mvn/version "1.2.0"},
+   :coord-id {:mvn/version "1.2.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core],
+   :lib crypto-equality/crypto-equality,
+   :coord {:mvn/version "1.0.0"},
+   :use-coord {:mvn/version "1.0.0"},
+   :coord-id {:mvn/version "1.0.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.6.3"},
+   :use-coord {:mvn/version "1.6.3"},
+   :coord-id {:mvn/version "1.6.3"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib ring/ring-ssl,
+   :coord {:mvn/version "0.3.0"},
+   :use-coord {:mvn/version "0.3.0"},
+   :coord-id {:mvn/version "0.3.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib ring/ring-headers,
+   :coord {:mvn/version "0.3.0"},
+   :use-coord {:mvn/version "0.3.0"},
+   :coord-id {:mvn/version "0.3.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib ring/ring-anti-forgery,
+   :coord {:mvn/version "1.3.0"},
+   :use-coord {:mvn/version "1.3.0"},
+   :coord-id {:mvn/version "1.3.0"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults],
+   :lib javax.servlet/javax.servlet-api,
+   :coord {:mvn/version "3.1.0"},
+   :use-coord {:mvn/version "3.1.0"},
+   :coord-id {:mvn/version "3.1.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel],
+   :lib hiccup/hiccup,
+   :coord {:mvn/version "1.0.5"},
+   :use-coord {:mvn/version "1.0.5"},
+   :coord-id {:mvn/version "1.0.5"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel],
+   :lib clj-stacktrace/clj-stacktrace,
+   :coord {:mvn/version "0.2.8"},
+   :use-coord {:mvn/version "0.2.8"},
+   :coord-id {:mvn/version "0.2.8"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel],
+   :lib ns-tracker/ns-tracker,
+   :coord {:mvn/version "0.3.1"},
+   :use-coord {:mvn/version "0.3.1"},
+   :coord-id {:mvn/version "0.3.1"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    co.deps/ring-etag-middleware],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.8.0"},
+   :use-coord {:mvn/version "1.8.0"},
+   :coord-id {:mvn/version "1.8.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    co.deps/ring-etag-middleware],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.6.3"},
+   :use-coord {:mvn/version "1.6.3"},
+   :coord-id {:mvn/version "1.6.3"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring-cors/ring-cors],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.9.0"},
+   :use-coord {:mvn/version "1.9.0"},
+   :coord-id {:mvn/version "1.9.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-jetty-adapter],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-jetty-adapter],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-jetty-adapter],
+   :lib ring/ring-servlet,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-jetty-adapter],
+   :lib org.eclipse.jetty/jetty-server,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-servlet],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path [com.bhauman/figwheel-main ring/ring ring/ring-servlet],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-common],
+   :lib org.eclipse.jetty.websocket/websocket-api,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-common],
+   :lib org.eclipse.jetty/jetty-util,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-common],
+   :lib org.eclipse.jetty/jetty-io,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-client],
+   :lib org.eclipse.jetty/jetty-util,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-client],
+   :lib org.eclipse.jetty/jetty-io,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-client],
+   :lib org.eclipse.jetty.websocket/websocket-common,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty/jetty-servlet],
+   :lib org.eclipse.jetty/jetty-security,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty/jetty-http],
+   :lib org.eclipse.jetty/jetty-util,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main binaryage/devtools binaryage/env-config],
+   :lib org.clojure/tools.reader,
+   :coord {:mvn/version "1.0.5"},
+   :use-coord {:mvn/version "1.0.5"},
+   :coord-id {:mvn/version "1.0.5"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    hawk/hawk
+    net.incongru.watchservice/barbary-watchservice],
+   :lib net.java.dev.jna/jna,
+   :coord {:mvn/version "3.2.2"},
+   :use-coord {:mvn/version "3.2.2"},
+   :coord-id {:mvn/version "3.2.2"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    org.jline/jline-reader],
+   :lib org.jline/jline-terminal,
+   :coord {:mvn/version "3.5.1"},
+   :use-coord {:mvn/version "3.5.1"},
+   :coord-id {:mvn/version "3.5.1"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    org.jline/jline-terminal-jansi],
+   :lib org.fusesource.jansi/jansi,
+   :coord {:mvn/version "1.16"},
+   :use-coord {:mvn/version "1.16"},
+   :coord-id {:mvn/version "1.16"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    org.jline/jline-terminal-jansi],
+   :lib org.jline/jline-terminal,
+   :coord {:mvn/version "3.5.1"},
+   :use-coord {:mvn/version "3.5.1"},
+   :coord-id {:mvn/version "3.5.1"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt],
+   :lib org.clojure/tools.reader,
+   :coord {:mvn/version "1.0.0-alpha4"},
+   :use-coord {:mvn/version "1.0.0-alpha4"},
+   :coord-id {:mvn/version "1.0.0-alpha4"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt],
+   :lib rewrite-clj/rewrite-clj,
+   :coord {:mvn/version "0.5.2"},
+   :use-coord {:mvn/version "0.5.2"},
+   :coord-id {:mvn/version "0.5.2"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt],
+   :lib rewrite-cljs/rewrite-cljs,
+   :coord {:mvn/version "0.4.3"},
+   :use-coord {:mvn/version "0.4.3"},
+   :coord-id {:mvn/version "0.4.3"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded
+    com.google.guava/guava],
+   :lib com.google.code.findbugs/jsr305,
+   :coord {:mvn/version "1.3.9"},
+   :use-coord {:mvn/version "1.3.9"},
+   :coord-id {:mvn/version "1.3.9"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded
+    com.google.guava/guava],
+   :lib com.google.errorprone/error_prone_annotations,
+   :coord {:mvn/version "2.0.18"},
+   :use-coord {:mvn/version "2.0.18"},
+   :coord-id {:mvn/version "2.0.18"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded
+    com.google.guava/guava],
+   :lib com.google.j2objc/j2objc-annotations,
+   :coord {:mvn/version "1.1"},
+   :use-coord {:mvn/version "1.1"},
+   :coord-id {:mvn/version "1.1"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.google.javascript/closure-compiler-unshaded
+    com.google.guava/guava],
+   :lib org.codehaus.mojo/animal-sniffer-annotations,
+   :coord {:mvn/version "1.14"},
+   :use-coord {:mvn/version "1.14"},
+   :coord-id {:mvn/version "1.14"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java],
+   :lib com.fasterxml.jackson.core/jackson-core,
+   :coord {:mvn/version "2.8.7"},
+   :use-coord {:mvn/version "2.8.7"},
+   :coord-id {:mvn/version "2.8.7"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java],
+   :lib org.msgpack/msgpack,
+   :coord {:mvn/version "0.6.12"},
+   :use-coord {:mvn/version "0.6.12"},
+   :coord-id {:mvn/version "0.6.12"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java],
+   :lib commons-codec/commons-codec,
+   :coord {:mvn/version "1.10"},
+   :use-coord {:mvn/version "1.10"},
+   :coord-id {:mvn/version "1.10"},
+   :include false,
+   :reason :excluded}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    ring/ring-codec],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    ring/ring-codec],
+   :lib commons-codec/commons-codec,
+   :coord {:mvn/version "1.11"},
+   :use-coord {:mvn/version "1.11"},
+   :coord-id {:mvn/version "1.11"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    commons-fileupload/commons-fileupload],
+   :lib commons-io/commons-io,
+   :coord {:mvn/version "2.2"},
+   :use-coord {:mvn/version "2.2"},
+   :coord-id {:mvn/version "2.2"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    clj-time/clj-time],
+   :lib joda-time/joda-time,
+   :coord {:mvn/version "2.9.9"},
+   :use-coord {:mvn/version "2.9.9"},
+   :coord-id {:mvn/version "2.9.9"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    crypto-random/crypto-random],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.2.1"},
+   :use-coord {:mvn/version "1.2.1"},
+   :coord-id {:mvn/version "1.2.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    crypto-random/crypto-random],
+   :lib commons-codec/commons-codec,
+   :coord {:mvn/version "1.6"},
+   :use-coord {:mvn/version "1.6"},
+   :coord-id {:mvn/version "1.6"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-core
+    crypto-equality/crypto-equality],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.2.1"},
+   :use-coord {:mvn/version "1.2.1"},
+   :coord-id {:mvn/version "1.2.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-ssl],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-ssl],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.6.0"},
+   :use-coord {:mvn/version "1.6.0"},
+   :coord-id {:mvn/version "1.6.0"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-headers],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-headers],
+   :lib ring/ring-core,
+   :coord {:mvn/version "1.6.0"},
+   :use-coord {:mvn/version "1.6.0"},
+   :coord-id {:mvn/version "1.6.0"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-anti-forgery],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-anti-forgery],
+   :lib crypto-random/crypto-random,
+   :coord {:mvn/version "1.2.0"},
+   :use-coord {:mvn/version "1.2.0"},
+   :coord-id {:mvn/version "1.2.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-anti-forgery],
+   :lib crypto-equality/crypto-equality,
+   :coord {:mvn/version "1.0.0"},
+   :use-coord {:mvn/version "1.0.0"},
+   :coord-id {:mvn/version "1.0.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-defaults
+    ring/ring-anti-forgery],
+   :lib hiccup/hiccup,
+   :coord {:mvn/version "1.0.5"},
+   :use-coord {:mvn/version "1.0.5"},
+   :coord-id {:mvn/version "1.0.5"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    hiccup/hiccup],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.2.1"},
+   :use-coord {:mvn/version "1.2.1"},
+   :coord-id {:mvn/version "1.2.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    clj-stacktrace/clj-stacktrace],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.4.0"},
+   :use-coord {:mvn/version "1.4.0"},
+   :coord-id {:mvn/version "1.4.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    ns-tracker/ns-tracker],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.5.1"},
+   :use-coord {:mvn/version "1.5.1"},
+   :coord-id {:mvn/version "1.5.1"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    ns-tracker/ns-tracker],
+   :lib org.clojure/tools.namespace,
+   :coord {:mvn/version "0.2.11"},
+   :use-coord {:mvn/version "0.2.11"},
+   :coord-id {:mvn/version "0.2.11"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    ns-tracker/ns-tracker],
+   :lib org.clojure/java.classpath,
+   :coord {:mvn/version "0.2.3"},
+   :use-coord {:mvn/version "0.2.3"},
+   :coord-id {:mvn/version "0.2.3"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    ring/ring
+    ring/ring-jetty-adapter
+    org.eclipse.jetty/jetty-server],
+   :lib javax.servlet/javax.servlet-api,
+   :coord {:mvn/version "3.1.0"},
+   :use-coord {:mvn/version "3.1.0"},
+   :coord-id {:mvn/version "3.1.0"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    ring/ring
+    ring/ring-jetty-adapter
+    org.eclipse.jetty/jetty-server],
+   :lib org.eclipse.jetty/jetty-http,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    ring/ring
+    ring/ring-jetty-adapter
+    org.eclipse.jetty/jetty-server],
+   :lib org.eclipse.jetty/jetty-io,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty.websocket/websocket-common
+    org.eclipse.jetty/jetty-io],
+   :lib org.eclipse.jetty/jetty-util,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.eclipse.jetty.websocket/websocket-server
+    org.eclipse.jetty/jetty-servlet
+    org.eclipse.jetty/jetty-security],
+   :lib org.eclipse.jetty/jetty-server,
+   :coord {:mvn/version "9.2.24.v20180105"},
+   :use-coord {:mvn/version "9.2.24.v20180105"},
+   :coord-id {:mvn/version "9.2.24.v20180105"},
+   :include false,
+   :reason :same-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt
+    rewrite-clj/rewrite-clj],
+   :lib org.clojure/tools.reader,
+   :coord {:mvn/version "0.10.0", :exclusions #{org.clojure/clojure}},
+   :use-coord
+   {:mvn/version "0.10.0", :exclusions #{org.clojure/clojure}},
+   :coord-id {:mvn/version "0.10.0"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt
+    rewrite-cljs/rewrite-cljs],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.7.0"},
+   :use-coord {:mvn/version "1.7.0"},
+   :coord-id {:mvn/version "1.7.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt
+    rewrite-cljs/rewrite-cljs],
+   :lib org.clojure/clojurescript,
+   :coord {:mvn/version "1.7.228", :exclusions #{org.apache.ant/ant}},
+   :use-coord
+   {:mvn/version "1.7.228", :exclusions #{org.apache.ant/ant}},
+   :coord-id {:mvn/version "1.7.228"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/rebel-readline-cljs
+    com.bhauman/rebel-readline
+    cljfmt/cljfmt
+    rewrite-cljs/rewrite-cljs],
+   :lib org.clojure/tools.reader,
+   :coord {:mvn/version "1.0.0-alpha3"},
+   :use-coord {:mvn/version "1.0.0-alpha3"},
+   :coord-id {:mvn/version "1.0.0-alpha3"},
+   :include false,
+   :reason :older-version}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java
+    org.msgpack/msgpack],
+   :lib com.googlecode.json-simple/json-simple,
+   :coord {:mvn/version "1.1.1", :exclusions #{junit/junit}},
+   :use-coord {:mvn/version "1.1.1", :exclusions #{junit/junit}},
+   :coord-id {:mvn/version "1.1.1"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java
+    org.msgpack/msgpack],
+   :lib org.javassist/javassist,
+   :coord {:mvn/version "3.18.1-GA"},
+   :use-coord {:mvn/version "3.18.1-GA"},
+   :coord-id {:mvn/version "3.18.1-GA"},
+   :include true,
+   :reason :new-dep}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    ns-tracker/ns-tracker
+    org.clojure/tools.namespace],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.4.0"},
+   :use-coord {:mvn/version "1.4.0"},
+   :coord-id {:mvn/version "1.4.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    com.bhauman/figwheel-repl
+    ring/ring-devel
+    ns-tracker/ns-tracker
+    org.clojure/java.classpath],
+   :lib org.clojure/clojure,
+   :coord {:mvn/version "1.4.0"},
+   :use-coord {:mvn/version "1.4.0"},
+   :coord-id {:mvn/version "1.4.0"},
+   :include false,
+   :reason :use-top}
+  {:path
+   [com.bhauman/figwheel-main
+    org.clojure/clojurescript
+    com.cognitect/transit-clj
+    com.cognitect/transit-java
+    org.msgpack/msgpack
+    com.googlecode.json-simple/json-simple],
+   :lib junit/junit,
+   :coord {:mvn/version "4.10"},
+   :use-coord {:mvn/version "4.10"},
+   :coord-id {:mvn/version "4.10"},
+   :include false,
+   :reason :excluded}],
+ :vmap
+ {com.cognitect/transit-java
+  {:versions
+   {{:mvn/version "0.8.332"}
+    {:mvn/version "0.8.332", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.8.332"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.cognitect/transit-clj]}},
+   :select {:mvn/version "0.8.332"}},
+  org.clojure/data.json
+  {:versions
+   {{:mvn/version "0.2.6"}
+    {:mvn/version "0.2.6", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.6"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "0.2.6"}},
+  org.clojure/clojure
+  {:versions
+   {{:mvn/version "1.10.1"}
+    {:mvn/version "1.10.1", :deps/manifest :mvn}},
+   :paths {{:mvn/version "1.10.1"} #{[]}},
+   :select {:mvn/version "1.10.1"},
+   :top true},
+  joda-time/joda-time
+  {:versions
+   {{:mvn/version "2.9.9"}
+    {:mvn/version "2.9.9", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.9.9"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core
+       clj-time/clj-time]}},
+   :select {:mvn/version "2.9.9"}},
+  commons-codec/commons-codec
+  {:versions
+   {{:mvn/version "1.11"} {:mvn/version "1.11", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.11"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core
+       ring/ring-codec]}},
+   :select {:mvn/version "1.11"}},
+  com.bhauman/cljs-test-display
+  {:versions
+   {{:mvn/version "0.1.1"}
+    {:mvn/version "0.1.1", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.1.1"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.1.1"}},
+  com.bhauman/figwheel-repl
+  {:versions
+   {{:mvn/version "0.2.0"}
+    {:mvn/version "0.2.0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.0"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.2.0"}},
+  org.eclipse.jetty/jetty-servlet
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  ring/ring-devel
+  {:versions
+   {{:mvn/version "1.7.0"}
+    {:mvn/version "1.7.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.7.0"}
+    #{[com.bhauman/figwheel-main com.bhauman/figwheel-repl]}},
+   :select {:mvn/version "1.7.0"}},
+  com.google.errorprone/error_prone_annotations
+  {:versions
+   {{:mvn/version "2.0.18"}
+    {:mvn/version "2.0.18", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.0.18"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "2.0.18"}},
+  org.clojure/core.specs.alpha
+  {:versions
+   {{:mvn/version "0.2.44"}
+    {:mvn/version "0.2.44", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.44"} #{[org.clojure/clojure]}},
+   :select {:mvn/version "0.2.44"}},
+  co.deps/ring-etag-middleware
+  {:versions
+   {{:mvn/version "0.2.0"}
+    {:mvn/version "0.2.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.0"}
+    #{[com.bhauman/figwheel-main com.bhauman/figwheel-repl]}},
+   :select {:mvn/version "0.2.0"}},
+  expound/expound
+  {:versions
+   {{:mvn/version "0.7.1"}
+    {:mvn/version "0.7.1", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.7.1"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.7.1"}},
+  org.clojure/spec.alpha
+  {:versions
+   {{:mvn/version "0.2.176"}
+    {:mvn/version "0.2.176", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.176"} #{[org.clojure/clojure]}},
+   :select {:mvn/version "0.2.176"}},
+  commons-fileupload/commons-fileupload
+  {:versions
+   {{:mvn/version "1.3.3"}
+    {:mvn/version "1.3.3", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.3.3"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "1.3.3"}},
+  com.bhauman/figwheel-main
+  {:versions
+   {{:mvn/version "0.2.0"}
+    {:mvn/version "0.2.0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.0"} #{[]}},
+   :select {:mvn/version "0.2.0"},
+   :top true},
+  ring/ring-ssl
+  {:versions
+   {{:mvn/version "0.3.0"}
+    {:mvn/version "0.3.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.3.0"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-defaults]}},
+   :select {:mvn/version "0.3.0"}},
+  org.codehaus.mojo/animal-sniffer-annotations
+  {:versions
+   {{:mvn/version "1.14"} {:mvn/version "1.14", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.14"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded
+       com.google.guava/guava]}},
+   :select {:mvn/version "1.14"}},
+  org.eclipse.jetty/jetty-http
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  org.eclipse.jetty/jetty-util
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server
+       org.eclipse.jetty.websocket/websocket-common]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  net.incongru.watchservice/barbary-watchservice
+  {:versions
+   {{:mvn/version "1.0"} {:mvn/version "1.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.0"} #{[com.bhauman/figwheel-main hawk/hawk]}},
+   :select {:mvn/version "1.0"}},
+  cljsjs/react-dom
+  {:versions
+   {{:mvn/version "16.3.2-0"}
+    {:mvn/version "16.3.2-0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "16.3.2-0"} #{[reagent/reagent]}},
+   :select {:mvn/version "16.3.2-0"}},
+  ring-cors/ring-cors
+  {:versions
+   {{:mvn/version "0.1.12"}
+    {:mvn/version "0.1.12", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.1.12"}
+    #{[com.bhauman/figwheel-main com.bhauman/figwheel-repl]}},
+   :select {:mvn/version "0.1.12"}},
+  org.jline/jline-terminal-jansi
+  {:versions
+   {{:mvn/version "3.5.1"}
+    {:mvn/version "3.5.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.5.1"}
+    #{[com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline]}},
+   :select {:mvn/version "3.5.1"}},
+  com.googlecode.json-simple/json-simple
+  {:versions
+   {{:mvn/version "1.1.1"}
+    {:mvn/version "1.1.1",
+     :exclusions #{junit/junit},
+     :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.1.1"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.cognitect/transit-clj
+       com.cognitect/transit-java
+       org.msgpack/msgpack]}},
+   :select {:mvn/version "1.1.1"}},
+  ring/ring-defaults
+  {:versions
+   {{:mvn/version "0.3.2"}
+    {:mvn/version "0.3.2", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.3.2"}
+    #{[com.bhauman/figwheel-main com.bhauman/figwheel-repl]}},
+   :select {:mvn/version "0.3.2"}},
+  org.clojure/google-closure-library
+  {:versions
+   {{:mvn/version "0.0-20170809-b9c14c6b"}
+    {:mvn/version "0.0-20170809-b9c14c6b", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.0-20170809-b9c14c6b"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "0.0-20170809-b9c14c6b"}},
+  com.bhauman/rebel-readline
+  {:versions
+   {{:mvn/version "0.1.4"}
+    {:mvn/version "0.1.4", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.1.4"} #{[com.bhauman/rebel-readline-cljs]}},
+   :select {:mvn/version "0.1.4"}},
+  cljfmt/cljfmt
+  {:versions
+   {{:mvn/version "0.5.7"}
+    {:mvn/version "0.5.7", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.5.7"}
+    #{[com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline]}},
+   :select {:mvn/version "0.5.7"}},
+  rewrite-clj/rewrite-clj
+  {:versions
+   {{:mvn/version "0.5.2"}
+    {:mvn/version "0.5.2", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.5.2"}
+    #{[com.bhauman/rebel-readline-cljs
+       com.bhauman/rebel-readline
+       cljfmt/cljfmt]}},
+   :select {:mvn/version "0.5.2"}},
+  org.clojure/clojurescript
+  {:versions
+   {{:mvn/version "1.10.339"}
+    {:mvn/version "1.10.339",
+     :exclusions #{commons-codec/commons-codec},
+     :deps/manifest :mvn}},
+   :paths {{:mvn/version "1.10.339"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "1.10.339"}},
+  org.eclipse.jetty.websocket/websocket-api
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-servlet]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  ring/ring-jetty-adapter
+  {:versions
+   {{:mvn/version "1.7.0"}
+    {:mvn/version "1.7.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.7.0"} #{[com.bhauman/figwheel-main ring/ring]}},
+   :select {:mvn/version "1.7.0"}},
+  commons-io/commons-io
+  {:versions
+   {{:mvn/version "2.6"} {:mvn/version "2.6", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.6"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "2.6"}},
+  org.clojure/tools.namespace
+  {:versions
+   {{:mvn/version "0.2.11"}
+    {:mvn/version "0.2.11", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.11"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-devel
+       ns-tracker/ns-tracker]}},
+   :select {:mvn/version "0.2.11"}},
+  com.google.jsinterop/jsinterop-annotations
+  {:versions
+   {{:mvn/version "1.0.0"}
+    {:mvn/version "1.0.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.0.0"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "1.0.0"}},
+  org.eclipse.jetty.websocket/websocket-client
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  com.fasterxml.jackson.core/jackson-core
+  {:versions
+   {{:mvn/version "2.8.7"}
+    {:mvn/version "2.8.7", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.8.7"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.cognitect/transit-clj
+       com.cognitect/transit-java]}},
+   :select {:mvn/version "2.8.7"}},
+  clj-time/clj-time
+  {:versions
+   {{:mvn/version "0.14.3"}
+    {:mvn/version "0.14.3", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.14.3"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "0.14.3"}},
+  org.eclipse.jetty.websocket/websocket-servlet
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  cljsjs/react
+  {:versions
+   {{:mvn/version "16.3.2-0"}
+    {:mvn/version "16.3.2-0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "16.3.2-0"} #{[reagent/reagent]}},
+   :select {:mvn/version "16.3.2-0"}},
+  org.eclipse.jetty/jetty-security
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server
+       org.eclipse.jetty/jetty-servlet]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  org.mozilla/rhino
+  {:versions
+   {{:mvn/version "1.7R5"}
+    {:mvn/version "1.7R5", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.7R5"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "1.7R5"}},
+  org.fusesource.jansi/jansi
+  {:versions
+   {{:mvn/version "1.16"} {:mvn/version "1.16", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.16"}
+    #{[com.bhauman/rebel-readline-cljs
+       com.bhauman/rebel-readline
+       org.jline/jline-terminal-jansi]}},
+   :select {:mvn/version "1.16"}},
+  ring/ring-headers
+  {:versions
+   {{:mvn/version "0.3.0"}
+    {:mvn/version "0.3.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.3.0"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-defaults]}},
+   :select {:mvn/version "0.3.0"}},
+  org.clojure/google-closure-library-third-party
+  {:versions
+   {{:mvn/version "0.0-20170809-b9c14c6b"}
+    {:mvn/version "0.0-20170809-b9c14c6b", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.0-20170809-b9c14c6b"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       org.clojure/google-closure-library]}},
+   :select {:mvn/version "0.0-20170809-b9c14c6b"}},
+  hiccup/hiccup
+  {:versions
+   {{:mvn/version "1.0.5"}
+    {:mvn/version "1.0.5", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.0.5"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-devel]}},
+   :select {:mvn/version "1.0.5"}},
+  binaryage/env-config
+  {:versions
+   {{:mvn/version "0.2.2"}
+    {:mvn/version "0.2.2", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.2"}
+    #{[com.bhauman/figwheel-main binaryage/devtools]}},
+   :select {:mvn/version "0.2.2"}},
+  com.bhauman/rebel-readline-cljs
+  {:versions
+   {{:mvn/version "0.1.4"}
+    {:mvn/version "0.1.4", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.1.4"} #{[]}},
+   :select {:mvn/version "0.1.4"},
+   :top true},
+  com.google.javascript/closure-compiler-externs
+  {:versions
+   {{:mvn/version "v20180610"}
+    {:mvn/version "v20180610", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "v20180610"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "v20180610"}},
+  org.javassist/javassist
+  {:versions
+   {{:mvn/version "3.18.1-GA"}
+    {:mvn/version "3.18.1-GA", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.18.1-GA"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.cognitect/transit-clj
+       com.cognitect/transit-java
+       org.msgpack/msgpack]}},
+   :select {:mvn/version "3.18.1-GA"}},
+  org.clojure/java.classpath
+  {:versions
+   {{:mvn/version "0.2.3"}
+    {:mvn/version "0.2.3", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.3"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-devel
+       ns-tracker/ns-tracker]}},
+   :select {:mvn/version "0.2.3"}},
+  ns-tracker/ns-tracker
+  {:versions
+   {{:mvn/version "0.3.1"}
+    {:mvn/version "0.3.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.3.1"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-devel]}},
+   :select {:mvn/version "0.3.1"}},
+  com.google.guava/guava
+  {:versions
+   {{:mvn/version "22.0"} {:mvn/version "22.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "22.0"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "22.0"}},
+  binaryage/devtools
+  {:versions
+   {{:mvn/version "0.9.10"}
+    {:mvn/version "0.9.10", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.9.10"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.9.10"}},
+  reagent/reagent
+  {:versions
+   {{:mvn/version "0.8.1"}
+    {:mvn/version "0.8.1", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.8.1"} #{[]}},
+   :select {:mvn/version "0.8.1"},
+   :top true},
+  org.msgpack/msgpack
+  {:versions
+   {{:mvn/version "0.6.12"}
+    {:mvn/version "0.6.12", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.6.12"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.cognitect/transit-clj
+       com.cognitect/transit-java]}},
+   :select {:mvn/version "0.6.12"}},
+  com.google.j2objc/j2objc-annotations
+  {:versions
+   {{:mvn/version "1.1"} {:mvn/version "1.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.1"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded
+       com.google.guava/guava]}},
+   :select {:mvn/version "1.1"}},
+  com.cognitect/transit-clj
+  {:versions
+   {{:mvn/version "0.8.309"}
+    {:mvn/version "0.8.309",
+     :exclusions #{org.clojure/clojure},
+     :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.8.309"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "0.8.309"}},
+  args4j/args4j
+  {:versions
+   {{:mvn/version "2.33"} {:mvn/version "2.33", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.33"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "2.33"}},
+  cljsjs/react-dom-server
+  {:versions
+   {{:mvn/version "16.3.2-0"}
+    {:mvn/version "16.3.2-0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "16.3.2-0"} #{[reagent/reagent]}},
+   :select {:mvn/version "16.3.2-0"}},
+  crypto-random/crypto-random
+  {:versions
+   {{:mvn/version "1.2.0"}
+    {:mvn/version "1.2.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.2.0"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "1.2.0"}},
+  ring/ring-codec
+  {:versions
+   {{:mvn/version "1.1.1"}
+    {:mvn/version "1.1.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.1.1"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "1.1.1"}},
+  ring/ring-anti-forgery
+  {:versions
+   {{:mvn/version "1.3.0"}
+    {:mvn/version "1.3.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.3.0"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-defaults]}},
+   :select {:mvn/version "1.3.0"}},
+  com.bhauman/spell-spec
+  {:versions
+   {{:mvn/version "0.1.1"}
+    {:mvn/version "0.1.1", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.1.1"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.1.1"}},
+  crypto-equality/crypto-equality
+  {:versions
+   {{:mvn/version "1.0.0"}
+    {:mvn/version "1.0.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.0.0"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-core]}},
+   :select {:mvn/version "1.0.0"}},
+  net.java.dev.jna/jna
+  {:versions
+   {{:mvn/version "3.2.2"}
+    {:mvn/version "3.2.2", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.2.2"}
+    #{[com.bhauman/figwheel-main
+       hawk/hawk
+       net.incongru.watchservice/barbary-watchservice]}},
+   :select {:mvn/version "3.2.2"}},
+  com.bhauman/figwheel-core
+  {:versions
+   {{:mvn/version "0.2.0"}
+    {:mvn/version "0.2.0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.0"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.2.0"}},
+  cljs-tooling/cljs-tooling
+  {:versions
+   {{:mvn/version "0.2.0"}
+    {:mvn/version "0.2.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.0"} #{[com.bhauman/rebel-readline-cljs]}},
+   :select {:mvn/version "0.2.0"}},
+  org.eclipse.jetty/jetty-io
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server
+       org.eclipse.jetty.websocket/websocket-common]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  org.clojure/tools.reader
+  {:versions
+   {{:mvn/version "1.3.0-alpha3"}
+    {:mvn/version "1.3.0-alpha3", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.3.0-alpha3"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "1.3.0-alpha3"}},
+  compliment/compliment
+  {:versions
+   {{:mvn/version "0.3.6"}
+    {:mvn/version "0.3.6", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.3.6"}
+    #{[com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline]}},
+   :select {:mvn/version "0.3.6"}},
+  org.jline/jline-terminal
+  {:versions
+   {{:mvn/version "3.5.1"}
+    {:mvn/version "3.5.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.5.1"}
+    #{[com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline]}},
+   :select {:mvn/version "3.5.1"}},
+  javax.servlet/javax.servlet-api
+  {:versions
+   {{:mvn/version "3.1.0"}
+    {:mvn/version "3.1.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.1.0"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-servlet]}},
+   :select {:mvn/version "3.1.0"}},
+  org.jline/jline-reader
+  {:versions
+   {{:mvn/version "3.5.1"}
+    {:mvn/version "3.5.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.5.1"}
+    #{[com.bhauman/rebel-readline-cljs com.bhauman/rebel-readline]}},
+   :select {:mvn/version "3.5.1"}},
+  clj-stacktrace/clj-stacktrace
+  {:versions
+   {{:mvn/version "0.2.8"}
+    {:mvn/version "0.2.8", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.2.8"}
+    #{[com.bhauman/figwheel-main
+       com.bhauman/figwheel-repl
+       ring/ring-devel]}},
+   :select {:mvn/version "0.2.8"}},
+  com.google.javascript/closure-compiler-unshaded
+  {:versions
+   {{:mvn/version "v20180610"}
+    {:mvn/version "v20180610", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "v20180610"}
+    #{[com.bhauman/figwheel-main org.clojure/clojurescript]}},
+   :select {:mvn/version "v20180610"}},
+  org.eclipse.jetty.websocket/websocket-server
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  org.eclipse.jetty.websocket/websocket-common
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main
+       org.eclipse.jetty.websocket/websocket-server]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  com.google.protobuf/protobuf-java
+  {:versions
+   {{:mvn/version "3.0.2"}
+    {:mvn/version "3.0.2", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.0.2"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "3.0.2"}},
+  ring/ring-servlet
+  {:versions
+   {{:mvn/version "1.7.0"}
+    {:mvn/version "1.7.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.7.0"} #{[com.bhauman/figwheel-main ring/ring]}},
+   :select {:mvn/version "1.7.0"}},
+  hawk/hawk
+  {:versions
+   {{:mvn/version "0.2.11"}
+    {:mvn/version "0.2.11", :deps/manifest :mvn}},
+   :paths {{:mvn/version "0.2.11"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "0.2.11"}},
+  ring/ring
+  {:versions
+   {{:mvn/version "1.7.0"}
+    {:mvn/version "1.7.0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "1.7.0"} #{[com.bhauman/figwheel-main]}},
+   :select {:mvn/version "1.7.0"}},
+  cljsjs/create-react-class
+  {:versions
+   {{:mvn/version "15.6.3-0"}
+    {:mvn/version "15.6.3-0", :deps/manifest :mvn}},
+   :paths {{:mvn/version "15.6.3-0"} #{[reagent/reagent]}},
+   :select {:mvn/version "15.6.3-0"}},
+  org.eclipse.jetty/jetty-server
+  {:versions
+   {{:mvn/version "9.2.24.v20180105"}
+    {:mvn/version "9.2.24.v20180105", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "9.2.24.v20180105"}
+    #{[com.bhauman/figwheel-main ring/ring ring/ring-jetty-adapter]}},
+   :select {:mvn/version "9.2.24.v20180105"}},
+  com.google.code.findbugs/jsr305
+  {:versions
+   {{:mvn/version "3.0.1"}
+    {:mvn/version "3.0.1", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "3.0.1"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "3.0.1"}},
+  ring/ring-core
+  {:versions
+   {{:mvn/version "1.7.0"}
+    {:mvn/version "1.7.0", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "1.7.0"}
+    #{[com.bhauman/figwheel-main com.bhauman/figwheel-repl]}},
+   :select {:mvn/version "1.7.0"}},
+  rewrite-cljs/rewrite-cljs
+  {:versions
+   {{:mvn/version "0.4.3"}
+    {:mvn/version "0.4.3", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "0.4.3"}
+    #{[com.bhauman/rebel-readline-cljs
+       com.bhauman/rebel-readline
+       cljfmt/cljfmt]}},
+   :select {:mvn/version "0.4.3"}},
+  com.google.code.gson/gson
+  {:versions
+   {{:mvn/version "2.7"} {:mvn/version "2.7", :deps/manifest :mvn}},
+   :paths
+   {{:mvn/version "2.7"}
+    #{[com.bhauman/figwheel-main
+       org.clojure/clojurescript
+       com.google.javascript/closure-compiler-unshaded]}},
+   :select {:mvn/version "2.7"}}},
+ :exclusions
+ {[com.bhauman/figwheel-main org.clojure/clojurescript]
+  #{commons-codec/commons-codec},
+  [com.bhauman/figwheel-main
+   org.clojure/clojurescript
+   com.cognitect/transit-clj]
+  #{org.clojure/clojure},
+  [com.bhauman/figwheel-main
+   org.clojure/clojurescript
+   com.cognitect/transit-clj
+   com.cognitect/transit-java
+   org.msgpack/msgpack
+   com.googlecode.json-simple/json-simple]
+  #{junit/junit}}}

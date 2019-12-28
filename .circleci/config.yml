@@ -19,9 +19,9 @@ jobs:
             SKIP_PING: yes
             TEST_DATABASE_URL: postgres://poe@localhost:5432/poestatustest?sslmode=disable
 
-  release:
-    docker:
-      - image: google/cloud-sdk
+  # release:
+  #   docker:
+  #     - image: google/cloud-sdk
 
     steps:
       - setup_remote_docker
