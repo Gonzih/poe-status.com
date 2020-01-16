@@ -19,7 +19,7 @@ ENV GO111MODULE=on
 
 COPY . .
 
-RUN ./.circleci/deps.sh
+RUN ./.github/deps.sh
 RUN make clean release-binaries
 
 
