@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: nixos/nix
     services:
       postgres:
         image: postgres:latest
@@ -16,10 +18,8 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v1
-    - name: Deps
-      run: ./.github/deps.sh
     - name: CI
-      run: make clean test
+      run: nix-shell shell.nix --run 'make clean test'
       env:
         SKIP_PING: yes
         TEST_DATABASE_URL: postgres://poe@localhost:5432/poestatustest?sslmode=disable
