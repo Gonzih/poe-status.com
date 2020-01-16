@@ -18,9 +18,9 @@ rm linux-install-1.10.0.403.sh
 clojure -e '(println "it works!")'
 
 # protoc installation
-curl -OL https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
-unzip protoc-3.6.1-linux-x86_64.zip -d protoc3
-rm protoc-3.6.1-linux-x86_64.zip
+curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protoc-3.11.2-linux-x86_64.zip
+unzip protoc-3.11.2-linux-x86_64.zip -d protoc3
+rm protoc-3.11.2-linux-x86_64.zip
 sudo mv protoc3/bin/* /usr/local/bin/
 sudo mv protoc3/include/* /usr/local/include/
 rm protoc3 -rf
