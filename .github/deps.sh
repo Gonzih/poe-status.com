@@ -4,7 +4,9 @@ set -ex
 
 cd /tmp
 
-sudo apt-get update -qq && sudo apt-get install -y -qq nmap unzip openjdk-11-jdk-headless golang
+sudo add-apt-repository -y ppa:longsleep/golang-backports
+sudo apt-get update -qq
+sudo apt-get install -y -qq nmap unzip openjdk-11-jdk-headless golang-go
 
 # clojure installation
 curl -O https://download.clojure.org/install/linux-install-1.10.0.403.sh
