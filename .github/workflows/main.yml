@@ -12,7 +12,7 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_DB: poestatustest
-          POSTGRES_USER: poe
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
         ports:
         - "5432:5432"
@@ -23,4 +23,4 @@ jobs:
       run: nix-shell shell.nix --run 'make clean test'
       env:
         SKIP_PING: yes
-        TEST_DATABASE_URL: postgres://poe:password@localhost:5432/poestatustest?sslmode=disable
+        TEST_DATABASE_URL: postgres://postgres:password@postgres:${{ job.services.postgres.ports[5432] }}/poestatustest?sslmode=disable
