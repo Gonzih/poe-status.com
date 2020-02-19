@@ -12,7 +12,7 @@ require (
 	github.com/shurcooL/httpfs v0.0.0-20190527155220-6a4d4a70508b // indirect
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd // indirect
 	github.com/spf13/cobra v0.0.5
-	github.com/stretchr/testify v1.4.0
+	github.com/stretchr/testify v1.5.0
 	github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee
 	github.com/twitchtv/twirp v5.10.1+incompatible
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
