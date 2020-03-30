@@ -11,7 +11,7 @@ require (
 	github.com/lib/pq v1.3.0
 	github.com/shurcooL/httpfs v0.0.0-20190527155220-6a4d4a70508b // indirect
 	github.com/shurcooL/vfsgen v0.0.0-20181202132449-6a9ea43bcacd // indirect
-	github.com/spf13/cobra v0.0.6
+	github.com/spf13/cobra v0.0.7
 	github.com/stretchr/testify v1.5.1
 	github.com/tomsteele/go-nmap v0.0.0-20181105160706-3b9bafddefee
 	github.com/twitchtv/twirp v5.10.1+incompatible
