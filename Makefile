@@ -12,9 +12,9 @@ generate: deps
 
 CLOJURE_SCRIPT = linux-install-1.10.3.1069.sh
 deps:
-  go get github.com/shurcooL/vfsgen
-	go get github.com/twitchtv/twirp/protoc-gen-twirp
-	go get github.com/golang/protobuf/protoc-gen-go
+  go install github.com/shurcooL/vfsgen
+	go install github.com/twitchtv/twirp/protoc-gen-twirp
+	go install github.com/golang/protobuf/protoc-gen-go
 	curl https://download.clojure.org/install/$(CLOJURE_SCRIPT) > /tmp/$(CLOJURE_SCRIPT)
 	chmod +x /tmp/$(CLOJURE_SCRIPT)
 	sudo /tmp/$(CLOJURE_SCRIPT)
