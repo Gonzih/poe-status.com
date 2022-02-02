@@ -1,3 +1,4 @@
+// +heroku goVersion go1.17
 // +heroku install ./cmd/poe-status-server/
 
 module github.com/Gonzih/poe-status.com
