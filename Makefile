@@ -11,7 +11,6 @@ generate: go-deps
 	go generate $(SUBDIRS)
 
 go-deps:
-	go get -d github.com/shurcooL/vfsgen
 	go install github.com/shurcooL/vfsgen
 	go install github.com/twitchtv/twirp/protoc-gen-twirp
 	go install github.com/golang/protobuf/protoc-gen-go
