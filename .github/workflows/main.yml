@@ -20,8 +20,8 @@ jobs:
     - uses: actions/setup-go@v2
     - run: go version
     - run: make deps
-    - name: CI
-      run: make clean test
+    - run: echo $PATH
+    - run: make clean test
       env:
         SKIP_PING: yes
         TEST_DATABASE_URL: postgres://postgres:password@postgres:${{ job.services.postgres.ports[5432] }}/poestatustest?sslmode=disable
