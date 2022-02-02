@@ -10,9 +10,14 @@ test: generate
 generate: deps
 	go generate $(SUBDIRS)
 
+CLOJURE_SCRIPT = linux-install-1.10.3.1069.sh
 deps:
 	go get github.com/twitchtv/twirp/protoc-gen-twirp
 	go get github.com/golang/protobuf/protoc-gen-go
+	curl https://download.clojure.org/install/$(CLOJURE_SCRIPT) > /tmp/$(CLOJURE_SCRIPT)
+	chmod +x /tmp/$(CLOJURE_SCRIPT)
+	sudo /tmp/$(CLOJURE_SCRIPT)
+	sudo apt install -y protobuf-compiler nmap
 
 start-server: generate quick-start-server
 
@@ -60,10 +65,3 @@ install-go:
 	sudo add-apt-repository ppa:longsleep/golang-backports -y
 	sudo apt update
 	sudo apt install -y golang-go
-
-CLOJURE_SCRIPT = linux-install-1.10.3.1069.sh
-deps:
-	curl https://download.clojure.org/install/$(CLOJURE_SCRIPT) > /tmp/$(CLOJURE_SCRIPT)
-	chmod +x /tmp/$(CLOJURE_SCRIPT)
-	sudo /tmp/$(CLOJURE_SCRIPT)
-	sudo apt install -y protobuf-compiler nmap
