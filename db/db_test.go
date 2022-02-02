@@ -3,8 +3,8 @@ package db
 import (
 	"testing"
 
-	"github.com/Gonzih/poe-status.com/migrations"
 	"github.com/stretchr/testify/assert"
+	"github.com/Gonzih/poe-status.com/migrations"
 )
 
 func dbUp(t *testing.T) {
@@ -21,20 +21,20 @@ func dbDown() {
 }
 
 func TestDBConnection(t *testing.T) {
-	// dbUp(t)
-	// defer dbDown()
+	dbUp(t)
+	defer dbDown()
 
-	// db, closeFn, err := Connect(TestDBURL())
-	// assert.Nil(t, err)
-	// assert.NotNil(t, db)
-	// defer closeFn()
+	db, closeFn, err := Connect(TestDBURL())
+	assert.Nil(t, err)
+	assert.NotNil(t, db)
+	defer closeFn()
 
-	// result, err := db.Query("SELECT * FROM scan_results")
-	// assert.Nil(t, err)
-	// assert.NotNil(t, result)
+	result, err := db.Query("SELECT * FROM scan_results")
+	assert.Nil(t, err)
+	assert.NotNil(t, result)
 }
 
 func TestDBCreateSchema(t *testing.T) {
-	// dbUp(t)
-	// dbDown()
+	dbUp(t)
+	dbDown()
 }

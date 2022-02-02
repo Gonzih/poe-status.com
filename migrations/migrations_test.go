@@ -4,9 +4,9 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Gonzih/poe-status.com/db"
 	"github.com/golang-migrate/migrate/v4/database"
 	"github.com/stretchr/testify/assert"
+	"github.com/Gonzih/poe-status.com/db"
 )
 
 func TestSQLMigrationsFolderPath(t *testing.T) {
@@ -34,9 +34,9 @@ func TestFormatSqlErrorDBErr(t *testing.T) {
 }
 
 func TestDBMigrationsUpAndDown(t *testing.T) {
-	// url := db.TestDBURL()
-	// err := Up(".", url)
-	// assert.Nil(t, err)
-	// err = Down(".", url)
-	// assert.Nil(t, err)
+	url := db.TestDBURL()
+	err := Up(".", url)
+	assert.Nil(t, err)
+	err = Down(".", url)
+	assert.Nil(t, err)
 }
