@@ -10,11 +10,11 @@ import (
 	"sync"
 	"time"
 
-	ptypes "github.com/golang/protobuf/ptypes"
 	"github.com/Gonzih/poe-status.com/app/config"
 	"github.com/Gonzih/poe-status.com/myip"
 	"github.com/Gonzih/poe-status.com/rpc"
 	"github.com/Gonzih/poe-status.com/scanner"
+	ptypes "github.com/golang/protobuf/ptypes"
 	"golang.org/x/sync/semaphore"
 )
 
@@ -107,7 +107,7 @@ func Call(opts *Options) error {
 				Platform:  host.Platform,
 				PingInfo:  pingInfo,
 				AuthToken: &rpc.AuthToken{
-					Token: cfg.Tokens["main"],
+					Token: cfg.MainToken(),
 				},
 			})
 

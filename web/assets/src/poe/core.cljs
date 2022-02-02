@@ -1,7 +1,8 @@
 (ns poe.core
   (:require [clojure.walk :refer [keywordize-keys]]
             [clojure.string :as strings]
-            [reagent.core :as r]))
+            [reagent.core :as r]
+            [reagent.dom :as rd]))
 
 (enable-console-print!)
 
@@ -60,7 +61,8 @@
 (defn server-component [{:keys [server_name platform] :as server}]
   [:tr
    [:td
-    [:i.flag.em-svg {:class (str "em-flag-" (flags (strings/lower-case server_name)))}]
+    [:i.flag.em {:class (str "em-flag-" (flags (strings/lower-case server_name)))
+                 :aria-role "presentation"}]
     server_name]
    [server-state-component server]])
 
@@ -149,8 +151,8 @@
    [footer-component]])
 
 (defn init! []
-  (r/render [root-component]
-            (.-body js/document)))
+  (rd/render [root-component]
+             (.-body js/document)))
 
 (init!)
 

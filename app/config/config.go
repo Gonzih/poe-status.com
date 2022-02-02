@@ -4,6 +4,7 @@ package config
 
 import (
 	"io/ioutil"
+	"os"
 	"sort"
 
 	yaml "gopkg.in/yaml.v2"
@@ -39,6 +40,15 @@ func (cfg Config) AllHosts() []Host {
 	sort.Slice(result, func(i, j int) bool { return result[i].Name < result[j].Name })
 
 	return result
+}
+
+func (cfg Config) MainToken() string {
+	token := os.Getenv("MAIN_TOKEN")
+	if token != "" {
+		return token
+	}
+
+	return cfg.Tokens["main"]
 }
 
 // ReadYAML will read config yaml and parse it

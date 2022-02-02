@@ -25,7 +25,7 @@ deps:
 start-server: generate quick-start-server
 
 quick-start-server:
-	cd cmd/poe-status-server && go build -tags=dev -o poe-status-server && ./poe-status-server --migrations-folder=../../migrations --database=postgres://postgres@localhost/poetest?sslmode=disable
+	cd cmd/poe-status-server && go build -tags=dev -o poe-status-server && ./poe-status-server --migrations-folder=../../migrations --database=postgres://root:root@localhost:5432/poetest?sslmode=disable
 
 dev-server:
 	find . -iname '*.go' | entr -r make quick-start-server
