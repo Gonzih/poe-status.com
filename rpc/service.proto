@@ -1,6 +1,6 @@
 syntax = "proto3";
 package rpc;
-option go_package = "rpc";
+option go_package = "github.com/Gonzih/poe-status.com/rpc";
 
 import "google/protobuf/timestamp.proto";
 
