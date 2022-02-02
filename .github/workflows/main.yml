@@ -18,10 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.17.1'
     - run: go version
     - run: make deps
-    - run: echo $PATH
-    - run: make clean test
+    - run: env PATH=$PATH:$(go env GOPATH)/bin make clean test
       env:
         SKIP_PING: yes
         TEST_DATABASE_URL: postgres://postgres:password@postgres:${{ job.services.postgres.ports[5432] }}/poestatustest?sslmode=disable
