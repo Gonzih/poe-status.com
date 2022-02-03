@@ -18,3 +18,5 @@ Download latest client from releases and run it by giving it correct token and p
 ```bash
 env MAIN_TOKEN=currenttoken ./poe-status-client --url https://poe-status.com
 ```
+
+It is preferable to run your client from a reliable network to eliminate local packet loss.
