@@ -15,7 +15,7 @@ go-deps:
 	go install github.com/twitchtv/twirp/protoc-gen-twirp
 	go install github.com/golang/protobuf/protoc-gen-go
 
-CLOJURE_SCRIPT = linux-install-1.10.3.1069.sh
+CLOJURE_SCRIPT = "linux-install-1.10.3.1069.sh"
 install-clojure:
 	curl https://download.clojure.org/install/$(CLOJURE_SCRIPT) > /tmp/$(CLOJURE_SCRIPT)
 	chmod +x /tmp/$(CLOJURE_SCRIPT)
