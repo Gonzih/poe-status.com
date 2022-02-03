@@ -37,7 +37,7 @@ func checkToken(req *rpc.ScanResults) bool {
 
 	token := config.MainToken()
 	if len(token) == 0 {
-		log.Fatalf("Could not load token", err)
+		log.Fatal("Could not load token")
 		return false
 	}
 
