@@ -15,6 +15,6 @@ jobs:
           go-version: '^1.17.1'
       - run: go version
       - run: make deps build-binaries
-      - run: ./cmd/poe-status-client --url 'http://poe-status.com'
+      - run: cd ./cmd/poe-status-client && ./poe-status-client --url 'http://poe-status.com'
         env:
           MAIN_TOKEN: ${{ secrets.MAIN_TOKEN }}
