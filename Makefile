@@ -5,7 +5,7 @@ SUBDIRS = ./app/config ./scanner ./sh ./util ./rpc ./myip ./db ./migrations ./ho
 GENERATE_FILES = rpc/service.pb.go rpc/service.twirp.go config/datadir_vfsdata.go web/assets/assetsdir_vfsdata.go
 
 test: generate
-	go test -v --cover $(SUBDIRS)
+	env MAIN_TOKEN=TESTTOKEN go test -v --cover $(SUBDIRS)
 
 generate: go-deps
 	go generate $(SUBDIRS)

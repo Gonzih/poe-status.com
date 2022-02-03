@@ -9,8 +9,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gogo/protobuf/jsonpb"
-	"github.com/golang/protobuf/ptypes"
 	"github.com/Gonzih/poe-status.com/app/config"
 	"github.com/Gonzih/poe-status.com/db"
 	"github.com/Gonzih/poe-status.com/host"
@@ -18,6 +16,8 @@ import (
 	"github.com/Gonzih/poe-status.com/rpc"
 	"github.com/Gonzih/poe-status.com/web/assets"
 	"github.com/Gonzih/poe-status.com/web/endpoints"
+	"github.com/gogo/protobuf/jsonpb"
+	"github.com/golang/protobuf/ptypes"
 )
 
 // Options repsenend command line options
@@ -35,22 +35,16 @@ func checkToken(req *rpc.ScanResults) bool {
 		return false
 	}
 
-	cfg, err := config.ReadYAML()
-	if err != nil {
-		log.Fatalf("Error loading config: %s", err)
+	token := config.MainToken()
+	if len(token) == 0 {
+		log.Fatalf("Could not load token", err)
+		return false
 	}
 
 	inputToken := req.AuthToken.Token
 	req.AuthToken = nil
 
-	for name, token := range cfg.Tokens {
-		if token == inputToken {
-			log.Printf(`Got auth using "%s" token`, name)
-			return true
-		}
-	}
-
-	return false
+	return token == inputToken
 }
 
 // PoeStatusServer implements Twirp server

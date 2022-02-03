@@ -42,13 +42,8 @@ func (cfg Config) AllHosts() []Host {
 	return result
 }
 
-func (cfg Config) MainToken() string {
-	token := os.Getenv("MAIN_TOKEN")
-	if token != "" {
-		return token
-	}
-
-	return cfg.Tokens["main"]
+func MainToken() string {
+	return os.Getenv("MAIN_TOKEN")
 }
 
 // ReadYAML will read config yaml and parse it

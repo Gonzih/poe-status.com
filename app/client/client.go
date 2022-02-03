@@ -107,7 +107,7 @@ func Call(opts *Options) error {
 				Platform:  host.Platform,
 				PingInfo:  pingInfo,
 				AuthToken: &rpc.AuthToken{
-					Token: cfg.MainToken(),
+					Token: config.MainToken(),
 				},
 			})
 

@@ -27,7 +27,5 @@ func TestAllHostsOrder(t *testing.T) {
 }
 
 func TestMainToken(t *testing.T) {
-	cfg, err := ReadYAML()
-	assert.Nil(t, err)
-	assert.Len(t, cfg.Tokens["main"], 32)
+	assert.Equal(t, MainToken(), "TESTTOKEN")
 }
