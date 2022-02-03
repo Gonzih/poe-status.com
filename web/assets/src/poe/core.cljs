@@ -152,7 +152,7 @@
 
 (defn init! []
   (rd/render [root-component]
-             (.-body js/document)))
+             (.getElementById js/document "app")))
 
 (init!)
 
