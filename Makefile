@@ -19,10 +19,10 @@ CLOJURE_SCRIPT = "linux-install-1.10.3.1069.sh"
 install-clojure:
 	curl https://download.clojure.org/install/$(CLOJURE_SCRIPT) > /tmp/$(CLOJURE_SCRIPT)
 	chmod +x /tmp/$(CLOJURE_SCRIPT)
-	sudo /tmp/$(CLOJURE_SCRIPT)
+	/tmp/$(CLOJURE_SCRIPT)
 
 deps: install-clojure
-	sudo apt install -y protobuf-compiler nmap
+	apt install -y protobuf-compiler nmap
 
 start-server: generate quick-start-server
 
@@ -67,6 +67,6 @@ docker-sh:
 	docker run -ti $(IMAGE_NAME) bash
 
 install-go:
-	sudo add-apt-repository ppa:longsleep/golang-backports -y
-	sudo apt update
-	sudo apt install -y golang-go
+	add-apt-repository ppa:longsleep/golang-backports -y
+	apt update
+	apt install -y golang-go
