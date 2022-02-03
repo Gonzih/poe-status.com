@@ -22,7 +22,7 @@ jobs:
           go-version: '^1.17.1'
       - run: go version
       - run: make deps
-      - run: env PATH=$PATH:$(go env GOPATH)/bin make clean test build-binaries
+      - run: env PATH=$PATH:$(go env GOPATH)/bin make clean test release-binaries
         env:
           SKIP_PING: yes
           TEST_DATABASE_URL: postgres://postgres:dbpass@localhost:5432/poestatustest?sslmode=disable
