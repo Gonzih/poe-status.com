@@ -21,7 +21,7 @@ jobs:
         with:
           go-version: '^1.17.1'
       - run: go version
-      - run: make deps
+      - run: sudo make deps install-clojure
       - run: env PATH=$PATH:$(go env GOPATH)/bin make clean test release-binaries
         env:
           SKIP_PING: yes
