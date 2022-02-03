@@ -6,6 +6,6 @@
 Path Of Exile server scanner, written in go, based on ping and nmap data for server status, centralized view/storage server, UI built in ClojureScript.
 Communications between scanner workers and server are based on Twirp protocol.
 
-http://poe-status.com.
+https://poe-status.com.
 
 Released under MIT License.
