@@ -21,7 +21,7 @@ install-clojure:
 	chmod +x /tmp/$(CLOJURE_SCRIPT)
 	/tmp/$(CLOJURE_SCRIPT)
 
-deps: install-clojure
+deps:
 	apt install -y protobuf-compiler nmap
 
 start-server: generate quick-start-server
