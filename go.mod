@@ -14,7 +14,7 @@ require (
 	github.com/spf13/cobra v1.6.0
 	github.com/stretchr/testify v1.8.1
 	github.com/tomsteele/go-nmap v0.0.0-20191202052157-3507e0b03523
-	github.com/twitchtv/twirp v8.1.2+incompatible
+	github.com/twitchtv/twirp v8.1.3+incompatible
 	go.uber.org/atomic v1.9.0 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	google.golang.org/protobuf v1.28.1
