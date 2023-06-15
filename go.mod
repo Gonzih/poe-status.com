@@ -16,7 +16,7 @@ require (
 	github.com/tomsteele/go-nmap v0.0.0-20191202052157-3507e0b03523
 	github.com/twitchtv/twirp v8.1.3+incompatible
 	go.uber.org/atomic v1.9.0 // indirect
-	golang.org/x/sync v0.2.0
+	golang.org/x/sync v0.3.0
 	google.golang.org/protobuf v1.30.0
 	gopkg.in/yaml.v2 v2.4.0
 )
